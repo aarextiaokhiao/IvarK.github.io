@@ -431,6 +431,7 @@ function updateNewPlayer(reseted) {
         player.dilation.bestTP = 0
         player.old = true
         player.electronautobuyer = 1
+	player.electronautoprice = new Decimal("1e34")
     }
     if (modesChosen.ers) {
         player.aarexModifications.ersVersion = 1.01
@@ -6031,9 +6032,6 @@ window.setInterval(function(){
     if(player.achievements.includes("ng3p25")) { electronAutobuyer(1) }
 },2500)
 
-var electronauto = 1;
-var electronautoprice = new Decimal("1e34")
-
 function electronAutobuyer(id){
     if(id == "1"){
         switch(electronauto){
@@ -6057,11 +6055,11 @@ function electronAutobuyer(id){
             break;
         }
     } else if(id == "2") {
-        if(player.quantum.quarks.gte(electronautoprice)){
-            player.quantum.quarks = player.quantum.quarks.minus(electronautoprice)
-            electronauto += 1
-            electronautoprice = electronautoprice.times(100)
-            document.getElementById("electronautobuyer").innerHTML = "Upgrade Electron autobuyer. <br> Cost: " + electronautoprice + " Quarks."
+        if(player.quantum.quarks.gte(player.electronautoprice)){
+            player.quantum.quarks = player.quantum.quarks.minus(player.electronautoprice)
+            player.electronauto += 1
+            player.electronautoprice = player.electronautoprice.times(100)
+            document.getElementById("electronautobuyer").innerHTML = "Upgrade Electron autobuyer. <br> Cost: " + player.electronautoprice + " Quarks."
         }
     }
 }
@@ -6163,8 +6161,9 @@ function gameLoop(diff) {
         }
     }
 
-    if(player.quantum.quarks.lt(electronautoprice)){ document.getElementById("electronautobuyer").classList.remove("storebtn");  document.getElementById("electronautobuyer").classList.add("unavailablebtn")}
-    if(player.quantum.quarks.gt(electronautoprice)){ document.getElementById("electronautobuyer").classList.add("storebtn");  document.getElementById("electronautobuyer").classList.remove("unavailablebtn")}
+    if(!player.achievements.includes("ng3p25")){document.getElementById("electronautobuyer").style.display = "none"}else{document.getElementById("electronautobuyer").style.display = "block"}
+    if(player.quantum.quarks.lt(player.electronautoprice)){ document.getElementById("electronautobuyer").classList.remove("storebtn");  document.getElementById("electronautobuyer").classList.add("unavailablebtn")}
+    if(player.quantum.quarks.gt(player.electronautoprice)){ document.getElementById("electronautobuyer").classList.add("storebtn");  document.getElementById("electronautobuyer").classList.remove("unavailablebtn")}
 
 
     document.getElementById("dimTabButtons").style.display = "none"
