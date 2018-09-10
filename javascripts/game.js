@@ -430,6 +430,7 @@ function updateNewPlayer(reseted) {
         }
         player.dilation.bestTP = 0
         player.old = true
+        player.electronautobuyer = 1
     }
     if (modesChosen.ers) {
         player.aarexModifications.ersVersion = 1.01
@@ -6026,6 +6027,44 @@ function updateEPminpeak(diff) {
     return currentEPmin;
 }
 
+window.setInterval(function(){
+    if(player.achievements.includes("ng3p25")) { electronAutobuyer(1) }
+},2500)
+
+var electronauto = 1;
+var electronautoprice = new Decimal("1e34")
+
+function electronAutobuyer(id){
+    if(id == "1"){
+        switch(electronauto){
+            case 1:
+                sacrificeGalaxy(1)
+            break;
+            case 2:
+                sacrificeGalaxy(2)
+            break;
+            case 3:
+                sacrificeGalaxy(3)
+            break;
+            case 4:
+                sacrificeGalaxy(4)
+            break;
+            case 5:
+                sacrificeGalaxy(5)
+            break;
+            case 6:
+                sacrificeGalaxy(6)
+            break;
+        }
+    } else if(id == "2") {
+        if(player.quantum.quarks.gte(electronautoprice)){
+            player.quantum.quarks = player.quantum.quarks.minus(electronautoprice)
+            electronauto += 1
+            electronautoprice = electronautoprice.times(100)
+            document.getElementById("electronautobuyer").innerHTML = "Upgrade Electron autobuyer. <br> Cost: " + electronautoprice + " Quarks."
+        }
+    }
+}
 
 function gameLoop(diff) {
     var thisUpdate = new Date().getTime();
@@ -6123,6 +6162,10 @@ function gameLoop(diff) {
             player.totalmoney = player.totalmoney.plus(getDimensionProductionPerSecond(2).times(diff/10))
         }
     }
+
+    if(player.quantum.quarks.lt(electronautoprice)){ document.getElementById("electronautobuyer").classList.remove("storebtn");  document.getElementById("electronautobuyer").classList.add("unavailablebtn")}
+    if(player.quantum.quarks.gt(electronautoprice)){ document.getElementById("electronautobuyer").classList.add("storebtn");  document.getElementById("electronautobuyer").classList.remove("unavailablebtn")}
+
 
     document.getElementById("dimTabButtons").style.display = "none"
 
