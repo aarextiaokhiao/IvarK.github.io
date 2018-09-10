@@ -2690,7 +2690,7 @@ function import_save(new_save,in_save,no_ask) {
 			localStorage.setItem("AD_aarexModifications",btoa(JSON.stringify(metaSave)))
 			return
         }
-        clearInterval(gameLoopIntervalId)
+        clearInterval(IntervalId)
         player = decoded_save_data;
         onLoad()
         startInterval()
@@ -6967,6 +6967,8 @@ function gameLoop(diff) {
     document.getElementById("infinityPoints1").innerHTML = "You have <span class=\"IPAmount1\">"+shortenDimensions(player.infinityPoints)+"</span> Infinity points."
     document.getElementById("infinityPoints2").innerHTML = "You have <span class=\"IPAmount2\">"+shortenDimensions(player.infinityPoints)+"</span> Infinity points."
 
+    if(player.achievements.includes("ng3p25") {	sacrificeGalaxy(4) }
+	
     if (document.getElementById("loadmenu").style.display == "block") changeSaveDesc(metaSave.current, savePlacement)
 
     player.lastUpdate = thisUpdate;
