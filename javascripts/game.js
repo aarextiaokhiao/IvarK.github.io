@@ -982,7 +982,6 @@ function updateTemp() {
 	tmp.nrm=player.replicanti.amount.max(1)
 	tmp.rg4=false
 	if (player.masterystudies !== undefined) {
-		}
 		if (ghostified) {
 			if (player.quantum.nanofield.rewards<16) tmp.ns*=player.ghostify.milestones?6:3
 			tmp.nb[0]=Math.log10(player.ghostify.neutrinos.electron.add(1).log10()+player.ghostify.neutrinos.mu.add(1).log10()+player.ghostify.neutrinos.tau.add(1).log10()+1)*0.75
