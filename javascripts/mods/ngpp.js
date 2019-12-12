@@ -731,19 +731,6 @@ function quantumReset(force, auto, challid, bigRip, implode=false) {
 		if (tmp.qu.best>tmp.qu.time) {
 			tmp.qu.best=tmp.qu.time
 			updateSpeedruns()
-			if (speedrunMilestonesReached>23) giveAchievement("And the winner is...")
-			if (speedrunMilestonesReached>25) document.getElementById('rebuyupgmax').style.display="none"
-			if (speedrunMilestonesReached>27) {
-				giveAchievement("Special Relativity")
-				var removeMaxAll=false
-				for (d=1;d<9;d++) {
-					if (player.autoEterOptions["md"+d]) {
-						if (d>7) removeMaxAll=true
-					} else break
-				}
-				document.getElementById("metaMaxAllDiv").style.display=removeMaxAll?"none":""
-			}
-			if (tmp.qu.best<=10) giveAchievement("Quantum doesn't take so long")
 		}
 		tmp.qu.times++
 		if (!inQC(6)) {
