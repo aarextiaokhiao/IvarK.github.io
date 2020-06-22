@@ -6,7 +6,7 @@
 	<title>Antimatter Dimensions</title>
 	<link rel="icon" type="image/png" href="icon.png">
 	<meta name="Antimatter Dimensions" content="A game about huge numbers and watching them go up." charset="utf-8"/>
-	<script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="javascripts/notify.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css?12">
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
@@ -63,7 +63,7 @@
 				You have <span id='GHPAmount'>0</span> Ghost Particles.<br>
 				<div id="quantumedBM">Quantumed <span id='quantumedBMAmount'>0</span> times</div>
 			</div>
-			<button id="bigripbtn" class="bigripbtn" onclick="bigRip()">I want the impossible challenge to be completed... I want to Big Rip the universe.</button>
+			<button id="bigripbtn" class="bigripbtn" onclick="bigRip()">I want to complete the impossible challenge... I want to Big Rip the universe.</button>
 			<button id="ghostifybtn" class="ghostifybtn" onclick="ghostify()">
 				<div id="ghostifybtnFlavor" class="hideEmpty"></div>
 				<div id="GHPGain" class="hideEmpty"></div>
@@ -109,7 +109,7 @@
 		<div id="emptiness" class="tab" style="font-size: 150%">
 			<br>
 			<br>
-			<br> The world has collapsed on itself due to excess of antimatter.
+			<br>The world has collapsed on itself because of the excess antimatter.
 		</div>
 		<div id="eternitystore" class="tab" style="font-size: 15px; margin: 0 auto; display: none" align="center">
 			<table class="table" align="center" style="margin: auto">
@@ -136,7 +136,7 @@
 				<table class="table" id="studytable">
 					<tr>
 						<td style="opacity: 0;"><button class="timestudylocked"></button></td>
-						<td><button class="timestudylocked" id="11" onclick="buyTimeStudy(11)">Tickspeed affects 1st Time Dimension with reduced effect<span id="11desc">Currently: 1x</span>Cost: 1 Time Theorem</button></td>
+						<td><button class="timestudylocked" id="11" onclick="buyTimeStudy(11)">Tickspeed slightly boosts the 1st Time Dimension.<span id="11desc">Currently: 1x</span>Cost: 1 Time Theorem</button></td>
 						<td><button class="timestudybought" id="secretstudy" style="opacity: 0; cursor: pointer; transition-duration: 2s;">Unlock a secret achievement<span>Cost: 0 Time Theorems</button></td>
 					</tr>
 				</table>
@@ -144,20 +144,20 @@
 				<table class="table" id="studytable">
 					<tr>
 						<td><button id="21" onclick="buyTimeStudy(21)">Replicanti multiplier formula is better (log2(x)^2 -> x^0.032)<span>Cost: 3 Time Theorems</button></td>
-						<td><button id="22" onclick="buyTimeStudy(22)">Replicanti interval limit 50ms -> 1ms<span>Cost: 2 Time Theorems</button></td>
+						<td><button id="22" onclick="buyTimeStudy(22)">Decrease the replicanti interval limit from 50ms to 1ms.<span>Cost: 2 Time Theorems</button></td>
 					</tr>
 				</table>
 				<table class="table" id="studytable">
 					<tr>
-						<td><button id="33" onclick="buyTimeStudy(33)">You keep half of your replicanti galaxies on infinity<span>Cost: 2 Time Theorems</button></td>
-						<td><button id="31" onclick="buyTimeStudy(31)">Powers up bonuses that are based on your infinitied stat (to the power of 4)<span>Cost: 3 Time Theorems</button></td>
+						<td><button id="33" onclick="buyTimeStudy(33)">You keep half of your replicanti galaxies on infinity.<span>Cost: 2 Time Theorems</button></td>
+						<td><button id="31" onclick="buyTimeStudy(31)">Bonuses that are based on infinitied stat are raised to the power of 4.<span>Cost: 3 Time Theorems</button></td>
 						<td><button id="32" onclick="buyTimeStudy(32)"><span id="32desc">You gain x1 more infinitied stat (based on dimension boosts)</span>Cost: 2 Time Theorems</button></td>
 						<td style="opacity: 0;"><button class="timestudylocked"></button></td>
 					</tr>
 				</table>
 				<table class="table" id="studytable">
 					<tr>
-						<td><button id="41" onclick="buyTimeStudy(41)">Each galaxy gives a <span id="41desc" style="display:inline"></span>x multiplier on IP gained.<span>Cost: 4 Time Theorems</button></td>
+						<td><button id="41" onclick="buyTimeStudy(41)">You gain <span id="41desc" style="display:inline"></span>x more IP per galaxy.<span>Cost: 4 Time Theorems</button></td>
 						<td><button id="42" onclick="buyTimeStudy(42)"><span id="42desc"></span>Cost: 6 Time Theorems</button></td>
 					</tr>
 				</table>
@@ -179,19 +179,19 @@
 				<br>
 				<table class="table" id="studytable">
 					<tr>
-						<td><button id="71" onclick="buyTimeStudy(71)">Sacrifice affects all other normal dimensions with reduced effect<span id="71desc">Currently: 1x</span>Cost: 4 Time Theorems</button></td>
-						<td><button id="72" onclick="buyTimeStudy(72)">Sacrifice affects 4th Infinity Dimension with greatly reduced effect<span id="72desc">Currently: 1x</span>Cost: 6 Time Theorems</button></td>
-						<td><button id="73" onclick="buyTimeStudy(73)">Sacrifice affects 3rd Time Dimension with greatly reduced effect<span id="73desc">Currently: 1x</span>Cost: 5 Time Theorems</button></td>
+						<td><button id="71" onclick="buyTimeStudy(71)">Sacrifice gives a reduced multiplier to all other Normal Dimensions.<span id="71desc">Currently: 1x</span>Cost: 4 Time Theorems</button></td>
+						<td><button id="72" onclick="buyTimeStudy(72)">Sacrifice gives a reduced multiplier to the 4th Infinity Dimension.<span id="72desc">Currently: 1x</span>Cost: 6 Time Theorems</button></td>
+						<td><button id="73" onclick="buyTimeStudy(73)">Sacrifice gives a reduced multiplier to the 3rd Time Dimension.<span id="73desc">Currently: 1x</span>Cost: 5 Time Theorems</button></td>
 					</tr>
 					<tr>
-						<td><button id="81" onclick="buyTimeStudy(81)">Dimensional boost power <span id="81desc" style="display:inline"></span><span>Cost: 4 Time Theorems</button></td>
-						<td><button id="82" onclick="buyTimeStudy(82)">Dimensional boosts affect Infinity Dimensions<span id="82desc">Currently: 1x</span>Cost: 6 Time Theorems</button></td>
-						<td><button id="83" onclick="buyTimeStudy(83)">Dimensional boosts are 0.04% more effective for each tick upgrade gained from Time Dimensions<span>Cost: 5 Time Theorems</button></td>
+						<td><button id="81" onclick="buyTimeStudy(81)">Dimension boost power is increased to <span id="81desc" style="display:inline"></span><span>Cost: 4 Time Theorems</button></td>
+						<td><button id="82" onclick="buyTimeStudy(82)">Dimension boosts boost Infinity Dimensions<span id="82desc">Currently: 1x</span>Cost: 6 Time Theorems</button></td>
+						<td><button id="83" onclick="buyTimeStudy(83)">Dimension boosts are 0.04% more effective for each free tickspeed upgrade from TDs<span>Cost: 5 Time Theorems</button></td>
 					</tr>
 					<tr>
-						<td><button id="91" onclick="buyTimeStudy(91)">Normal dimensions gain a multiplier based on time spent this eternity<span id="91desc">Currently: 1x</span>Cost: 4 Time Theorems</button></td>
-						<td><button id="92" onclick="buyTimeStudy(92)">Infinity dimensions gain a multiplier based on fastest eternity time<span id="92desc">Currently: 1x</span>Cost: 5 Time Theorems</button></td>
-						<td><button id="93" onclick="buyTimeStudy(93)">Time dimensions gain a multiplier based on tick upgrades gained<span id="93desc">Currently: 1x</span>Cost: 7 Time Theorems</button></td>
+						<td><button id="91" onclick="buyTimeStudy(91)">Normal Dimensions gain a multiplier based on time spent this eternity<span id="91desc">Currently: 1x</span>Cost: 4 Time Theorems</button></td>
+						<td><button id="92" onclick="buyTimeStudy(92)">Infinity Dimensions gain a multiplier based on fastest eternity time<span id="92desc">Currently: 1x</span>Cost: 5 Time Theorems</button></td>
+						<td><button id="93" onclick="buyTimeStudy(93)">Time Dimensions gain a multiplier based on tick upgrades gained<span id="93desc">Currently: 1x</span>Cost: 7 Time Theorems</button></td>
 					</tr>
 					<tr>
 						<td><button id="101" onclick="buyTimeStudy(101)">Replicantis give a multiplier to Normal Dimensions equal to their amount.<span>Cost: 4 Time Theorems</button></td>
@@ -269,15 +269,10 @@
 				</table>
 				<table class="table" id="studytable">
 					<tr>
-<<<<<<< Updated upstream
-						<td><button id="191" onclick="buyTimeStudy(191)">After eternity you permanently keep 5% of your infinities<span>Cost: 400 Time Theorems</button></td>
-						<td><button id="192" onclick="buyTimeStudy(192)" style="font-size: 10px;"><span id="192desc"></span>Cost: 730 Time Theorems</button></td>
-						<td><button id="193" onclick="buyTimeStudy(193)">Normal dimension boost based on eternities<span id="193desc">Currently: 1x</span>Cost: 300 Time Theorems</button></td>
-=======
+
 						<td><button id="191" onclick="buyTimeStudy(191)">You bank 5% of your infinities on Eternity.<span>Cost: 400 Time Theorems</button></td>
 						<td><button id="192" onclick="buyTimeStudy(192)" style="font-size: 10px;"><span id="192desc"></span>Cost: 730 Time Theorems</button></td>
 						<td><button id="193" onclick="buyTimeStudy(193)">Normal Dimensions are more powerful based on your eternities<span id="193desc">Currently: 1x</span>Cost: 300 Time Theorems</button></td>
->>>>>>> Stashed changes
 					</tr>
 				</table>
 				<table class="table" id="studytable">
@@ -287,28 +282,17 @@
 				</table>
 				<table class="table" id="studytable">
 					<tr>
-<<<<<<< Updated upstream
-						<td><button id="211" onclick="buyTimeStudy(211)">Dimensional boost requirement scaling is reduced by <span id="211desc" style="display:inline"></span>.<span>Cost: 120 Time Theorems</button></td>
-						<td><button id="212" onclick="buyTimeStudy(212)">Galaxies are more effective based on your timeshards<span id="212desc">Currently: 1x</span>Cost: 150 Time Theorems</button></td>
-						<td><button id="213" onclick="buyTimeStudy(213)">You gain replicanti <span id="213desc" style="display:inline"></span> times faster<span>Cost: 200 Time Theorems</button></td>
-						<td><button id="214" onclick="buyTimeStudy(214)">Sacrifice boosts the 8th dimension even more.<span id="214desc">Currently: 1x</span>Cost: 120 Time Theorems</button></td>
-=======
+
 						<td><button id="211" onclick="buyTimeStudy(211)">Dimension boost cost scaling is reduced by <span id="211desc" style="display:inline"></span>.<span>Cost: 120 Time Theorems</button></td>
 						<td><button id="212" onclick="buyTimeStudy(212)">Galaxies are more effective based on your timeshards<span id="212desc">Currently: 1x</span>Cost: 150 Time Theorems</button></td>
 						<td><button id="213" onclick="buyTimeStudy(213)">You gain replicanti <span id="213desc" style="display:inline"></span> times faster<span>Cost: 200 Time Theorems</button></td>
 						<td><button id="214" onclick="buyTimeStudy(214)">Sacrifice's multiplier on the 8th Dimension is increased<span id="214desc">Currently: 1x</span>Cost: 120 Time Theorems</button></td>
->>>>>>> Stashed changes
 					</tr>
 				</table>
 				<table class="table" id="studytable">
 					<tr class="wideRow">
-<<<<<<< Updated upstream
-						<td><button id="221" onclick="buyTimeStudy(221)">Dimensional boosts affect time dimensions with reduced power.<span id="221desc"></span><span>Cost: 900 Time Theorems</button></td>
-						<td><button id="222" onclick="buyTimeStudy(222)">Dimensional boost costs scale by another <span id="222desc" style="display:inline"></span> less.<span>Cost: 900 Time Theorems</button></td>
-=======
 						<td><button id="221" onclick="buyTimeStudy(221)">Dimension boosts affect time dimensions with reduced power.<span id="221desc"></span><span>Cost: 900 Time Theorems</button></td>
 						<td><button id="222" onclick="buyTimeStudy(222)">Dimension boost cost scaling is decreased by <span id="222desc" style="display:inline"></span>.<span>Cost: 900 Time Theorems</button></td>
->>>>>>> Stashed changes
 						<td><button id="223" onclick="buyTimeStudy(223)">Galaxy cost scaling starts 7 galaxies later.<span>Cost: 900 Time Theorems</button></td>
 						<td><button id="224" onclick="buyTimeStudy(224)">Galaxy cost scaling starts 1 galaxy later for every 2000 dimensional boosts.<span>Cost: 900 Time Theorems</button></td>
 						<td><button id="225" onclick="buyTimeStudy(225)">You gain extra RGs based on how high above infinity your replicanti are.<span>Cost: 900 Time Theorems</button></td>
@@ -427,11 +411,7 @@
 				<canvas id="studyTreeCanvas2"></canvas>
 				Mastery study cost multiplier: <text id='costmult'></text>x<br>
 				Total normal mastery studies bought: <text id='totalmsbought'></text><br>
-<<<<<<< Updated upstream
-				Total TT spent to mastery studies: <text id='totalttspent'></text><br>
-=======
 				Total TT spent on mastery studies: <text id='totalttspent'></text><br>
->>>>>>> Stashed changes
 				<tr>
 					<td><button class="storebtn" onclick="exportStudyTree()" style="width:150px; height: 40px; font-size: 10px; margin: auto">Export tree</button><td>
 					<td><button class="storebtn" onclick="respecToggle()" id="respec3" style="width:150px; height: 40px; font-size: 10px; margin: auto">Respec time studies on next Eternity</button><td>
@@ -441,11 +421,7 @@
 				<button class="storebtn" onclick="fillAll()" id="fillAll2" style="width:150px; height: 40px; font-size: 10px; margin: auto">Buy all time studies</button>
 				<table class="table" id="studytable">
 					<tr>
-<<<<<<< Updated upstream
-						<td><button class="dilationupg" id="back" onclick="exitMasteryPortal()">Lead back to time studies.</button></td>
-=======
 						<td><button class="dilationupg" id="back" onclick="exitMasteryPortal()">Return to time studies.</button></td>
->>>>>>> Stashed changes
 					</tr>
 				</table>
 				<table class="table" id="studytable">
@@ -913,7 +889,6 @@
 				</table>
 				<table>
 					<tr>
-<<<<<<< Updated upstream
 						<td>
 							<button id="dil51" onclick="buyDilationUpgrade(51)" style='font-size:10px'>Meta Dimensions gain a multiplier based on tickspeed.<br>(1+log(1+log(x)))<br><span id="dil51desc"></span><br><span id="dil51cost"></span></button>
 						</td>
@@ -924,24 +899,9 @@
 							<button id="dil53" onclick="buyDilationUpgrade(53)">Meta-antimatter effect on dimension boosts is stronger.<br>(^8 -> ^9)<br><span id="dil53cost"></span></button>
 						</td>
 						<td>
-							<button id="dil55" onclick="buyDilationUpgrade(55)">Reduce the Meta-Dimension Boost scaling by 1 per level.<br><span id="dil55cost"></span></button>
+							<button id="dil55" onclick="buyDilationUpgrade(55)">Reduce the Meta-Dimension Boost cost scaling by 1 per level.<br><span id="dil55cost"></span></button>
 						</td>
 						<td>
-=======
-						<td>
-							<button id="dil51" onclick="buyDilationUpgrade(51)" style='font-size:10px'>Meta Dimensions gain a multiplier based on tickspeed.<br>(1+log(1+log(x)))<br><span id="dil51desc"></span><br><span id="dil51cost"></span></button>
-						</td>
-						<td>
-							<button id="dil52" onclick="buyDilationUpgrade(52)" style='font-size:10px'>Meta-dimension shifts, boosts, and per-ten upgrades are boosted by dilated time.<span id="dil52formula"> (log(log(x))+1)</span><br><span id="dil52desc"></span><br><span id="dil52cost"></span></button>
-						</td>
-						<td>
-							<button id="dil53" onclick="buyDilationUpgrade(53)">Meta-antimatter effect on dimension boosts is stronger.<br>(^8 -> ^9)<br><span id="dil53cost"></span></button>
-						</td>
-						<td>
-							<button id="dil55" onclick="buyDilationUpgrade(55)">Reduce the Meta-Dimension Boost scaling by 1 per level.<br><span id="dil55cost"></span></button>
-						</td>
-						<td>
->>>>>>> Stashed changes
 							<button id="dil54" onclick="buyDilationUpgrade(54)" style='font-size:10px'>Dilated time production is boosted based on best meta-antimatter.<br><span id="dil54formula"></span><br><span id="dil54desc"></span><br><span id="dil54cost"></span></button>
 						</td>
 					</tr>
@@ -1025,11 +985,7 @@
 						<tr>
 							<td></td>
 							<td>
-<<<<<<< Updated upstream
-								<button id="breakEternityBtn" class="eternityupbtn" onclick="breakEternity()" ach-tooltip="Remove the disabilities of normal galaxies and Time Dimensions, but all TD boosts do not work except TS11, TS171, and 'Infinite Time' reward. You can gain Eternal Matter (based on your Time Shards) by Eternitying. Normal tickspeed upgrades do nothing if you are not in EC10. Normal galaxies don’t get cancelled, but its costs are way higher.">BREAK ETERNITY</button>
-=======
 								<button id="breakEternityBtn" class="eternityupbtn" onclick="breakEternity()" ach-tooltip="Remove the disabilities of normal galaxies and Time Dimensions, but all TD boosts are nullified except for TS11, TS171, and the 'Infinite Time' reward, and the normal galaxy cost scaling is significantly increased. You can gain Eternal Matter (based on your Time Shards) by Eternitying. Normal tickspeed upgrades only work in EC10.">BREAK ETERNITY</button>
->>>>>>> Stashed changes
 							</td>
 							<td></td>
 						</tr>
@@ -1787,7 +1743,7 @@
 				<table>
 					<tr>
 						<td><div><button id="save" class="storebtn" style="color:black; width: 200px; height: 55px; font-size: 20px">Save</button></div></td>
-						<td><div><button id="load" class="storebtn" onclick='load_saves()' style="color:black; width: 200px; height: 55px; font-size: 16px">Load<br>(opens the save menu)</button></div></td>
+						<td><div><button id="load" class="storebtn" onclick='load_saves()' style="color:black; width: 200px; height: 55px; font-size: 16px">Load<br>(opens save menu)</button></div></td>
 						<td><div><button id="rename" class="storebtn" onclick='rename_save()' style="color:black; width: 200px; height: 55px; font-size:10px"></button></div></td>
 					</tr>
 					<tr>
@@ -1802,11 +1758,7 @@
 					</tr>
 					<tr>
 						<td><div class="storebtn" style="color:black; width: 198px; height: 55px; font-size:130%; text-align: center;"><b id="autoSaveInterval">Auto-save interval: 30s</b><input id="autoSaveIntervalSlider" style="width: 170px;" type="range" min="15" max="120" value="30" class="slider" oninput="changeAutoSaveInterval()"></div></td>
-<<<<<<< Updated upstream
-						<td><div><button id="bugExport" onclick="bugExport()" class="storebtn" style="color:black; width:200px; height:55px; font-size:12px; display:none">Export "Infinite" bug save<br><b>(WARNING: This disappears when you reload the game!)</button></b></div></td>
-=======
 						<td><div><button id="bugExport" onclick="bugExport()" class="storebtn" style="color:black; width:200px; height:55px; font-size:12px; display:none">Export the "Infinite" bug save<br><b>(WARNING: This disappears when you reload the game!)</button></b></div></td>
->>>>>>> Stashed changes
 						<td><div><button id="exitLegacy" onclick="exitLegacy()" class="storebtn" style="color:black; width: 200px; height: 55px; font-size: 20px">Migrate to NG+3.1</button></div></td>
 					</tr>
 				</table>
@@ -2596,11 +2548,7 @@
 						</tr>
 						<tr id="achRowng3p5">
 							<td>
-<<<<<<< Updated upstream
-								<div id="To the new dimension!" class="achievement achievementlocked" style="background-image: url(images/143.png)" ach-tooltip='Big Rip the universe. Reward: Keep your Infinity Upgrades and autobuyers, Time Theorems production is 100x faster, unlock "X times eternitied" mode of Eternity autobuyer, and every completion of EC11 gives a completion of EC12'></div>
-=======
 								<div id="To the new dimension!" class="achievement achievementlocked" style="background-image: url(images/143.png)" ach-tooltip='Big Rip the universe. Reward: Keep your Infinity Upgrades and autobuyers, you produce 100x more Time Theorems, unlock the "X times eternitied" mode of the Eternity autobuyer, and every completion of EC11 gives a completion of EC12.'></div>
->>>>>>> Stashed changes
 							</td>
 							<td>
 								<div id="Quantum doesn't take so long" class="achievement achievementlocked" style="background-image: url(images/144.png)" ach-tooltip="Quantum in under 1 second. Reward: Expand Automatic Eternity to contain new after-eternity features."></div>
@@ -3547,11 +3495,7 @@
 						</td>
 						<td>
 							<div class="eterchallengediv" id="eterc14div" style="height: 140px; display: none">
-<<<<<<< Updated upstream
-								<span>Infinity Challenge 3, but only Replicantis can boost Infinity Dimensions, free tickspeed upgrades only boost IC3 reward by 5x strong as normal instead, and meta-antimatter does nothing.</span>
-=======
-								<span>You are stuck in IC3, and all replicanti boosts except to ID are nullified. Free tickspeed upgrades count five times as much towards the IC3 boost, and meta-antimatter is disabled. </span>
->>>>>>> Stashed changes
+								<span>You are stuck in IC3, and all replicanti boosts except to ID are nullified. Free tickspeed upgrades count five times as much towards the IC3 boost, and meta-antimatter is disabled.</span>
 								<br>
 								<br>
 								<div class="outer">
@@ -3607,11 +3551,7 @@
 					<tr>
 						<td>
 							<div class="quantumchallengediv" id="qc3div">
-<<<<<<< Updated upstream
-								<span>Only meta-antimatter can boost Infinity Dimensions. However, meta-antimatter doesn't boost dimension boosts.</span>
-=======
 								<span>Only meta-antimatter can boost Infinity Dimensions, but meta-antimatter cannot boost dimension boosts.</span>
->>>>>>> Stashed changes
 								<br>
 								<br>
 								<div class="outer">
@@ -3625,11 +3565,7 @@
 						</td>
 						<td>
 							<div class="quantumchallengediv" id="qc4div">
-<<<<<<< Updated upstream
-								<span>Automatic Big Crunch challenge affects all dimensions. Meta-Dimension Boost cost scales less, but some buffs do nothing to it.</span>
-=======
 								<span>Automatic Big Crunch Challenge is applied to your Normal, Infinity, Time and Meta Dimensions. Meta-Dimension Boost cost scales less, but their buffs are nullified.</span>
->>>>>>> Stashed changes
 								<br>
 								<br>
 								<div class="outer">
@@ -3645,11 +3581,7 @@
 					<tr>
 						<td>
 							<div class="quantumchallengediv" id="qc5div" style="height:160px">
-<<<<<<< Updated upstream
-								<span>Dimension Supersonic scaling starts instantly and grows much faster. Replicated galaxy cost and free galaxy threshold also grow much faster. Multiplier per ten dimensions is 1x.</span>
-=======
 								<span>Dimension Supersonic scaling starts instantly, and grows much faster. Replicated galaxy cost and free galaxy threshold also grow much faster. Multiplier per ten dimensions is 1x.</span>
->>>>>>> Stashed changes
 								<br>
 								<br>
 								<div class="outer">
@@ -3657,21 +3589,14 @@
 									<br>
 									<span id="qc5cost"></span><br>
 									<span id="qc5goal"></span><br>
-<<<<<<< Updated upstream
-									Reward: Dimension boosts boost multiplier per ten Dimensions. Currently: <span id="qc5reward"></span>x
-=======
 									Reward: Dimension Boosts increase the multiplier per ten Dimensions. Currently: <span id="qc5reward"></span>x
->>>>>>> Stashed changes
+
 								</div>
 							</div>
 						</td>
 						<td>
 							<div class="quantumchallengediv" id="qc6div" style="height:160px">
-<<<<<<< Updated upstream
-								<span>IC3 is applied normally, but IC2, IC6, IC7, and IC8 are applied to normal, Infinity and Time Dimensions. Matter cannot surpass antimatter or you fail the challenge, and you can't gain dimension boosts. However, the multiplier per ten meta dimensions is a little bit stronger.</span>
-=======
 								<span>IC2, IC6, IC7 and IC8 are applied to Normal, Infinity, and Time Dimensions, and IC3 is applied to Normal Dimensions. You can't gain dimension boosts, but the multiplier per-10 Meta Dimensions is slightly stronger.</span>
->>>>>>> Stashed changes
 								<br>
 								<br>
 								<div class="outer">
@@ -3695,11 +3620,7 @@
 									<br>
 									<span id="qc7cost"></span><br>
 									<span id="qc7goal"></span><br>
-<<<<<<< Updated upstream
-									Reward: Free tickspeed upgrade threshold increases slower. Currently: <span id="qc7reward"></span>% slower
-=======
 									Reward: The free tickspeed upgrade threshold increases slower. Currently: <span id="qc7reward"></span>% slower
->>>>>>> Stashed changes
 								</div>
 							</div>
 						</td>
@@ -3713,11 +3634,7 @@
 									<br>
 									<span id="qc8cost"></span><br>
 									<span id="qc8goal"></span><br>
-<<<<<<< Updated upstream
-									Reward: You gain extra replicated galaxies faster after 100. Currently: <span id="qc8reward"></span>x faster
-=======
 									Reward: You gain extra replicated galaxies faster after 100 replicated galaxies. Currently: <span id="qc8reward"></span>x faster
->>>>>>> Stashed changes
 								</div>
 							</div>
 						</td>
@@ -4710,11 +4627,7 @@
 					<button class='storebtn' id="autoAssignRotate" style="width:135px" onclick='rotateAutoAssign()'>Rotation: None</button>
 				</div>
 				<div id="assortSettings">
-<<<<<<< Updated upstream
-					You will get <span id="assort_amount"></span> colored quarks when you assort quarks<br>
-=======
 					You will get <span id="assort_amount"></span> colored quarks when you assort your quarks.<br>
->>>>>>> Stashed changes
 					Assort percentage: <input id="assort_percentage" type="number" min=1 max=100 onchange="changeAssortPercentage()">%<br>
 					<button class='storebtn' id="assort_percentage_10" style="width:50px" onclick="changeAssortPercentage(10)">10%</button>
 					<button class='storebtn' id="assort_percentage_25" style="width:50px" onclick="changeAssortPercentage(25)">25%</button>
@@ -4753,15 +4666,6 @@
 				<table class='qtable' id="colorDimTranslations">
 					<tr>
 						<td class="rqC">
-<<<<<<< Updated upstream
-							Translated to <span class="red" id="redDimTranslation" style="font-size:35px">0.0</span>x faster normal Dimension productions.</p>
-						</td>
-						<td>
-							Translated to <span class="green" id="greenDimTranslation" style="font-size:35px">0</span>x faster Infinity Dimension productions.</p>
-						</td>
-						<td class="bqC">
-							Translated to <span class="blue" id="blueDimTranslation" style="font-size:35px">1.0</span>x faster Time Dimension productions.</span>
-=======
 							Translated to <span class="red" id="redDimTranslation" style="font-size:35px">1.0</span>x Normal Dimension multiplier.</p>
 						</td>
 						<td>
@@ -4769,7 +4673,6 @@
 						</td>
 						<td class="bqC">
 							Translated to <span class="blue" id="blueDimTranslation" style="font-size:35px">1.0</span>x Time Dimension multiplier.</span>
->>>>>>> Stashed changes
 						</td>
 					</tr><tr style="vertical-align: 0">
 						<td></td>
@@ -4801,28 +4704,14 @@
 					<td><button id='brupg1' onclick='buyGluonUpg("br",1)'>You gain more tachyon particles based on your dilated time.<br><span id='brupg1current'></span><br>Cost: 1 BR gluons</button></td>
 					<td><button id='brupg2' onclick='buyGluonUpg("br",2)'>Sacrifice boosts dilated time production.<br><span id='brupg2current'></span><br><span id='brupg1current'></span>Cost: 2 BR gluons</button></td>
 				</tr><tr>
-<<<<<<< Updated upstream
-					<td><button id='rgupg3' onclick='buyGluonUpg("rg",3)'>Dimension boosts boost first Meta Dimensions.<br>Cost: 4 RG gluons</button></td>
-=======
 					<td><button id='rgupg3' onclick='buyGluonUpg("rg",3)'>Dimension Boosts boost the multiplier of the first Meta Dimension.<br>Cost: 4 RG gluons</button></td>
->>>>>>> Stashed changes
+
 					<td>
 						<button id='rgupg4' onclick='buyGluonUpg("rg",4)'>Galaxies are 50% stronger, but electrons are 30% weaker and normal galaxies are 60% weaker.<br>Cost: 100 RG gluons</button><br>
 						<button class="storebtn" id='rg4toggle' onclick='toggleRG4Upg()' style='width:142.5px; height:15px; font-size:9px'>Toggle: ON</button>
 					</td>
 					<td><button id='gbupg3' onclick='buyGluonUpg("gb",3)'>The IP mult multiplies IP gain by 2.3x per upgrade.<br>Cost: 4 GB gluons</button></td>
 					<td><button id='gbupg4' onclick='buyGluonUpg("gb",4)'>Massively decrease the tickspeed cost multiplier increase to 1.25x.<br>Cost: 100 GB gluons</button></td>
-<<<<<<< Updated upstream
-					<td><button id='brupg3' onclick='buyGluonUpg("br",3)'>Tachyon particles boosts dilated time production a little more.<br>Cost: 4 BR gluons</button></td>
-					<td><button id='brupg4' onclick='buyGluonUpg("br",4)'>Multiplier per ten dimensions boosts Meta Dimensions.<br><span id='brupg4current'></span><br>Cost: 100 BR gluons</button></td>
-				</tr><tr id='gupgrow3'>
-					<td><button id='rgupg5' onclick='buyGluonUpg("rg",5)'>Slow down Dark Matter Galaxy cost scaling by 13%.<br>Cost: <span id='rgupg5cost'></span> RG gluons</button></td>
-					<td><button id='rgupg6' onclick='buyGluonUpg("rg",6)'>Slow down Distant Antimatter Galaxy cost scaling by 13.2%.<br>Cost: <span id='rgupg6cost'></span> RG gluons</button></td>
-					<td><button id='gbupg5' onclick='buyGluonUpg("gb",5)'>Normal replicated galaxies slow down Dark Matter Galaxy cost scaling.<br><span id='gbupg5current'></span><br>Cost: <span id='gbupg5cost'></span> GB gluons</button></td>
-					<td><button id='gbupg6' onclick='buyGluonUpg("gb",6)'>Infinity power slows down Distant Antimatter Galaxy cost scaling.<br><span id='gbupg6current'></span><br>Cost: <span id='gbupg6cost'></span> GB gluons</button></td>
-					<td><button id='brupg5' onclick='buyGluonUpg("br",5)'>Tachyon particles slow down Dark Matter Galaxy cost scaling.<br><span id='brupg5current'></span><br>Cost: <span id='brupg5cost'></span> BR gluons</button></td>
-					<td><button id='brupg6' onclick='buyGluonUpg("br",6)' style='font-size:8.5px'>Meta-dimension boosts slow down Distant Antimatter Galaxy cost scaling.<br><span id='brupg6current'></span><br>Cost: <span id='brupg6cost'></span> BR gluons</button></td>
-=======
 					<td><button id='brupg3' onclick='buyGluonUpg("br",3)'>Tachyon particles slightly boosts dilated time production.<br>Cost: 4 BR gluons</button></td>
 					<td><button id='brupg4' onclick='buyGluonUpg("br",4)'>The multiplier per-ten dimensions boosts Meta Dimensions.<br><span id='brupg4current'></span><br>Cost: 100 BR gluons</button></td>
 				</tr><tr id='gupgrow3'>
@@ -4832,7 +4721,6 @@
 					<td><button id='gbupg6' onclick='buyGluonUpg("gb",6)'>Infinity power slows down the Distant Antimatter Galaxy cost scaling.<br><span id='gbupg6current'></span><br>Cost: <span id='gbupg6cost'></span> GB gluons</button></td>
 					<td><button id='brupg5' onclick='buyGluonUpg("br",5)'>Tachyon particles slow down the Dark Matter Galaxy cost scaling.<br><span id='brupg5current'></span><br>Cost: <span id='brupg5cost'></span> BR gluons</button></td>
 					<td><button id='brupg6' onclick='buyGluonUpg("br",6)' style='font-size:8.5px'>Meta-Dimension Boosts slow down Distant Antimatter Galaxy cost scaling.<br><span id='brupg6current'></span><br>Cost: <span id='brupg6cost'></span> BR gluons</button></td>
->>>>>>> Stashed changes
 				</tr><tr id='gupgrow4'>
 					<td id='rgupg7col' colspan=2><button id='rgupg7' onclick='buyGluonUpg("rg",7)'>Slow down Remote Antimatter Galaxies effect by 10%.<br>Cost: <span id='rgupg7cost'></span> RG gluons</button></td>
 					<td id='rgupg8col'><button id='rgupg8' onclick='buyGluonUpg("rg",8)'>Red unstable quarks decay slower based on your RG gluons.<br><span id='rgupg8current'></span><br>Cost: <span id='rgupg8cost'></span> RG gluons</button></td>
@@ -4877,11 +4765,7 @@
 						<td><div id="speedrunMilestone13" style="background-image: url(images/quantum_speedruns/13.png)" ach-tooltip="Reward: Unlock the seventh meta dimension autobuyer."></div></td>
 						<td><div id="speedrunMilestone14" style="background-image: url(images/quantum_speedruns/14.png)" ach-tooltip="Reward: Unlock the eighth meta dimension autobuyer, and keep all the non-rebuyable dilation upgrades."></div></td>
 						<td><div id="speedrunMilestone15" style="background-image: url(images/quantum_speedruns/15.png)" ach-tooltip="Reward: Unlock meta-dimension boost autobuyer."></div></td>
-<<<<<<< Updated upstream
 						<td><div id="speedrunMilestone16" style="background-image: url(images/quantum_speedruns/16.png)" ach-tooltip="Reward: You keep all your Mastery Studies."></div></td>
-=======
-						<td><div id="speedrunMilestone16" style="background-image: url(images/quantum_speedruns/16.png)" ach-tooltip="Reward: You keep all Mastery Studies."></div></td>
->>>>>>> Stashed changes
 					</tr>
 					<tr id="speedrunRow3">
 						<td><div id="speedrunMilestone17" style="background-image: url(images/quantum_speedruns/17.png)" ach-tooltip="Reward: All Meta Dimensions are available to be bought immediately."></div></td>
@@ -4978,19 +4862,11 @@
 					<div id="apgInfo">
 						You have <span id="rewards_AP" style="font-size:35px"></span> rewards.<br>
 						<span id="sleepy">
-<<<<<<< Updated upstream
-							Anti-Preontius, the Anti-Preon Ghost, is currently sleepy...
-							<b class="warning">Don't get <span id="rewards_wake">104</span> rewards or else he will wake up and take over the Nanoverse!</b>
-						</span>
-						<b id="woke" class="warning" style="font-size: 25px; display: none">Anti-Preontius, the Anti-Preon Ghost, has woken up and took control the Nanoverse!</b><br><br>
-						The following effects will be applied when he wakes up:<br>
-=======
 							Anti-Preontius, the Anti-Preon Ghost, is sleeping...
 							<b class="warning">Warning! If you get <span id="rewards_wake">104</span> rewards, he will wake up and take over the Nanoverse!</b>
 						</span>
 						<b id="woke" class="warning" style="font-size: 25px; display: none">Anti-Preontius, the Anti-Preon Ghost, is controlling the Nanoverse!</b><br><br>
-						The following effects will be applied when he has awoken:<br>
->>>>>>> Stashed changes
+						The following effects will be applied when he wa:<br>
 						- When you get 1 preon power, you will lose preons faster if you are producing preon charge.<br>
 						- When you get 1 preon power, your preon charge production is 1.41x slower.<br>
 						- When you get 1 preon power, your anti-energy production is 1.41x faster.<br>
@@ -5069,15 +4945,10 @@
 						<td>You have <span class="neutrinos" id="tauNeutrinos">0</span> Tau neutrinos.</td>
 					</tr>
 					<tr class="neutrinoBoosts" id="neutrinoBoostRow1">
-<<<<<<< Updated upstream
-						<td>They increase TP gain formula exponent from <span id="preNeutrinoBoost1"></span> to <span class="neutrinos" id="neutrinoBoost1">1.0</span>.</td>
-						<td id="neutrinoBoostCell2">They make "replicate chance boosts itself" stronger from <span id="preNeutrinoBoost2"></span> to <span class="neutrinos" id="neutrinoBoost2">1.0</span>.<br>(The effect exponent is increased from <span id="preNeutrinoBoost2Exp"></span> to <span class="neutrinos" id="neutrinoBoost2Exp" style="font-size:25px"></span>)</td>
-						<td id="neutrinoBoostCell3">They boost the limit of 14th dilation upgrade from 3.00x to <span class="neutrinos" id="neutrinoBoost3">3.00</span>x.</td>
-=======
 						<td>Neutrinos increase the TP gain formula exponent from <span id="preNeutrinoBoost1"></span> to <span class="neutrinos" id="neutrinoBoost1">1.0</span>.</td>
 						<td id="neutrinoBoostCell2">Neutrinos strengthen the effect of "replicate chance boosts itself" from <span id="preNeutrinoBoost2"></span> to <span class="neutrinos" id="neutrinoBoost2">1.0</span>.<br>(The effect exponent is increased from <span id="preNeutrinoBoost2Exp"></span> to <span class="neutrinos" id="neutrinoBoost2Exp" style="font-size:25px"></span>)</td>
 						<td id="neutrinoBoostCell3">Neutrinos increase the limit of the 14th Dilation upgrade from 3.00x to <span class="neutrinos" id="neutrinoBoost3">3.00</span>x.</td>
->>>>>>> Stashed changes
+
 					</tr>
 					<tr class="neutrinoBoosts" id="neutrinoBoostRow2">
 						<td>Neutrinos make the Infinite Time reward <span class="neutrinos" id="neutrinoBoost4">0.0</span>% stronger.</td>
@@ -5085,15 +4956,9 @@
 						<td id="neutrinoBoostCell6">Neutrinos slow down the Distant Antimatter Galaxy scaling by <span class="neutrinos" id="neutrinoBoost6">0.0</span>%.<br>(Nerfed in Big Rips)</td>
 					</tr>
 					<tr class="neutrinoBoosts" id="neutrinoBoostRow3">
-<<<<<<< Updated upstream
-						<td>In Big Rips, they add the efficiency of Tree Upgrades by <span class="neutrinos" id="neutrinoBoost7">0.0</span>%. (<span id="preNeutrinoBoost7Eff">100.0</span>% to <span class="neutrinos" id="neutrinoBoost7Eff" style="font-size:25px">100.0</span>%)</td>
-						<td id="neutrinoBoostCell8">In Big Rips, they boost first Big Rip upgrade strength by <span class="neutrinos" id="neutrinoBoost8">0.0</span>%.</td>
-						<td id="neutrinoBoostCell9">In Big Rips, they boost IC3 reward strength by <span class="neutrinos" id="neutrinoBoost9">1.00</span>x.</td>
-=======
 						<td>In Big Rips, neutrinos make Tree Upgrades <span class="neutrinos" id="neutrinoBoost7">0.0</span>% more effective. (<span id="preNeutrinoBoost7Eff">100.0</span>% to <span class="neutrinos" id="neutrinoBoost7Eff" style="font-size:25px">100.0</span>%)</td>
 						<td id="neutrinoBoostCell8">In Big Rips, neutrinos make the first Big Rip upgrade <span class="neutrinos" id="neutrinoBoost8">0.0</span>% stronger.</td>
 						<td id="neutrinoBoostCell9">In Big Rips, neutrinos multiply the IC3 reward for each tickspeed purchase by <span class="neutrinos" id="neutrinoBoost9">1.00</span>x.</td>
->>>>>>> Stashed changes
 					</tr>
 					<tr class="neutrinoBoosts" id="neutrinoBoostRow4">
 						<td>Neutrinos decrease the free tickspeed upgrade threshold by <span class="neutrinos" id="neutrinoBoost10"></span>.</td>
@@ -5106,16 +4971,6 @@
 						<td><button id="ghpMultUpg" class="gluonupgrade unavailablebtn" onclick="buyGHPMult()">You gain 2x more GhP.<br>Currently: <span id="ghpMult"></span>x<br>Cost: <span id="ghpMultUpgCost"></span> of any neutrinos</button><br><button class="storebtn" onclick='maxGHPMult()' style='width:190px'>Max GhP mult</button></td>
 					</tr>
 					<tr>
-<<<<<<< Updated upstream
-						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg1" onclick="buyNeutrinoUpg(1)" style="font-size: 10px">Meta-Dimension Boosts cost cheaper.<br>Currently: -<span id="neutrinoUpg1Pow"></span><br>Cost: <span id="neutrinoUpg1Cost"></span> of any neutrinos</button></td>
-						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg2" onclick="buyNeutrinoUpg(2)">Eggons hatch instantly and workers do not consume others.<br>Cost: <span id="neutrinoUpg2Cost"></span> of any neutrinos</button></td>
-						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg3" onclick="buyNeutrinoUpg(3)">Blue power boosts preon charge production.<br>Currently: <span id="neutrinoUpg3Pow"></span>x<br>Cost: <span id="neutrinoUpg3Cost"></span> of any neutrinos</button></td>
-					</tr>
-					<tr>
-						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg4" onclick="buyNeutrinoUpg(4)" style="font-size: 10px">Gain quark spins faster and all branches are faster based on your tickspeed.<br>Currently: <span id="neutrinoUpg4Pow">1.0</span>x<br>Cost: <span id="neutrinoUpg4Cost"></span> of any neutrinos</button></td>
-						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg5" onclick="buyNeutrinoUpg(5)">Triple the Electron gain.<br>Cost: <span id="neutrinoUpg5Cost"></span> of any neutrinos</button></td>
-						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg6" onclick="buyNeutrinoUpg(6)">Disable Remote Antimatter Galaxies scaling!<br>Cost: <span id="neutrinoUpg6Cost"></span> of any neutrinos</button></td>
-=======
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg1" onclick="buyNeutrinoUpg(1)" style="font-size: 10px">Meta-Dimension Boosts cost cheaper, but the cost increases as you get more boosts.<br>Currently: -<span id="neutrinoUpg1Pow"></span><br>Cost: <span id="neutrinoUpg1Cost"></span> of any neutrinos</button></td>
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg2" onclick="buyNeutrinoUpg(2)">Eggons hatch instantly, and workers do not consume other Emperor Dimensions.<br>Cost: <span id="neutrinoUpg2Cost"></span> of any neutrinos</button></td>
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg3" onclick="buyNeutrinoUpg(3)">Blue power boosts preon charge production.<br>Currently: <span id="neutrinoUpg3Pow"></span>x<br>Cost: <span id="neutrinoUpg3Cost"></span> of any neutrinos</button></td>
@@ -5124,7 +4979,6 @@
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg4" onclick="buyNeutrinoUpg(4)" style="font-size: 10px">Gain quark spins faster, and all branches are faster based on your tickspeed.<br>Currently: <span id="neutrinoUpg4Pow">1.0</span>x<br>Cost: <span id="neutrinoUpg4Cost"></span> of any neutrinos</button></td>
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg5" onclick="buyNeutrinoUpg(5)">Triple the Electron gain.<br>Cost: <span id="neutrinoUpg5Cost"></span> of any neutrinos</button></td>
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg6" onclick="buyNeutrinoUpg(6)">Disable the Remote Antimatter Galaxy scaling!<br>Cost: <span id="neutrinoUpg6Cost"></span> of any neutrinos</button></td>
->>>>>>> Stashed changes
 					</tr>
 					<tr>
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg7" onclick="buyNeutrinoUpg(7)" style="font-size: 10px">Green power boosts odd Emperor Dimensions and preon charge production.<br>Currently: <span id="neutrinoUpg7Pow"></span>x<br>Cost: <span id="neutrinoUpg7Cost"></span> of any neutrinos</button></td>
@@ -5137,11 +4991,7 @@
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg12" onclick="buyNeutrinoUpg(12)" style="font-size: 10px">In Big Rips, each galaxy type boosts different aspects.<br>Hover to see your current effects<br>Cost: <span id="neutrinoUpg12Cost"></span> of any neutrinos</button></td>
 					</tr>
 					<tr id="gphRow">
-<<<<<<< Updated upstream
-						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg13" onclick="buyNeutrinoUpg(13)">100 RG upgrade doesn't nerf 100 BR upgrade.<br>Cost: <span id="neutrinoUpg13Cost"></span> of any neutrinos</button></td>
-=======
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg13" onclick="buyNeutrinoUpg(13)">The 100 RG upgrade doesn't nerf the 100 BR upgrade.<br>Cost: <span id="neutrinoUpg13Cost"></span> of any neutrinos</button></td>
->>>>>>> Stashed changes
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg14" onclick="buyNeutrinoUpg(14)" style="font-size: 10px">Gain more neutrinos based on your GhP and color powers.<br>Currently: <span id="neutrinoUpg14Pow"></span>x<br>Cost: <span id="neutrinoUpg14Cost"></span> of any neutrinos</button></td>
 						<td><button class="gluonupgrade unavailablebtn" id="neutrinoUpg15" onclick="buyNeutrinoUpg(15)">Your Nanofield rewards speed up Nanofield.<br>Currently: <span id="neutrinoUpg15Pow"></span>x<br>Cost: <span id="neutrinoUpg15Cost"></span> of any neutrinos</button></td>
 					</tr>
@@ -5242,11 +5092,7 @@
 						<td id="autoGhost13"><div class="autoBuyerDiv" style="display:block">
 							<b>Auto-Big Rip Ghost</b><br>
 							Power usage: 0.5<br>
-<<<<<<< Updated upstream
-							Big Rip in <input id="autoGhost13t" onchange="changeAutoGhost('13t')"></input> seconds after you go quantum and undo the Big Rip after <input id="autoGhost13u" onchange="changeAutoGhost('13u')"></input> seconds.<br>
-=======
 							Big Rip in <input id="autoGhost13t" onchange="changeAutoGhost('13t')"></input> seconds after quantum, and undo the Big Rip after <input id="autoGhost13u" onchange="changeAutoGhost('13u')"></input> seconds.<br>
->>>>>>> Stashed changes
 							Is active: <input id="isAutoGhostOn13" type="checkbox" onchange="toggleAutoGhost(13)"></input>
 						</div></td>
 						<td id="autoGhost14"><div class="autoBuyerDiv" style="display:block">
@@ -5264,24 +5110,6 @@
 				</table>
 			</div>
 			<div id="bravemilestones" class="ghostifytab">
-<<<<<<< Updated upstream
-				<div>Get # of quantumed stat at or below the requirement and then become a ghost for a reward!</div>
-				<table style="margin: auto">
-					<tr id="braveRow1">
-						<td><div id="braveMilestone1" class="achievement achievementlocked"></div></td>
-						<td><div id="braveMilestone2" class="achievement achievementlocked" ach-tooltip="Reward: Colored quarks do not cancel, you keep your gluon upgrades, you can quick Big Rip (as long as you have the electron requirement for PC6+8), and completing an Eternity Challenge doesn't respec your time studies."></div></td>
-						<td><div id="braveMilestone3" class="achievement achievementlocked" ach-tooltip="Reward: You keep Electron upgrades."></div></td>
-						<td><div id="braveMilestone4" class="achievement achievementlocked" ach-tooltip="Reward: Tachyon particles don't reset on Quantum except when entering a QC, unstabilizing quarks don't reset colored quarks, and you start with 5 purchases of the 1st branch upgrade in each colored branch."></div></td>
-						<td><div id="braveMilestone5" class="achievement achievementlocked" ach-tooltip="Reward: Meta-Dimension Boosts don't reset on Quantum except when entering a QC or exiting Big Rip."></div></td>
-						<td><div id="braveMilestone6" class="achievement achievementlocked" ach-tooltip="Reward: Normal replicants don't reset on Quantum except when entering a QC or exiting Big Rip."></div></td>
-						<td><div id="braveMilestone7" class="achievement achievementlocked" ach-tooltip="Reward: Start with 10 worker replicants on Ghostify, and you keep Neutrinos."></div></td>
-						<td><div id="braveMilestone8" class="achievement achievementlocked" ach-tooltip="Reward: You produce ^0.5 of quarks, ^0.5 of gluons and 1% of Space Shards gained on Quantum per second."></div></td>
-					</tr>
-					<tr id="braveRow2">
-						<td><div id="braveMilestone9" class="achievement achievementlocked" ach-tooltip="Reward: Start Ghostifies with 10 of each one of first 2 Emperor Dimensions."></div></td>
-						<td><div id="braveMilestone10" class="achievement achievementlocked" ach-tooltip="Reward: Start Ghostifies with 10 of each one of first 4 Emperor Dimensions."></div></td>
-						<td><div id="braveMilestone11" class="achievement achievementlocked" ach-tooltip="Reward: Start Ghostifies with 10 of each one of first 6 Emperor Dimensions."></div></td>
-=======
 				<div>Get # of quantumed stat at or below the requirement, and then become a ghost for a reward!</div>
 				<table style="margin: auto">
 					<tr id="braveRow1">
@@ -5372,7 +5200,7 @@
 							Violet Light strength is currently <span class="uv" id="lightStrength7" style="font-size:35px"></span>x.
 						</td>
 					</tr></table>
-					<button class="gluonupgrade gph" id="lightEmpowerment" onclick="lightEmpowerment()">Gain 1 Light Empowerment, but become a ghost and reset this mechanic.<br>(requires <span id="lightEmpowermentReq"></span> ultraviolet light.)</button><br>
+					<button class="gluonupgrade gph" id="lightEmpowerment" onclick="lightEmpowerment()">Gain 1 Light Empowerment, but become a ghost and reset your Photons.<br>(requires <span id="lightEmpowermentReq"></span> ultraviolet light.)</button><br>
 					You have <span class="ghr" id="lightEmpowerments" style="font-size:35px">0</span> Light Empowerments.<br>
 					Translated to +<span class="ghr" id="lightEmpowermentsEffect" style="font-size:35px"></span>x multiplier to all Light strength boosts.<br>
 				</div>
@@ -5420,7 +5248,7 @@
 						<table class='qtable'><tr>
 							<td>
 								You have <span id="wpb" style="font-size:35px"></span> W+ Bosons and <span id="wnb" style="font-size:35px"></span> W- Bosons.<br>
-								Translated to <span id="wbTime" style="font-size:35px"></span>x faster extracting time, <span id="wbOscillate" style="font-size:35px"></span>x faster oscillate progression gain, <span id="wbProduction" style="font-size:35px"></span>x Bosonic Antimatter production speed.
+								Translated to <span id="wbTime" style="font-size:35px"></span>x faster extracting time, <span id="wbOscillate" style="font-size:35px"></span>x faster oscillate progression gain, and <span id="wbProduction" style="font-size:35px"></span>x Bosonic Antimatter production speed.
 							</td>
 							<td></td>
 							<td>
@@ -5449,6 +5277,17 @@
 					</div>
 				</div>
 			</div>
+			<div id="hbtab" class="ghostifytab">
+				<div id="hbUnl">You need to get e19 Bosonic Antimatter to unlock Higgs.</div>
+				<button class="higgsReset" id="higgsReset">This is a test</button>
+				<div id="hbConvertSave" style="font-size: 16px;"><br>Congratulations! You have reached the end of NG+3L, up to the W and Z Bosons update!
+				<br>Normally, there would be a requirement for the next mechanic to unlock here.
+				<br>However, since the NG+3.1 update, it has been decided that all future content changes to NG+3 will be done on NG+3.1, because of the massive rebalancing necessary to make the game better.
+				<br>It is necessary to migrate your save to NG+3.1 if you want to continue playing on this save. Be aware that NG+3.1 is in its testing phase, so report all bugs if you see them!
+				<br>
+				<button class="storebtn" style="font-size: 24px; width: 200px; height: 100px;" onclick="exitLegacy()">Migrate to NG+3.1</button>
+				</div>
+			</div>
 			<div id="footercontainer">
 				<table id="footer">
 					<tr>
@@ -5465,16 +5304,17 @@
 		</div>
 	</div>
 	<div class="popup" id="challfail">
+		<div id="failPopup">You failed the challenge, so you will now exit it.</div>
 		<button class="storebtn" style="font-size: 15px" onclick="closeToolTip()" style="display: inline">Okay</button>
 	</div>
 	<div class="popup" id="stuck" style="height: 180px; width: 480px">
-		If you are stuck in this loading screen, I recommend you to do one of these actions.<br>
+		If this loading screen is appearing longer than usual, you may need to try the following:<br>
 		<button class="storebtn" style="font-size: 15px" onclick="document.location.reload(true)" style="display: inline">Reload</button>
 		<button class="storebtn" style="font-size: 15px" onclick="export_save()" style="display: inline">Export</button>
 		<button class="storebtn" style="font-size: 15px" onclick="import_save('new')" style="display: inline">Import</button><br>
 		<button class="storebtn" style="font-size: 15px" onclick="load_saves()" style="display: inline">Load</button>
 		<button class="storebtn" style="font-size: 15px" onclick="reset_game()" style="display: inline">Reset</button><br>
-		You may want to check the console for errors (press F12 to view them). If there is any errors, the game won't load. Please hard reset (Ctrl+F5) when a new patch is applied to fix the errors.
+		You may need to check the console for errors (press F12 to view them). If there are any errors, the game won't load, and it is advised to report the bug. Please hard reset (Ctrl+F5) when a new patch is applied to fix the errors.
 	</div>
 	<div class="popup optionmenu" id="welcome">
 		<div><text id="welcomeMessage"></text></div>
@@ -5522,7 +5362,7 @@
 		<button class="closebtn storebtn" onclick="closeToolTip()">&times;</button>
 		<div class="scrollablemenu">
 			<button id="floatingTextAnimBtn" class="storebtn" onclick="animationOnOff('floatingText')" style="width: 200px; height: 55px; font-size: 15px" style="display: inline"></button>
-			<button id="bigCrunchAnimBtn" class="storebtn" onclick="animationOnOff('bigCrunch')" style="width: 200px; height: 55px; font-size: 15px" style="display: inline" ach-tooltip="Click here while holding shift to toggle this option to always! (except some conditions)"></button>
+			<button id="bigCrunchAnimBtn" class="storebtn" onclick="animationOnOff('bigCrunch')" style="width: 200px; height: 55px; font-size: 15px" style="display: inline" ach-tooltip="Click here while holding shift to toggle this option to always! (except in some conditions)"></button>
 			<button id="tachyonParticleAnimBtn" class="storebtn" onclick="animationOnOff('tachyonParticles')" style="width: 200px; height: 55px; font-size: 15px" style="display: inline"></button>
 			<button id="blackHoleAnimBtn" class="storebtn" onclick="animationOnOff('blackHole')" style="width: 200px; height: 55px; font-size: 15px" style="display: inline"></button>
 			<button id="quarksAnimBtn" class="storebtn" onclick="animationOnOff('quarks')" style="width: 200px; height: 55px; font-size: 15px" style="display: inline"></button>

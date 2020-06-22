@@ -255,11 +255,7 @@ const secretAchievementTooltips = {
 	ng3ps16 : 'Press the "Continue to mastery studies." button or the "Lead back to time studies." button at least 200 times in total.',
 	ng3ps17 : "Manually extract 20 runes in the row, all in 1 game tick for each rune.",
 	ng3ps18 : "Be in 20 unique challenges at the same time.",
-<<<<<<< Updated upstream
-	ng3ps21 : "Import Zombify, which is a cancelled layer.",
-=======
 	ng3ps21 : "Import Zombify, a cancelled prestige layer.",
->>>>>>> Stashed changes
 	ng3ps22 : "Read 400 unique news tickers.",
 	ng3ps23 : "You have a 1/1,000,000 chance of getting this achievement every time you press a key.",
 	ng3ps24 : "Become a ghost with at least 1,000x quantumed stat after getting all Brave Milestones.",

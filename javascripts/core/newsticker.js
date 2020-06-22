@@ -324,11 +324,7 @@ newsArray = [//always true
 ["There is no 0x Brave Milestone because no one talks about it.", "ghostified", "am170"],
 ["Meta-infinity was proven to be possible. We can now big crunch in our big crunches.", "player.break", "am171"],
 [":egg:", true, "am172"],
-<<<<<<< Updated upstream
-["We reported that the Supreme Leader of Ninth Dimension, Nina, is dead. Or he became a ghost?", "player.resets >= 5 || player.galaxies > 0", "am173"],
-=======
-["We reported that the Supreme Leader of Ninth Dimension, Nina, is dead... or did he become a ghost?", "player.resets >= 5 || player.galaxies > 0", "am173"],
->>>>>>> Stashed changes
+["It has been reported that the Supreme Leader of Ninth Dimension, Nina, is dead... or did he become a ghost?", "player.resets >= 5 || player.galaxies > 0", "am173"],
 ["1.7e308 people have realised that there is only 8 dimensions. They are on the hunt for the ninth.", "player.resets >= 5 || player.galaxies > 0", "am174"],
 ["300 news messages and counting? Wow. You are so addicted.", "player.newsArray.length >= 300", "am175"],
 ["You have read over meta^-1-Infinity unique news ticker messages! What a great milestone!", "player.newsArray.length > 308", "am176"],
@@ -338,14 +334,8 @@ newsArray = [//always true
 ["aarex has retired back to his cave after apeasing the masses with the higgs boson", false, "am180"],
 ["We launched a mission rocket to land on a ghostly moon.", false, "am181"],
 ["BREAKING NEWS! After the killing of a antimatter person, antimatter people started protesting!", false, "am182"],
-<<<<<<< Updated upstream
 ["Antimatter people protests have been extremely intensified!", false, "am183"]
 /*NEXT ID: am184*/
-=======
-["Antimatter people protests have been extremely intensified!", false, "am183"],
-//["Long ago, there lived Hevi, the ruler of antimatter. He created the Antimatter Dimensions, then created the theories of Infinity and Eternity. His work brought many people together. Many joined him on his quest to reach reality, but only some stayed. However, it was not easy. They would face 7 celestials, which would take a long time to defeat. Meanwhile, many people began to become curious about what they can do with what they were given. Some waited, while some changed the logic of the dimensions to their will. They called these modifications, exploring what we could do with what we had by ourselves. These became immensely popular, but eventually grew in infamy. NG+3 was born by Aarex. In the beginning, it seemed promising, but it got slower. The community disliked it, so he, Aarex, fixed it. Many were satisfied, but more problems kept going on. This caused an outbreak of destruction. Many incidents happened within these times, that it isn't easily explainable. These events sparked a new creation: NG+3.1. It was made to undo what was damaged and return the world to what it once was. For many months, development was linear... and many got tired and left, but some of the most dedicated waited. Eventually, Aarex could no longer do it alone. His old power was fading. Then, one emerging developer began to request to help. He had been asking for a while, until it finally happened. He finally had the power to change the future and restore the balance, and it brought hope to everyone, that one day, the awaited proposal would finally release. This was his mission.", true, "am184"]
-/*NEXT ID: am185*/
->>>>>>> Stashed changes
 ];}
 
 document.addEventListener("visibilitychange", function() {if (!document.hidden) {scrollNextMessage();}}, false);
@@ -475,12 +465,7 @@ ghostlyNewsArray = [//Ghostly news ticker messages
 ["Ghostify is just Quantum but spooky.", true, "gn56"],
 ["Void-Preontius, the Void Ultra-Omnipotent Ghost, decided to take over not only the Barrel... He took over the Barrel!", "tmp.qu.nanofield.apgWoke", "gn57"],
 ["GHOST IS YOU", true, "gn58"],
-<<<<<<< Updated upstream
 ["Error 404: Ghost Matter not found", true, "gn59"]
-=======
-["Error 404: Ghost Matter not found", true, "gn59"],
-["A new secret project is being worked on!", true, "gn60"]
->>>>>>> Stashed changes
 ];}
 
 var ghostlyNewsTickerCache = false

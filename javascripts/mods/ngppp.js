@@ -312,10 +312,7 @@ var quantumTabs = {
 				document.getElementById("quarkChargeRate").textContent=shortenDimensions(getQuarkChargeProduction())
 				document.getElementById("quarkLoss").textContent=shortenDimensions(getQuarkLossProduction())
 				document.getElementById("quarkEnergy").textContent=shortenMoney(tmp.qu.nanofield.energy)
-<<<<<<< Updated upstream
-=======
 				document.getElementById("quarkEnergyNanofield").textContent=shortenMoney(tmp.qu.nanofield.energy)
->>>>>>> Stashed changes
 				document.getElementById("quarkEnergyRate").textContent=shortenMoney(getQuarkEnergyProduction())
 				document.getElementById("quarkPower").textContent=getFullExpansion(tmp.qu.nanofield.power)
 				document.getElementById("quarkPowerThreshold").textContent=shortenMoney(tmp.qu.nanofield.powerThreshold)
@@ -329,11 +326,7 @@ var quantumTabs = {
 					document.getElementById("nfRewardHeader" + reward).textContent = (rewards % 8 + 1 == reward ? "Next" : DISPLAY_NAMES[reward]) + " reward"
 					document.getElementById("nfRewardTier" + reward).textContent = "Tier " + getFullExpansion(Math.ceil((rewards + 1 - reward) / 8)) + " / Power: " + getNanofieldRewardTier(reward, rewards).toFixed(1)
 				}
-<<<<<<< Updated upstream
-				document.getElementById("nfReward1").textContent = hasBosonicUpg(21) ? "Dimension Supersonic scaling starts " + getFullExpansion(getNanofieldRewardEffect(1, "supersonic")) + " later." :
-=======
 				document.getElementById("nfReward1").textContent = hasBosonicUpg(21) ? "Dimension Supersonic scaling starts " + getFullExpansion(getNanofieldRewardEffect(1, "supersonic")) + " boosts later." :
->>>>>>> Stashed changes
 					"Hatch speed is " + shortenDimensions(getNanofieldRewardEffect(1, "speed")) + "x faster."
 				document.getElementById("nfReward2").textContent = "Meta-antimatter effect power is increased by ^" + getNanofieldRewardEffect(2).toFixed(1) + "."
 				document.getElementById("nfReward3").textContent = "Free galaxy gain is increased by " + (getNanofieldRewardEffect(3)*100-100).toFixed(1) + "%."
@@ -345,11 +338,7 @@ var quantumTabs = {
 					" and the production of preon charge is " + shortenMoney(getNanofieldRewardEffect(7, "charge")) + "x faster."
 				document.getElementById("nfReward8").textContent = "Add " + getNanofieldRewardEffect(8, "per-10").toFixed(2) + "x to multiplier per ten dimensions before getting affected by electrons and the production of preon energy is " + shortenMoney(getNanofieldRewardEffect(8, "energy")) + "x faster."
 
-<<<<<<< Updated upstream
-				document.getElementById("ns").textContent = ghostified || tmp.ns.neq(1) ? "Nanofield speed multiplier is currently "+shorten(tmp.ns)+"x." : ""
-=======
 				document.getElementById("ns").textContent = ghostified || tmp.ns.neq(1) ? "The Nanofield speed multiplier is currently "+shorten(tmp.ns)+"x." : ""
->>>>>>> Stashed changes
 			}
 			if (document.getElementById("antipreon").style.display == "block") {
 				document.getElementById("rewards_AP").textContent = getFullExpansion(rewards)
@@ -399,11 +388,7 @@ var quantumTabs = {
 				}
 				setAndMaybeShow("treeUpgradeEff",ghostified,'"Tree upgrade efficiency: "+(tmp.tue*100).toFixed(1)+"%"')
 			}
-<<<<<<< Updated upstream
-			document.getElementById("todspeed").textContent = todspeed !== 1 ? "ToD speed multiplier is currently "+shorten(todspeed)+"x." : ""
-=======
 			document.getElementById("todspeed").textContent = todspeed !== 1 ? "The ToD speed multiplier is currently "+shorten(todspeed)+"x." : ""
->>>>>>> Stashed changes
 		}
 	}
 }
@@ -485,7 +470,7 @@ function toggleAllMetaDims() {
 function sacrificeGalaxy(auto=false) {
 	var amount=player.galaxies-tmp.qu.electrons.sacGals
 	if (amount<1) return
-	if (player.options.sacrificeConfirmation&&!auto) if (!confirm("Sacrificing your galaxies will perform a galaxy reset, but you will exchange all your galaxies to electrons, which will give a boost to the multiplier per ten dimensions.")) return
+	if (player.options.sacrificeConfirmation&&!auto) if (!confirm("You will perform a galaxy reset, but you will exchange all your galaxies to electrons which will give a boost to multiplier per ten dimensions.")) return
 	tmp.qu.electrons.sacGals+=amount
 	tmp.qu.electrons.amount+=getELCMult()*amount
 	if (!tmp.qu.autoOptions.sacrifice) updateElectronsEffect()
@@ -524,7 +509,7 @@ function updateElectrons(retroactive) {
 	if (!tmp.qu.autoOptions.sacrifice) updateElectronsEffect()
 	for (u=1;u<5;u++) {
 		var cost=getElectronUpgCost(u)
-		document.getElementById("electronupg"+u).innerHTML="Upgrade the multiplier with "+([null,"time theorems","dilated time","meta-antimatter","meta-dimension boosts"])[u]+".<br>Cost: "+(u>3?getFullExpansion(getElectronUpgCost(u)):shortenCosts(getElectronUpgCost(u)))+([null," TT"," DT"," MA"," MDB"])[u]
+		document.getElementById("electronupg"+u).innerHTML="Upgrade multiplier with "+([null,"time theorems","dilated time","meta-antimatter","meta-dimension boosts"])[u]+".<br>Cost: "+(u>3?getFullExpansion(getElectronUpgCost(u)):shortenCosts(getElectronUpgCost(u)))+([null," TT"," DT"," MA"," MDB"])[u]
 	}
 }
 
@@ -616,11 +601,7 @@ function updateQuantumChallenges() {
 		document.getElementById(property+"goal").textContent="Goal: "+shortenCosts(Decimal.pow(10,getQCGoal(qc)))+" antimatter"
 	}
 	document.getElementById("qc2reward").textContent = Math.round(getQCReward(2)*100-100)
-<<<<<<< Updated upstream
-	document.getElementById("qc7desc").textContent="Dimension and tickspeed cost multiplier increases are "+shorten(Number.MAX_VALUE)+"x. Multiplier per ten Dimensions and meta-Antimatter boost to Dimension Boosts are disabled."
-=======
-	document.getElementById("qc7desc").textContent="The dimension and tickspeed cost multiplier increases are "+shorten(Number.MAX_VALUE)+"x. Multiplier per ten-dimensions is 1x, and meta-antimatter has no effect."
->>>>>>> Stashed changes
+	document.getElementById("qc7desc").textContent="Dimension and tickspeed cost multiplier increases are "+shorten(Number.MAX_VALUE)+"x. Multiplier per ten-dimensions is 1x, and meta-antimatter has no effect."
 	document.getElementById("qc7reward").textContent = (100-getQCReward(7)*100).toFixed(2)
 	document.getElementById("qc8reward").textContent = getQCReward(8)
 }
@@ -872,7 +853,7 @@ function fillAll() {
 		updateTheoremButtons()
 		updateTimeStudyButtons()
 		drawStudyTree()
-		if (player.timestudy.studies.length > 56) $.notify("All studies in the time study tab have been purchased.")
+		if (player.timestudy.studies.length > 56) $.notify("All studies in the time study tab are now filled.")
 	}
 }
 
@@ -2362,11 +2343,7 @@ function ghostify(auto, force) {
 		denyGhostify()
 		return
 	}
-<<<<<<< Updated upstream
-	if (!ghostified && (!confirm("Are you sure you want to do that? You will lose everything you have!") || !confirm("ARE YOU REALLY SURE YOU WANT TO DO THAT? YOU CAN'T UNDO THIS AFTER YOU BECAME A GHOST AND PASS THE UNIVERSE EVEN IT IS BIG RIPPED! THIS IS YOUR LAST CHANCE!"))) {
-=======
 	if (!ghostified && (!confirm("This is just one more confirmation to make sure you're prepared. Once you ghostify, it will take time to recover. Are you ready?"))) {
->>>>>>> Stashed changes
 		denyGhostify()
 		return
 	}
@@ -2409,13 +2386,9 @@ function ghostifyReset(implode, gain, amount, force) {
 		player.ghostify.last10[0] = [player.ghostify.time, gain]
 		player.ghostify.times = nA(player.ghostify.times, bulk)
 		player.ghostify.best = Math.min(player.ghostify.best, player.ghostify.time)
-<<<<<<< Updated upstream
-		while (tmp.qu.times<=tmp.bm[player.ghostify.milestones]) player.ghostify.milestones++
-=======
 		if (player.ghostify.times != 1) { // to prevent people from getting brave milestones too early
 		while (tmp.qu.times<=tmp.bm[player.ghostify.milestones]) player.ghostify.milestones++
 		}
->>>>>>> Stashed changes
 	}
 	if (tmp.qu.bigRip.active) switchAB()
 	var bm = player.ghostify.milestones
@@ -3805,11 +3778,7 @@ var qcm={
 	},
 	descs:{
 		ad:"You always have no Tachyon particles. You can dilate time, but you can't gain Tachyon particles.",
-<<<<<<< Updated upstream
-		sm:"You can't have normal time studies and more than 20 normal mastery studies."
-=======
 		sm:"You cannot use normal time studies, and have no more than 20 mastery studies."
->>>>>>> Stashed changes
 	},
 	on:[]
 }
@@ -3855,12 +3824,6 @@ function gainNeutrinos(bulk,type) {
 
 //Bosonic Lab
 function updateBLUnlocks() {
-	let unl=player.ghostify.wzb.unl
-	document.getElementById("blUnl").style.display=unl?"none":""
-	document.getElementById("blDiv").style.display=unl?"":"none"
-	document.getElementById("nftabs").style.display=unl?"":"none"
-}
-function updateHiggsUnlocks() {
 	let unl=player.ghostify.wzb.unl
 	document.getElementById("blUnl").style.display=unl?"none":""
 	document.getElementById("blDiv").style.display=unl?"":"none"
@@ -4127,17 +4090,10 @@ function updateEnchantDescs() {
 	document.getElementById("usedEnchants").textContent="You have used "+data.usedEnchants.length+" / "+bEn.limit+" Bosonic Enchant slots."
 }
 
-<<<<<<< Updated upstream
-var br={
-	names:[null, "Infinity", "Eternity", "Quantum", "Ghostly", "Ethereal", "Sixth", "Seventh", "Eighth", "Ninth"], //Current maximum limit of 9.
-	limit:3,
-	scalings:{
-=======
 var br={ // bosonic runes
 	names:[null, "Infinity", "Eternity", "Quantum", "Ghostly", "Ethereal", "Sixth", "Seventh", "Eighth", "Ninth"], //Current maximum limit of 9.
 	limit:3,
 	scalings:{ // the base amount of time a bosonic rune will take to be extracted in seconds
->>>>>>> Stashed changes
 		1: 60,
 		2: 120,
 		3: 600
@@ -4236,7 +4192,7 @@ function updateBosonicUpgradeDescs() {
 
 var bu={ // bosonic upgrades
 	rows:2, // how many rows of bosonic upgrades there are
-	costs:{ // runes are required, bosonic antimatter is deducted
+	costs:{ // the runes are required, but bosonic antimatter is deducted.
 		11: {
 			am: 200, // bosonic antimatter
 			g1: 200, // infinity rune
@@ -4411,24 +4367,15 @@ function displayNonlegacyStuff() {
 	for (var r=3;r<=bu.maxRows;r++) document.getElementById("bUpgRow"+r).style.display=tmp.ngp3l?"none":""
 }
 
-<<<<<<< Updated upstream
-function exitLegacy() {
-	if (!confirm("This ends the legacy mode, a.k.a. NG+3L, and bring you into NG+3.1. Are you sure?")) return
-=======
 function exitLegacy() { // convert NG+3L to NG+3.1
 	if (!confirm("This will migrate your current NG+3L (legacy) save into NG+3.1. This process is irreversible, so it is recommended you create a backup of your current save by exporting. Are you sure you want to migrate?")) return
->>>>>>> Stashed changes
 	clearInterval(gameLoopIntervalId)
 	delete player.aarexModifications.ngp3lV
 	set_save(metaSave.current, player)
 	reload()
 }
 
-<<<<<<< Updated upstream
-function getOldAgeRequirement() {
-=======
 function getOldAgeRequirement() { // this will decide the requirement of the Old Age achievement
->>>>>>> Stashed changes
 	let year = new Date().getFullYear() || 2020
 	if (tmp.ngp3l) year = 2019
 	return Decimal.pow(10, 3 * 86400 * 365.2425 * year)
@@ -4445,11 +4392,7 @@ function getNanofieldRewardTier(reward, rewards) {
 	return x
 }
 
-<<<<<<< Updated upstream
-function getTreeUpgradeEfficiency(mod) {
-=======
 function getTreeUpgradeEfficiency(mod) { // get the tree upgrade multiplier
->>>>>>> Stashed changes
 	let r=1
 	if (player.ghostify.neutrinos.boosts>6&&(tmp.qu.bigRip.active||mod=="br")&&mod!="noNB") r+=tmp.nb[6]
 	if (player.achievements.includes("ng3p62")&&tmp.qu.bigRip.active&&!tmp.be&&!tmp.ngp3l) r+=0.5

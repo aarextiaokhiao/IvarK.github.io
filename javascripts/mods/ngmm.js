@@ -504,11 +504,7 @@ let galMults = {
 	},
 	u23: function() {
 		let x=player.galacticSacrifice.galaxyPoints.max(1).log10()*3/4+1
-<<<<<<< Updated upstream
-		if (!tmp.ngp3l&&player.achievements.includes("r138")) x*=player.dilation.bestIP.add(10).log10()
-=======
 		if (!tmp.ngp3l&&player.achievements.includes("r138")) x*=Decimal.add(player.dilation.bestIP,10).log10()
->>>>>>> Stashed changes
 		return x
 	},
 	u33: function() {
