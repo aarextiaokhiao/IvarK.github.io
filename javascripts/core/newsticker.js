@@ -71,7 +71,7 @@ newsArray = [//always true
 ["Ahhh i love the smell of particle annihilation in the morning", true, "a134"],
 ["The person who said ghosts don't exist obviously doesn't have a discord", true, "a135"],
 ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAntimatter Dimensions was made by some dude from Finland", true, "a136"],
-['The Holy trinity of Hevipelle, Antimatter, Infinity Points, and Eternity Points. These 3 resources let us access Hevi’s gift, Time Theorems. And with these Time Theorems, we reach out to Hevi, and call, “Hevi, bless us on this fine day!” And Hevi does. He give us the blessing of Time Studies. These Time Studies were blessings so powerful, Hevi restricted their power. He said, “ I will give you a choice of three paths” and then humanity chose. The short, cheap route of Normal Dimensions, giving instant gratification, the powerful choice of Infinity Dimensions, which were a fast, middle ground path, or Time Dimension, the long wait, and struggle, of humanity. Then, as humanity chose, a crack broke the earth. A serpent snaked out and sneered to humanity, “I will offer the powerful choice of a ninth dimension! I am Slabdrill, lord of all Unhevi. Humanity rose and said “ Begone Slabdrill! We want none of your foul Heresy!” And Hevi rose as well, and smote Slabdrill with his godlike power. As Slabdrill’s corpse fell into the earth, he cried “ this will not be the last of me! Hevi will betr-“ and he fell in the Abyss of matter. Hevi gifted humanity with Eternity upgrades, which boosted infinity dimensions and time dimensions. And Hevi gave humanity his greatest gift . EP multipliers. He said, these will multiply all EP gained by 5, but their cost will increase 25 times. Use them wisely. And Humanity journeyed off with their new power, as Slabdrill’s words echoed in their heads.', true, "a137"],
+['The Holy Trinity of Hevipelle: Antimatter, Infinity Points, and Eternity Points. These 3 resources let us access Hevi’s gift, Time Theorems. With these Time Theorems, we reach out to Hevi, and call, “Hevi, bless us on this fine day!”, and Hevi does. He give us the blessing of Time Studies. These Time Studies were blessings so powerful, Hevi restricted their power. He said, "I will give you a choice of three paths", and then humanity chose. The short, cheap route of Normal Dimensions, giving instant gratification, the powerful choice of Infinity Dimensions, which were a fast, middle ground path, or Time Dimensions, the long wait and struggle of humanity. Then, as humanity chose, a crack broke in the earth. A serpent snaked out and sneered to humanity, "I will offer the powerful choice of a ninth dimension! I am Slabdrill, lord of all Unhevi." Humanity rose, and said "Begone Slabdrill! We want none of your foul Heresy!", and Hevi rose as well, and smote Slabdrill with his godlike power. As Slabdrill’s corpse fell into the earth, he cried "this will not be the last of me! Hevi will betr-", and he fell in the Abyss of Matter. Hevi gifted humanity with Eternity Upgrades, which boosted Infinity Dimensions and Time Dimensions, and Hevi gave humanity his greatest gift. EP multipliers. He said, "these will multiply all EP gained by 5, but their cost will increase 25 times. Use them wisely.", and Humanity journeyed off with their new power, as Slabdrill’s words echoed in their heads.', true, "a137"],
 ["We have updated our Antimatter Privacy Policy.", true, "a138"],
   
 // Patreon ones
@@ -122,7 +122,7 @@ newsArray = [//always true
 ["Somebody told me to wait five hours for the update yesterday but it's today and it still hasn't come! What do I do?", 'player.newsArray.includes("a91") && player.totalTimePlayed >= 600*300', "n8"],
 //hard
 ["You do know that you won't reach Infinity in -1 seconds, right?", "player.bestInfinityTime == 0.1", "c1"],
-["Where does Antimatter Nemo live? In a NNnNeMI-NNnNe.", "player.totalmoney.e >= 3e6", "c2"],  //might not be poss?
+["Where does Antimatter Nemo live? In a NNnNeMI-NNnNe.", "player.totalmoney.e >= 3e6", "c2"],
 ["Anti Emoji Movie MMMCMXCIX is a major hit!", "player.spreadingCancer >= 3999", "c3"],
 ["Achievement Unlocked!", "player.achievements.length == 88", "c4"],
 ["Did you use an autoclicker for that?", "player.timestudy.studies.includes(131) && player.thisInfinityTime <= 600 && player.replicanti.galaxies >= 50", "c5"],
@@ -152,19 +152,20 @@ newsArray = [//always true
 ["Whale is bad at making smart purchases.", "kongIPMult > 500 && kongDimMult < 5e307", "s4"],
 ["Whale complains that the game broke.", "kongDimMult > 5e307", "s5"],
 ["Whale complains that their buying isn't doing anything.", "kongIPMult > 1.8e16", "s6"],
+
 //Aarex's Modifications
 ["A brave man tried NG- and NG-- modes at the same time, but he will be dead before he would complete this mode.", 'player.aarexModifications.newGameMinusVersion && player.galacticSacrifice', "am1"],
 ["You would be dead if you started writing down your antimatter amount", 'player.money.gt(Decimal.pow(10, 3 * 86400 * 365.2425 * 79.3 / 10))', "am2"],
 ["If you just broke the game, the psychic helper wants you to reset the game.", 'isNaN(break_infinity_js ? player.money.logarithm : player.money)', "am3"],
 ["I wish I would create NG+++ while dan-simon is currently updating NG++ every day.", 'player.meta', "am4"],
 ["I failed to big crunch for sacrificing my galaxies only.", 'player.galacticSacrifice', "am5"],
-["Did you just do 4 modes at once? Impossible!", 'player.aarexModifications.newGameMinusVersion && player.galacticSacrifice && player.aarexModifications.newGamePlusVersion && player.meta', "am6"],
+["You're trying four modes at once? Impossible!", 'player.aarexModifications.newGameMinusVersion && player.galacticSacrifice && player.aarexModifications.newGamePlusVersion && player.meta', "am6"],
 ["You are a ghost now!", 'player.money.gt(Decimal.pow(10, 3 * 86400 * 365.2425 * 79.3))', "am7"],
 ["another aarex masterpiece ~ Spanosa", true, "am8"],
 ["In dan-simon's version, only this achievement was enough to break the game.", 'player.achievements.includes("ngpp7")', "am9"],
 ["Is there meta-infinity?", '(player.meta ? player.meta.bestAntimatter.gte(Number.MAX_VALUE) : false)', "am10"],
 ["NG++-+- was confirmed.", 'player.masterystudies', "am11"],
-["You wanted a prestige layer so here you go.", 'player.galacticSacrifice && player.eternities > (player.aarexModifications.newGameMinusVersion?-20:0)', "am12"],
+["You wanted a prestige layer, so here you go.", 'player.galacticSacrifice && player.eternities > (player.aarexModifications.newGameMinusVersion?-20:0)', "am12"],
 ["You are challenging in a challenge in a challenge. Challenge-ception.", "player.currentChallenge != '' && player.currentEternityChall != '' && !inQC(0)", "am13"],
 ["New updates are coming in a day, not 5 hours. Sorry, jokers!", true, "am14"],
 ["Whale complained that matter and antimatter are balanced and the universe would not be existed.", true, "am15"],
@@ -179,11 +180,11 @@ newsArray = [//always true
 ["Did you know that NG-3 nerfs NG-- to make short runs longer?", "player.tickspeedBoosts != undefined", "am24"],
 ["I guess NG-4 would be coming if NG-3 is too easy.", "player.tickspeedBoosts != undefined", "am25"],
 ["I don't really think I am an A.I.", true, "am27"],
-["Somebody think you get your first galactic sacrifice faster than NG--. An update will be coming soon!", "player.tickspeedBoosts != undefined", "am28"],
+["Somebody thinks you get your first galactic sacrifice faster than NG--. An update will be coming soon!", "player.tickspeedBoosts != undefined", "am28"],
 ["The news ticker is already dead despite taking up a two dimensional area", true, "am29"],
 ["All notations are good notations. Maybe except Psi.", true, "am30"],
 ["Why even bother using the news ticker? Sure, there are a few funny ones, but even they get old after a while and most of them are just long strings of nonsensical text that repeat over and over until you get sick of seeing them. You've probably seen this one at least nine times already, and you're going to keep seeing it and seeing it until you finally decide to turn off the news.", true, "am31"],
-["News ticker has declared dead! Provides no purpose.", true, "am32"],
+["A news ticker has been declared dead! It provided no purpose.", true, "am32"],
 ['"My save broke!" ~ New player who played a challenge in late-game.', true, "am33"],
 ["That's how NG+++ works!", true, "am34"],
 ["var add ad + gamebreakingcontent ngplusthree", true, "am35"],
@@ -215,14 +216,14 @@ newsArray = [//always true
 ["When dilating time, shouldn't these messages go by slower?", "player.dilation.active", "am62"],
 ["Did you know that -1% of people believe the 9th Dimension exists?", "(player.resets >= 5 || player.galaxies > 0)", "am63"],
 ["Antimatter has been found on the Moon. And the moon also doesn't exist.", true, "am64"],
-["By breaking infinity, you break the universe", "player.break", "am65"],
+["By breaking infinity, you break the universe.", "player.break", "am65"],
 ["BREAKING NEWS: Suicide rates have dropped to 0% because suicidal people have touched antimatter by accident", "player.totalmoney.gte(Number.MAX_VALUE)", "am66"],
 ["BREAKING NEWS: In NG++++, there are over 69 rows of achievements", "player.masterystudies !== undefined", "am67"],
 ["I was making 'Big Rip' the first descension layer, but the community voted to allow us to get more antimatter. If Big Rip was a descension layer, then there would be no new upgrades that boost outside of Big Rips.", "player.totalmoney.gte(Decimal.pow(10, 32e14))", "am68"],
 ["How much replicanti would a replicanti replicate if a replicanti could replicate replicanti?", "player.replicanti.unl", "am69"],
 ["Nice try. Ninth dimension aren't real.", "(player.masterystudies !== undefined ? eds[8].perm : false)", "am70"],
 ["The year is 2120. Aarex is somehow still alive. However, the next update isn't out. Aarex is supposed to be working on the 8th prestige layer, but has invented approximately 72423985051 other mods and games, so he can't. Updates only come out approximately ever 5 years. (And you thought the 5 hours meme was funny.)", "player.masterystudies !== undefined", "am71"],
-["Breaking News: Aarex has announced NG-9. It includes you starting with the ability to purchase IDs, ubt everything starts 1e308x slower! Estimated time to complete: 10,000 years.", "player.tickspeedBoosts !== undefined", "am72"],
+["Breaking News: Aarex has announced NG-9. It includes you starting with the ability to purchase IDs, but everything starts 1e308x slower! Estimated time to complete: 10,000 years.", "player.tickspeedBoosts !== undefined", "am72"],
 ["There are a lot of news tickers, how did you find this one?", true, "am73"],
 ["In the beginning, there was only the abyss of Matter. But then, an antimatter singularity rose and created the god Hevipelle, and he said, \"Let there be antimatter.\" And so there was. Hevipelle then said, \"Let there be Infinity Points.\" And so there was, creating the stars, planets, dimensions, and galaxies. Then, the first day passed, and there was the second day. Hevipelle said, \"Seperate the normal dimensions and infinity dimensions from each other, and let there be tickspeed upgrades, to measure the time.\" So the normal dimensions and infinity dimensions were seperated, and there were tickspeed upgrades. Then Hevipelle said, \"Let there be eternity points to sew the fabric of time together, and let there be time studies and time theorems, to let humanity progress.\" And so there were eternity points, time theorems, and time stuides. Then, the second day passed and the third day began. \"Let there be life,\" Hevipelle said, creating humanity and other intelligent species. Then, he said, \"Let there be Time Dimensions, and let them be a different dimension than the others.\" And so there were time dimensions, speeding up tickspeed upgrades. Then Hevipelle snapped his fingers and created a computer. \"With this, I will be able to update my universe,\" he said. But as he was working on making break_infinity.js up to 1e1e1e308 instead of 1e1e308, a rift opened to the 9th dimension, and the serpent Slabdrill, the lord of all Unhevi, slithered out. \"I will cause an apocalypse for humanity with Cancer mode,\" Slabdrill said. And so, the world became imperfect, leading to war. If only there was break_eternity.js...", "player.dilation.studies.includes(6)", "am74"],
 ["If you find cancer in your computer, please call 119", true, "am75"],
@@ -239,8 +240,8 @@ newsArray = [//always true
 ["The uprising of the onion is a compelling feat, that our scientists are experimenting on how the onion behaves as a term for a number. These onions somehow have the capability to surpass numbers beyond antimatter. We don't know why, or how.", "player.newsArray.includes('am85')", "am86"],
 ["We have reached Onion^^Onion, we have no idea how it happened, and all we know that it seems to be increasing at an ever-faster rate. It's Onion^^^Onion now and it's definitely larger than our antimatter amount. Oniologists have been studying these recent growth of onions and have yet to come to a conclusion on how these onions are growing so fast. Judging by the current rate of growth, it has been predicted by oniologists that the entire multiverse would be completely filled to the brim with onions by 2020.", "player.newsArray.includes('am86')", "am87"],
 ["Onionify: Coming in 2020 to NG+3. Make onions dominate antimatter with this prestige layer!", "player.newsArray.includes('am85')", "am88"],
-["Big rip will RIP your TT", "player.achievements.includes('ng3p51')", "am89"],
-["You are a ghost now! (for real because you soft-resetted this game beyond Quantums.)", 'ghostified', "am90"],
+["Big rip will RIP your TT.", "player.achievements.includes('ng3p51')", "am89"],
+["You are truly a ghost now!", 'ghostified', "am90"],
 ["SEVERE WEATHER WARNING - We have been informed of a severe meteorogical event. Matter is raining down from the sky. The Rift of the Ninth Dimension has opened. Do not go outside. Don't look at the sun. DON'T LOOK AT THE S-**;;;;; SERVERE WEATHER NOTICE - You must go outside. Look up at the sun. The warning has been lifted. Goodbye humanity.", true, "am91"],
 ["Can an antimatter can can a can of antimatter can all full of antimatter food that can destroy a can made out of antiantimatter?", true, "am92"],
 ["If Aarexese in Aarexese is English, then is English in Aarexese Aarexese?", true, "am93"],
@@ -278,7 +279,7 @@ newsArray = [//always true
 ["Eternity Challenge 10 is confirmed to be a boost!", "ghostified && (player.ghostify.ghostlyPhotons.lights[0] > 3 || player.ghostify.ghostlyPhotons.enpowerments)", "am125"],
 ["When will Trio Challenges be released?!", "player.achievements.includes('ng3p25')", "am126"],
 ["Welcome to the hell of NG-.", "player.tickspeedBoosts !== undefined", "am127"],
-["Start playing NG+3 instead. You are not doing your progress.", "player.aarexModifications.ngp4V", "am128"],
+["Start playing NG+3 instead. You won't achieve much progress here.", "player.aarexModifications.ngp4V", "am128"],
 ["If NGUd+ is a combination of NG+3 and NGUd, then why isn't NGUd' a combination of NG' and NGUd?", "player.aarexModifications.ngudpV", "am129"],
 ["Congratulations for beating NG-3! (for now...)", "player.tickspeedBoosts !== undefined && player.postChallUnlocked > 5", "am130"],
 ["Progressing as a Ghost...", "ghostified && player.ghostify.ghostlyPhotons.unl", "am131"],
@@ -323,7 +324,11 @@ newsArray = [//always true
 ["There is no 0x Brave Milestone because no one talks about it.", "ghostified", "am170"],
 ["Meta-infinity was proven to be possible. We can now big crunch in our big crunches.", "player.break", "am171"],
 [":egg:", true, "am172"],
+<<<<<<< Updated upstream
 ["We reported that the Supreme Leader of Ninth Dimension, Nina, is dead. Or he became a ghost?", "player.resets >= 5 || player.galaxies > 0", "am173"],
+=======
+["We reported that the Supreme Leader of Ninth Dimension, Nina, is dead... or did he become a ghost?", "player.resets >= 5 || player.galaxies > 0", "am173"],
+>>>>>>> Stashed changes
 ["1.7e308 people have realised that there is only 8 dimensions. They are on the hunt for the ninth.", "player.resets >= 5 || player.galaxies > 0", "am174"],
 ["300 news messages and counting? Wow. You are so addicted.", "player.newsArray.length >= 300", "am175"],
 ["You have read over meta^-1-Infinity unique news ticker messages! What a great milestone!", "player.newsArray.length > 308", "am176"],
@@ -333,8 +338,14 @@ newsArray = [//always true
 ["aarex has retired back to his cave after apeasing the masses with the higgs boson", false, "am180"],
 ["We launched a mission rocket to land on a ghostly moon.", false, "am181"],
 ["BREAKING NEWS! After the killing of a antimatter person, antimatter people started protesting!", false, "am182"],
+<<<<<<< Updated upstream
 ["Antimatter people protests have been extremely intensified!", false, "am183"]
 /*NEXT ID: am184*/
+=======
+["Antimatter people protests have been extremely intensified!", false, "am183"],
+//["Long ago, there lived Hevi, the ruler of antimatter. He created the Antimatter Dimensions, then created the theories of Infinity and Eternity. His work brought many people together. Many joined him on his quest to reach reality, but only some stayed. However, it was not easy. They would face 7 celestials, which would take a long time to defeat. Meanwhile, many people began to become curious about what they can do with what they were given. Some waited, while some changed the logic of the dimensions to their will. They called these modifications, exploring what we could do with what we had by ourselves. These became immensely popular, but eventually grew in infamy. NG+3 was born by Aarex. In the beginning, it seemed promising, but it got slower. The community disliked it, so he, Aarex, fixed it. Many were satisfied, but more problems kept going on. This caused an outbreak of destruction. Many incidents happened within these times, that it isn't easily explainable. These events sparked a new creation: NG+3.1. It was made to undo what was damaged and return the world to what it once was. For many months, development was linear... and many got tired and left, but some of the most dedicated waited. Eventually, Aarex could no longer do it alone. His old power was fading. Then, one emerging developer began to request to help. He had been asking for a while, until it finally happened. He finally had the power to change the future and restore the balance, and it brought hope to everyone, that one day, the awaited proposal would finally release. This was his mission.", true, "am184"]
+/*NEXT ID: am185*/
+>>>>>>> Stashed changes
 ];}
 
 document.addEventListener("visibilitychange", function() {if (!document.hidden) {scrollNextMessage();}}, false);
@@ -416,7 +427,7 @@ ghostlyNewsArray = [//Ghostly news ticker messages
 ["Ghosts can't die. So why humans can't be immortal?", true, "gn8"],
 ["Because neutrinos are ghostly particles, you are made of ghost particles and neutrinos.", true, "gn9"],
 ["How do you play this after you became a real ghost?", true, "gn10"],
-["R.I.P.  ------  You  ------  Died to Ghostify ------ xxxx-", true, "gn11"],
+["R.I.P.  ------  You  ------  Died to Ghostify ------ xxxx-"+new Date().getYear(), true, "gn11"],
 ["Spooky scary ghosts send neutrinos down your spine", true, "gn12"],
 ["Ghostify has nothing to do with ghostping.", true, "gn13"],
 ["Are your ghost particles ghostly? If not, talk to your ghostly boss.", true, "gn14"],
@@ -464,7 +475,12 @@ ghostlyNewsArray = [//Ghostly news ticker messages
 ["Ghostify is just Quantum but spooky.", true, "gn56"],
 ["Void-Preontius, the Void Ultra-Omnipotent Ghost, decided to take over not only the Barrel... He took over the Barrel!", "tmp.qu.nanofield.apgWoke", "gn57"],
 ["GHOST IS YOU", true, "gn58"],
+<<<<<<< Updated upstream
 ["Error 404: Ghost Matter not found", true, "gn59"]
+=======
+["Error 404: Ghost Matter not found", true, "gn59"],
+["A new secret project is being worked on!", true, "gn60"]
+>>>>>>> Stashed changes
 ];}
 
 var ghostlyNewsTickerCache = false

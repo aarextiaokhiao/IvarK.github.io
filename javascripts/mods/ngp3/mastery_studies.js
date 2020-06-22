@@ -90,16 +90,25 @@ var masteryStudies = {
 	studies: [],
 	timeStudies: [],
 	timeStudyDescs: {
+<<<<<<< Updated upstream
 		241: "The IP mult multiplies IP gain by 2.2x per upgrade.",
 		251: "Remote antimatter galaxies scaling starts 1 galaxy later per 3,000 dimension boosts.",
 		252: "Remote antimatter galaxies scaling starts 1 galaxy later per 7 free galaxies.",
 		253: function() {
 			return "Remote antimatter galaxies scaling starts "+(tmp.ngp3l?"20 galaxies later per 9 extra replicated galaxies.":"1 galaxy later per 4 total replicated galaxies.")
+=======
+		241: "The IP mult multiplies IP gain by 2.2x per upgrade.", // needs to be retroactive and change based on the gluon upgrade
+		251: "Remote galaxy scaling starts 1 galaxy later per 3,000 dimension boosts.",
+		252: "Remote galaxy scaling starts 1 galaxy later per 7 free galaxies.",
+		253: function() {
+			return "Remote galaxy scaling starts "+(tmp.ngp3l?"20 galaxies later per 9 extra replicated galaxies.":"1 galaxy later per 4 total replicated galaxies.")
+>>>>>>> Stashed changes
 		},
 		261: "Dimension boost costs scale by another 1 less.",
 		262: "Dimension boosts boost Meta Dimensions at reduced rate.",
 		263: "Meta-dimension boosts boost dilated time production.",
 		264: "Gain more tachyon particles based on your normal galaxies.",
+<<<<<<< Updated upstream
 		265: "Replicate chance upgrades can go over 100%.",
 		266: "Reduce the post-400 max replicated galaxy cost scaling.",
 		271: "You can buy beyond 1ms interval upgrades but the cost starts to increase faster.",
@@ -140,6 +149,48 @@ var masteryStudies = {
 		401: "The production of preon anti-energy is slower based on your preons.",
 		402: "Emperor Dimensions and hatch speed are faster by 30x.",
 		411: "The production of preon energy is faster based on your replicants.",
+=======
+		265: "Replicate chance can exceed 100%.",
+		266: "Reduce the cost scaling for post-400 replicanti galaxies.", // needs to be retroactive
+		271: "You can buy base interval upgrades past 1ms, but the cost scales faster.",
+		272: "You can buy all nornal time studies in all 3-way splits.",
+		273: "Replicate chance boosts itself.",
+		281: "Replicanti multiplier boosts DT production at a greatly reduced rate.",
+		282: "Replicanti multiplier boosts Meta Dimensions at a greatly reduced rate.",
+		291: "You gain 1% of your EP gained on eternity every second.",
+		292: "You can gain tachyon particles during dilation.",
+		301: "Remote cost scaling starts 1 galaxy later per 4.15 extra replicated galaxies.",
+		302: "You can buy all normal time studies.",
+		303: "Meta Dimensions are stronger based on your galaxies.",
+		311: "Replicanti boost to all Infinity Dimensions is 17.3x stronger.", 
+		312: "Meta-dimension boosts are 4.5% stronger and cost scale by 1 less.",
+		321: "Buff the multiplier per 10 Normal Dimensions to <span id='321effect'></span>x if it is 1x.",
+		322: "Tickspeed boosts DT production at a greatly reduced rate.",
+		323: "Cancel the dilation penalty for the Normal Dimension boost from replicanti.",
+		331: "Dimension Supersonic scaling starts 240,000 later and makes cost increases slower by 3 less.",
+		332: "Replicanti multiplies faster based on your normal galaxies.",
+		341: "Preons boost DT production at a reduced rate.",
+		342: "All replicated galaxies are stronger and use the same formula.",
+		343: "Free galaxies are as strong as a normal replicated galaxy.",
+		344: "Replicated galaxies are more effective based on your preons.",
+		351: "Time Shards boost Meta Dimensions.",
+		361: "Hatch speed increases based on your tachyon particles.", // needs to change at some point in ghostify
+		362: function() {
+			return "Reduce the softcap for preon boost"+(player.aarexModifications.ngumuV?", but preons reduce the green power effect.":".")
+		},
+		371: "Hatch speed increases based on your extra replicated galaxies.", // needs to change at some point in ghostify
+		372: "Hatch speed increases based on your time shards.", // needs to change at some point in ghostify
+		373: "Galaxies boost preon production.",
+		381: "Hatch speed increases based on your tickspeed reduction multiplier.", // needs to change at some point in ghostify
+		382: "Eighth Dimensions boost Meta Dimensions.",
+		383: "Blue power boosts Meta Dimensions.",
+		391: "Hatch speed is faster based on your meta-antimatter.", // needs to change at some point in ghostify
+		392: "Preons boost Emperor Dimensions.",
+		393: "Workers boost Meta Dimensions.",
+		401: "The production of preon anti-energy decreases based on your preons.",
+		402: "Emperor Dimensions and hatch speed gain a 30x multiplier.",
+		411: "The production of preon energy increases based on your replicants.",
+>>>>>>> Stashed changes
 		412: "Preon effect is 25% stronger.",
 		421: "Tickspeed boosts preon energy production.",
 		431: "Branches are faster based on your free galaxies."
@@ -654,7 +705,11 @@ function getMTSMult(id, uses = "") {
 }
 
 
+<<<<<<< Updated upstream
 var upDown={
+=======
+var upDown={ // bosonic lab thing
+>>>>>>> Stashed changes
 	point: 0,
 	times: 0
 }

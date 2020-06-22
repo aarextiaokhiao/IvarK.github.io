@@ -483,7 +483,7 @@ if (player.version < 5) {
   if (player.eternityChallUnlocked !== 0) document.getElementById("eterc"+player.eternityChallUnlocked+"div").style.display = "inline-block"
 
   if (getEternitied()<1) document.getElementById("infmultbuyer").textContent="Max buy IP mult"
-  else document.getElementById("infmultbuyer").textContent="Autobuy IP mult O"+(player.infMultBuyer?"N":"FF")
+  else document.getElementById("infmultbuyer").textContent="Autobuy IP mult: O"+(player.infMultBuyer?"N":"FF")
 
   if (player.epmult === undefined || player.epmult == 0) {
       player.epmult = new Decimal(1)
@@ -524,7 +524,7 @@ if (player.version < 5) {
       updateAchievements()
       if (!inERS) player.replicanti.intervalCost = player.replicanti.intervalCost.dividedBy(1e20)
   }
-  document.getElementById(inERS?"r22":"r35").appendChild(document.getElementById("Don't you dare to sleep"))
+  document.getElementById(inERS?"r22":"r35").appendChild(document.getElementById("Don't you dare sleep"))
   document.getElementById(inERS?"r35":"r76").appendChild(document.getElementById("One for each dimension"))
   document.getElementById(inERS?"r41":"r22").appendChild(document.getElementById("Fake News"))
   document.getElementById(inERS?"r76":"r41").appendChild(document.getElementById("Spreading Cancer"))
@@ -1265,7 +1265,11 @@ if (player.version < 5) {
       tmp.bl=player.ghostify.bl
   }
   if (player.aarexModifications.newGame3PlusVersion < 2.21) {
+<<<<<<< Updated upstream
       if (prompt("Hey, player. Welcome to NG+3.1! This update changes this mod by A LOT. If you don't want to start playing NG+3.1, type 'legacy' on the bar.") == "legacy") {
+=======
+      if (prompt("Welcome to the NG+3.1 update! This new update introduces a rebalanced version of NG+3 with many bug fixes, rephrases, and content changes. It is recommended to migrate your save, but if you don't want to migrate, you can enter \"legacy\" without any quotation marks (case-sensitive) to continue playing in NG+3L (legacy). You can migrate your save at any time if you are using a legacy save.") == "legacy") {
+>>>>>>> Stashed changes
           player.aarexModifications.ngp3lV = 1
           tmp.ngp3l = true
       }
@@ -1761,7 +1765,7 @@ if (player.version < 5) {
   document.getElementById("decimalMode").textContent = "Big numbers library: "+(break_infinity_js?"break_infinity (slow)":"logarithmica_numerus (fast)")
   document.getElementById("decimalMode").style.visibility = Decimal.gt(player.totalmoney,"1e9000000000000000") ? "hidden" : ""
   document.getElementById("hideProductionTab").textContent = (player.aarexModifications.hideProductionTab?"Show":"Hide")+" production tab"
-  document.getElementById("hideRepresentation").textContent=(player.aarexModifications.hideRepresentation?"Show":"Hide")+" antimatter representation"
+  document.getElementById("hideRepresentation").textContent=(player.aarexModifications.hideRepresentation?"Show":"Hide")+" antimatter representation info"
   document.getElementById("showAchRowNums").textContent=(player.aarexModifications.showAchRowNums?"Hide":"Show")+" achievement row info"
   document.getElementById("hideCompletedAchs").textContent=(player.aarexModifications.hideCompletedAchs?"Show":"Hide")+" completed achievement rows"
   document.getElementById("hideSecretAchs").textContent=(player.aarexModifications.hideSecretAchs?"Show":"Hide")+" secret achievements"
@@ -1778,25 +1782,33 @@ if (player.version < 5) {
   document.getElementById("respecMastery2").style.display = player.dilation.upgrades.includes("ngpp6") && player.masterystudies ? "block" : "none"
 
   if (player.galacticSacrifice) {
-      document.getElementById("galaxy11").innerHTML = "Normal"+(player.aarexModifications.ngmX>3?" and Time D":" d")+"imensions are "+(player.infinitied>0||getEternitied()!==0||quantumed?"cheaper based on your infinitied stat.<br>Currently: <span id='galspan11'></span>x":"99% cheaper.")+"<br>Cost: 1 GP"
+      document.getElementById("galaxy11").innerHTML = "Normal"+(player.aarexModifications.ngmX>3?" and Time D":" D")+"imensions are "+(player.infinitied>0||getEternitied()!==0||quantumed?"cheaper based on your infinitied stat.<br>Currently: <span id='galspan11'></span>x":"99% cheaper.")+"<br>Cost: 1 GP"
       document.getElementById("galaxy15").innerHTML = "Normal and Time Dimensions produce "+(player.infinitied>0||getEternitied()!==0||quantumed?"faster based on your infinitied stat.<br>Currently: <span id='galspan15'></span>x":"100x faster")+".<br>Cost: 1 GP"
   } else {
       document.getElementById("infi21").innerHTML = "Increase the multiplier for buying 10 Dimensions<br>"+(player.aarexModifications.newGameExpVersion?"20x -> 24x":"2x -> 2.2x")+"<br>Cost: 1 IP"
-      document.getElementById("infi33").innerHTML = "Increase Dimension Boost multiplier<br>2x -> 2.5x<br>Cost: 7 IP"
+      document.getElementById("infi33").innerHTML = "Increase the Dimension Boost multiplier<br>2x -> 2.5x<br>Cost: 7 IP"
   }
   var resetSkipCosts=[20,40,80]
   for (u=1;u<4;u++) document.getElementById("infi4"+u).innerHTML="You start with the "+(u+4)+"th dimension unlocked"+(player.tickspeedBoosts==undefined?"":" and "+(u*4)+" tickspeed boosts")+"<br>Cost: "+resetSkipCosts[u-1]+" IP"
   document.getElementById("infi44").innerHTML="You start with the 8th dimension unlocked"+(player.tickspeedBoosts==undefined?"":", 16 tickspeed boosts")+", and a Galaxy<br>Cost: 500 IP"
+  
+  // challenge texts 
   var showMoreBreak = player.galacticSacrifice ? "" : "none"
+  
   for (i=1;i<5;i++) document.getElementById("postinfi0"+i).parentElement.style.display=showMoreBreak
   document.getElementById("d1AutoChallengeDesc").textContent=(player.aarexModifications.ngmX>3?"Galactic Sacrifice":"Reach infinity")+" for the first time."
+<<<<<<< Updated upstream
   document.getElementById("d5AutoChallengeDesc").textContent=player.aarexModifications.ngexV?"Each Dimension Boost reduces your tickspeed reduction by 0.1% additively, but galaxies are 50% stronger.":player.galacticSacrifice?"Tickspeed upgrades"+(player.tickspeedBoosts==undefined?"":" and Tickspeed Boosts")+(player.aarexModifications.ngmX>3?" are weaker":" start out useless")+", but galaxies make them stronger.":"Tickspeed starts at 7%."
   document.getElementById("tbAutoChallengeDesc").textContent=player.tickspeedBoosts==undefined?"Whenever you buy 10 of a dimension or tickspeed, everything else of equal cost will increase to its next cost step.":"You can't get Tickspeed Boosts and Antimatter Galaxies are 25% weaker."
+=======
+  document.getElementById("d5AutoChallengeDesc").textContent=player.aarexModifications.ngexV?"Each Dimension Boost reduces your tickspeed reduction by 0.1% additively, but galaxies are 50% stronger.":player.galacticSacrifice?"Tickspeed upgrades"+(player.tickspeedBoosts==undefined?"":" and Tickspeed Boosts")+(player.aarexModifications.ngmX>3?" are weaker":" start out as useless")+", but galaxies make them stronger.":"Tickspeed starts at 7%."
+  document.getElementById("tbAutoChallengeDesc").textContent=player.tickspeedBoosts==undefined?"Whenever you buy 10 of a dimension or tickspeed, everything else of equal cost will increase to its next cost step.":"You can't get Tickspeed Boosts, and Antimatter Galaxies are 25% weaker."
+>>>>>>> Stashed changes
   document.getElementById("autoDBChallengeDesc").textContent="There are only 6 dimensions, with dimension boost"+(player.tickspeedBoosts==undefined?"":", tickspeed boost,")+" and antimatter galaxy costs modified."
-  document.getElementById("autoCrunchChallengeDesc").textContent="Each dimension produces the dimension 2 below it; first dimensions produce reduced antimatter. "+(player.galacticSacrifice?"Galaxies are far more powerful.":"")
-  document.getElementById("autoDSChallengeDesc").textContent=player.tickspeedBoosts==undefined?"Per-ten multiplier is always 1x, but product of dimensions bought multiplies all dimensions.":"There is the product of amount instead of the product of bought."
-  document.getElementById("autoGSChallengeDesc").textContent=player.aarexModifications.ngmX>3?"You can hold up to 10 total Dimension Boosts, Time Dimension Boosts, Tickspeed Boosts, and Galaxies.":"All galaxy upgrades from the third column are disabled and Tickspeed Boosts give 20 free tickspeed purchases each instead."
-  document.getElementById("autoTBChallengeDesc").textContent=player.aarexModifications.ngmX>3?"Dimension Boosts and Time Dimension Boosts divide Tickspeed Multiplier instead.":"Dimension Boosts and Galaxies only boost Galaxy point gain and Tickspeed Boosts are nerfed, but Galaxy points boost Tickspeed Boosts."
+  document.getElementById("autoCrunchChallengeDesc").textContent="Each dimension produces the dimension 2 tiers below it; First Dimensions produce reduced antimatter. "+(player.galacticSacrifice?"Galaxies are far more powerful.":"")
+  document.getElementById("autoDSChallengeDesc").textContent=player.tickspeedBoosts==undefined?"Per-ten multiplier is always 1x, but product of dimensions bought multiplies all dimensions.":"All of your dimensions are boosted by the product of the amounts of your dimensions, rather than the product of the amounts of bought dimensions."
+  document.getElementById("autoGSChallengeDesc").textContent=player.aarexModifications.ngmX>3?"You can only hold up to 10 Dimension Boosts, Time Dimension Boosts, Tickspeed Boosts, and Galaxies in total.":"All galaxy upgrades from the third column are disabled, and Tickspeed Boosts give 20 free tickspeed purchases each instead."
+  document.getElementById("autoTBChallengeDesc").textContent=player.aarexModifications.ngmX>3?"Dimension Boosts and Time Dimension Boosts divide the Tickspeed Multiplier instead.":"Dimension Boosts and Galaxies only boost Galaxy Point gain and Tickspeed Boosts are nerfed, but Galaxy Points boost Tickspeed Boosts."
   document.getElementById("infPowEffectPowerDiv").innerHTML=player.galacticSacrifice&&player.pSac==undefined?"Raised to the power of <span id='infPowEffectPower' style='font-size:35px; color: black'></span>, t":"T"
   document.getElementById("ngmmchalls").style.display=player.galacticSacrifice?"":"none"
   document.getElementById("ngmmmchalls").style.display=player.tickspeedBoosts==undefined?"none":""
@@ -1819,7 +1831,7 @@ if (player.version < 5) {
       document.getElementById("ic3div").style.display=""
       document.getElementById("ic2div").appendChild(document.getElementById("postc2").parentElement.parentElement)
   }
-  document.getElementById("postc2reward").textContent = "Reward: "+(player.galacticSacrifice?"M":"Sacrifice autobuyer and m")+"ore powerful sacrifice"
+  document.getElementById("postc2reward").textContent = "Reward: "+(player.galacticSacrifice?"Dimensional Sacrifice ":"Get the sacrifice autobuyer and dimensional sacrifice")+" is more powerful."
   if (player.tickspeedBoosts == undefined) {
       document.getElementById("icngm3_row").style.display="none"
       document.getElementById("icngm3_row2").style.display="none"
@@ -1844,10 +1856,10 @@ if (player.version < 5) {
       document.getElementById("icngm3_div2").appendChild(document.getElementById("postc4").parentElement.parentElement)
       document.getElementById("ic4div").style.display="none"
   }
-  document.getElementById("galaxy21").innerHTML=(player.tickspeedBoosts!=undefined?"Reduce the dimension boost cost multiplier to "+(player.aarexModifications.ngmX>3?10:5):"Dimension boost scaling starts 2 later and increases the cost by 5 each")+".<br>Cost: 1 GP"
-  document.getElementById("galaxy12").innerHTML="Normal "+(player.aarexModifications.ngmX>3?"and Time D":"d")+"mensions gain a multiplier based on time since last galactic sacrifice.<br>Currently: <span id='galspan12'>x</span>x<br>Cost: "+galCosts[12]+" GP"
+  document.getElementById("galaxy21").innerHTML=(player.tickspeedBoosts!=undefined?"Reduce the Dimension Boost cost multiplier to "+(player.aarexModifications.ngmX>3?10:5):"Dimension Boost scaling starts 2 boosts later, and increases the cost by 5 each")+".<br>Cost: 1 GP"
+  document.getElementById("galaxy12").innerHTML="Normal "+(player.aarexModifications.ngmX>3?"and Time D":"D")+"imensions gain a multiplier based on the time spent in this Galactic Sacrifice.<br>Currently: <span id='galspan12'>x</span>x<br>Cost: "+galCosts[12]+" GP"
   document.getElementById("galBuff22").textContent=player.aarexModifications.ngmX>3?2:5
-  document.getElementById("galaxy13").innerHTML="Normal "+(player.aarexModifications.ngmX>3?"and Time D":"d")+"imensions gain a multiplier based on your galaxy points.<br>Currently: <span id='galspan13'>x</span>x<br>Cost: "+galCosts[13]+" GP"
+  document.getElementById("galaxy13").innerHTML="Normal "+(player.aarexModifications.ngmX>3?"and Time D":"D")+"imensions gain a multiplier based on your galaxy points.<br>Currently: <span id='galspan13'>x</span>x<br>Cost: "+galCosts[13]+" GP"
   document.getElementById("galDesc23").textContent="Dimension "+(player.aarexModifications.ngmX>3?" Boosta and Time Dimension B":"b")+"oosts are stronger based on your galaxy points."
   document.getElementById("galcost31").textContent=galCosts[31]
   document.getElementById("galcost32").textContent=galCosts[32]
@@ -1858,17 +1870,21 @@ if (player.version < 5) {
   updateSingularity()
   updateDimTechs()
   if (player.infinityUpgradesRespecced != undefined) order = []
-  document.getElementById("ic1desc").textContent="All previous challenges (except tickspeed challenge"+(player.galacticSacrifice?',':" and")+" automatic big crunch challenge"+(player.galacticSacrifice?", and automatic galactic sacrifice challenge":"")+") at once."
-  document.getElementById("ic1reward").textContent="Reward: "+(player.galacticSacrifice?2:1.3)+"x on all Infinity Dimensions for each Infinity Challenge completed"
-  document.getElementById("ic2desc").textContent=(player.tickspeedBoosts==undefined?"":"Infinity Dimensions do nothing. Sacrifice is way stronger. ")+"Automatically sacrifice every 8 ticks once you have 8th Dimension."
-  document.getElementById("ic4desc").textContent=player.tickspeedBoosts==undefined?"Only latest bought dimension production is normal, all other dimensions produce less.":"All Normal Dimension multipliers are squared root without dilation penalty."
+  document.getElementById("ic1desc").textContent="All the normal challenges (except tickspeed challenge"+(player.galacticSacrifice?',':" and")+" automatic big crunch challenge"+(player.galacticSacrifice?", and automatic galactic sacrifice challenge":"")+") are applied at once."
+  document.getElementById("ic1reward").textContent="Reward: Gain a "+(player.galacticSacrifice?2:1.3)+"x multiplier on all Infinity Dimensions for each Infinity Challenge completed."
+  document.getElementById("ic2desc").textContent=(player.tickspeedBoosts==undefined?"":"Infinity Dimensions are useless, but sacrifice is significantly stronger. ")+"Automatically sacrifice every 8 ticks once you have 8th Normal Dimensions."
+  document.getElementById("ic4desc").textContent=player.tickspeedBoosts==undefined?"Only the latest bought dimension's production is normal, and all other dimensions produce less.":"All Normal Dimension multipliers are squared root without dilation penalty."
   document.getElementById("ic5desc").textContent=player.tickspeedBoosts==undefined?"When buying dimensions 1-4, everything with costs smaller or equal increases. When buying dimensions 5-8, everything with costs bigger or equal increases. When buying tickspeed, everything with the same cost increases.":"You can't get tickspeed upgrades and galaxies. Tickspeed Boosts boost tickspeed instead."
-  document.getElementById("ic7desc").textContent="You can't get Antimatter Galaxies, but dimensional boost multiplier "+(player.galacticSacrifice?"is cubed":"2.5x -> 10x")
-  document.getElementById("ic7reward").textContent="Reward: Dimensional boost multiplier "+(player.galacticSacrifice?"is squared":"2.5x -> 4x")
+  document.getElementById("ic7desc").textContent="You can't get Antimatter Galaxies, but the Dimension Boost multiplier "+(player.galacticSacrifice?"is cubed.":"is increased to 10x.")
+  document.getElementById("ic7reward").textContent="Reward: The dimension boost multiplier "+(player.galacticSacrifice?"is squared.":"is increased to 4x.")
   document.getElementById("replicantitabbtn").style.display=player.infinityUpgradesRespecced?"none":""
   document.getElementById("replicantiresettoggle").textContent="Auto galaxy "+(player.replicanti.galaxybuyer?"ON":"OFF")+(player.timestudy.studies.includes(131)&&speedrunMilestonesReached<20?" (disabled)":"")
   document.getElementById("41desc").textContent=tsMults[41]()
+<<<<<<< Updated upstream
   document.getElementById("42desc").textContent=player.galacticSacrifice?"Galaxy cost multiplier is reduced by "+Math.round(tsMults[42]()*15)+"/15x.":"Galaxy requirement goes up "+(60*tsMults[42]())+" 8ths instead of 60."
+=======
+  document.getElementById("42desc").textContent=player.galacticSacrifice?"Galaxy cost multiplier is reduced by "+Math.round(tsMults[42]()*15)+"/15x.":"Normal Galaxy cost increase is decreased to "+(60*tsMults[42]())+" 8ths instead of 60."
+>>>>>>> Stashed changes
   document.getElementById("61desc").innerHTML=tsMults[61]()
   document.getElementById("62desc").textContent=tsMults[62]()
   document.getElementById("81desc").textContent=player.galacticSacrifice?"is cubed":"becomes 10x"
@@ -1899,7 +1915,11 @@ if (player.version < 5) {
   var suffix="NG"+(player.meta!=undefined?"pp":"ud")
   document.getElementById("uhDiv"+suffix).appendChild(document.getElementById("Universal harmony"))
   document.getElementById("feDiv"+suffix).appendChild(document.getElementById("In the grim darkness of the far endgame"))
+<<<<<<< Updated upstream
   document.getElementById("dil14desc").textContent=player.aarexModifications.nguspV?"You gain even more tachyon particles from the previous upgrade.":"The exponent of TP formula is better."
+=======
+  document.getElementById("dil14desc").textContent=player.aarexModifications.nguspV?"The TP multiplier upgrade is more effective.":"The exponent of TP formula is better."
+>>>>>>> Stashed changes
   document.getElementById("dil52").style["font-size"]=player.masterystudies==undefined||player.aarexModifications.nguspV!==undefined?"10px":"9px"
   document.getElementById("dil52formula").style.display=player.masterystudies==undefined||player.aarexModifications.nguspV!==undefined?"none":""
   document.getElementById("exDilationDesc").innerHTML = player.aarexModifications.nguspV ? 'making galaxies <span id="exDilationBenefit" style="font-size:25px; color: black">0</span>% stronger in dilation.' : 'making dilation <span id="exDilationBenefit" style="font-size:25px; color: black">0</span>% less severe.'
@@ -1949,7 +1969,7 @@ if (player.version < 5) {
       document.getElementById('rg4toggle').textContent="Toggle: O"+(tmp.qu.rg4?"N":"FF")
       document.getElementById("respecPC").className=tmp.qu.pairedChallenges.respec?"quantumbtn":"storebtn"
       document.getElementById('sacrificeAuto').textContent="Auto: O"+(tmp.qu.autoOptions.sacrifice?"N":"FF")
-      document.getElementById("produceQuarkCharge").innerHTML="S" + (tmp.qu.nanofield.producingCharge ? "top" : "tart") + " production of preon charge." + (tmp.qu.nanofield.producingCharge ? "" : "<br>(You will not get preons when you do this.)")
+      document.getElementById("produceQuarkCharge").innerHTML="S" + (tmp.qu.nanofield.producingCharge ? "top" : "tart") + " production of preon charge." + (tmp.qu.nanofield.producingCharge ? "" : "<br>(Preon production is disabled when producing preon charge)")
       document.getElementById("ratio_r").value = tmp.qu.assignAllRatios.r
       document.getElementById("ratio_g").value = tmp.qu.assignAllRatios.g
       document.getElementById("ratio_b").value = tmp.qu.assignAllRatios.b
@@ -1962,7 +1982,7 @@ if (player.version < 5) {
           if (u%3==1) document.getElementById("neutrinoUpg"+u).parentElement.parentElement.style.display=u>player.ghostify.times+2?"none":""
           else document.getElementById("neutrinoUpg"+u).style.display=u>player.ghostify.times+2?"none":""
       }
-      document.getElementById("gphUnl").textContent="To unlock Ghostly Photons, you need to get "+shortenCosts(Decimal.pow(10,6e9))+" antimatter while your universe is Big Ripped first."
+      document.getElementById("gphUnl").textContent="To unlock Ghostly Photons, you need to get "+shortenCosts(Decimal.pow(10,6e9))+" antimatter in a Big Ripped universe first."
       document.getElementById("blUnl").textContent="To unlock Bosonic Lab, you need to get "+shortenCosts(Decimal.pow(10,1e10))+" ghostly unstable quarks first."
       document.getElementById("bpc68").textContent=shortenMoney(tmp.qu.pairedChallenges.pc68best)
       document.getElementById("odSlider").value=Math.round((tmp.bl.odSpeed-1)/4*50)
@@ -2013,8 +2033,8 @@ if (player.version < 5) {
       updateGalaxyControl()
   } else if (document.getElementById("ers_timestudies").style.display=="block") showEternityTab("timestudies",true)
   poData=metaSave["presetsOrder"+(player.boughtDims?"_ers":"")]
-  setAndMaybeShow('bestTP',player.achievements.includes("ng3p18") || player.achievements.includes("ng3p37"),'"Your best"+(ghostified ? "" : " ever")+" Tachyon particles"+(ghostified ? " in this Ghostify" : "")+" was "+shorten(player.dilation.bestTP)+"."')
-  setAndMaybeShow('bestTPOverGhostifies',(player.achievements.includes("ng3p18") || player.achievements.includes("ng3p37")) && ghostified,'"Your best-ever Tachyon particles was "+shorten(player.dilation.bestTPOverGhostifies)+"."')
+  setAndMaybeShow('bestTP',(player.achievements.includes("ng3p18") || player.achievements.includes("ng3p37")),'"Your best"+(ghostified ? "" : " ever")+" Tachyon particles"+(ghostified ? " in this Ghostify" : "")+" was "+shorten(player.dilation.bestTP)+"."')
+  setAndMaybeShow('bestTPOverGhostifies',(player.achievements.includes("ng3p18") || player.achievements.includes("ng3p37") && ghostified),'"Your best-ever Tachyon particles was "+shorten(player.dilation.bestTPOverGhostifies)+"."')
   document.getElementById('dilationmode').style.display=speedrunMilestonesReached>4?"":"none"
   document.getElementById('rebuyupgmax').style.display=speedrunMilestonesReached<26&&player.masterystudies?"":"none"
   document.getElementById('rebuyupgauto').style.display=speedrunMilestonesReached>6?"":"none"
@@ -2073,18 +2093,28 @@ if (player.version < 5) {
   if (player.totalTimePlayed < 1 || inflationCheck || forceToQuantumAndRemove) {
       ngModeMessages=[]
       if (player.aarexModifications.ngexV) ngModeMessages.push("Welcome to Expert Mode! This is a more difficult version of Antimatter Dimensions. WARNING: This mod is in beta. If you see that something is unbalanced, report it to #other_modifications in the Discord server. Good luck!")
+<<<<<<< Updated upstream
       if (player.aarexModifications.newGameMult) ngModeMessages.push("Welcome to NG Multiplied mode, made by Despacit and Soul147! This mode adds too many overpowerful buffs! This mode may be broken.")
       if (player.aarexModifications.newGameExpVersion) ngModeMessages.push("Welcome to NG^ mode, made by Naruyoko! This mode adds way many buffs that this mode may be broken!")
       if (player.meta!==undefined||player.exdilation!==undefined) {
           if (!player.aarexModifications.newGamePlusVersion) ngModeMessages.push("WARNING! You are disabling NG+ features on NG++! Standard NG++ have all of NG++ features and I recommend you to create a new save with NG+ and NG++ modes on.")
           if (player.aarexModifications.ngp4V) ngModeMessages.push("Welcome to NG++++ mode by Aarex! This is a NG+ version of NG+3 which makes you start with more stuff! It is recommended to not use this mode to progress in NG+3.")
           if (player.aarexModifications.ngp3lV) ngModeMessages.push("Welcome to NG+++ Legacy mode, made by Aarex! All mods are affected to use things from the last version of NG+3 before NG+3.1. Good luck.")
+=======
+      if (player.aarexModifications.newGameMult) ngModeMessages.push("Welcome to NG Multiplied (NG*), made by Despacit and Soul147! This mode adds too many overpowered buffs! This mode can be extremely unbalanced at times.")
+      if (player.aarexModifications.newGameExpVersion) ngModeMessages.push("Welcome to NG^, made by Naruyoko! This mode adds many overpowered buffs that could break the game.")
+      if (player.meta!==undefined||player.exdilation!==undefined) {
+          if (!player.aarexModifications.newGamePlusVersion) ngModeMessages.push("WARNING! You are disabling NG+ features on NG++! NG++ has all NG+ features, and so it is recommended to enable NG+ features. However, you can disable them if you want to play the original game first.")
+          if (player.aarexModifications.ngp4V) ngModeMessages.push("Welcome to NG++++, by Soul147 and Aarex! This is a NG+ version of NG+3 which starts with all content up to Big Rip! It is recommended to not use this mode to progress in NG+3.")
+          if (player.aarexModifications.ngp3lV) ngModeMessages.push("Welcome to NG+++ Legacy, made by Aarex! This is the old version of NG+3 before the rebalancing changes of NG+3.1 were added. All mods are changed to use features from the last version of NG+3 before NG+3.1. NG+3 Legacy only has content up to Bosonic Lab, and is somewhat unbalanced at times. Good luck.")
+>>>>>>> Stashed changes
           if (player.exdilation!==undefined) {
-              if (player.aarexModifications.nguspV) ngModeMessages.push("Welcome to NG Update Semiprime mode made by Aarex! This is like NGUd', but it is really a combination of NG+3 and NGUd. This mode is more balanced too. Good luck! :)")
+              if (player.aarexModifications.nguspV) ngModeMessages.push("Welcome to NG Update Semiprime, made by Aarex! This is like NGUd', but is a combination of NG+3 and NGUd with better balancing. Good luck! :)")
               if (player.aarexModifications.ngumuV||player.aarexModifications.nguepV) {
-                  if (player.aarexModifications.ngumuV) ngModeMessages.push("Welcome to NG Update Multiplied Prime mode, made by Aarex! This is a NG*-like mod of NGUd'. This mod is very easy to beat, but you can't break this mod. :'(")
-                  if (player.aarexModifications.nguepV) ngModeMessages.push("Welcome to NG Update Exponential Prime mode made by pg132! NGUd^' is like NGUd', but non-Black Hole nerfs are removed to make NGUd^' a NG^-like mod of NGUd'. This mod is very easy to beat, but you can't break this mod. :'(")
+                  if (player.aarexModifications.ngumuV) ngModeMessages.push("Welcome to NG Update Multiplied Prime, made by Aarex! This is a NG*-like mod of NGUd'. This mod is very easy to beat, but you can't easily break it.")
+                  if (player.aarexModifications.nguepV) ngModeMessages.push("Welcome to NG Update Exponential Prime, made by pg132! NGUd^' is like NGUd', but nerfs not related to the black hole are removed to make NGUd^' somewhat like NG^. This mod is very easy to beat, but you can't easily break it.")
               } else if (player.aarexModifications.nguspV) {}
+<<<<<<< Updated upstream
               else if (player.aarexModifications.ngudpV) ngModeMessages.push("Welcome to NG Update Prime mode made by pg132! NGUd' is like NGUd+, but you can't reverse dilation. Good luck for beating this mod. >:)")
               else if (player.meta!==undefined) ngModeMessages.push("Welcome to NG Update+ mode, a combination made by Soul147 (Sigma)! This is a combination of dan-simon's NG Update and Aarex's NG+++. I think in this mode, you can break the game...")
               else ngModeMessages.push("Welcome to NG Update mode, an another dan-simon's end-game mod! In this mode, there are black hole and ex-dilation.")
@@ -2102,10 +2132,29 @@ if (player.version < 5) {
       if (player.aarexModifications.newGameMinusVersion) ngModeMessages.push("Welcome to NG- mode! Everything are nerfed by the creator slabdrill, making the end-game harder to reach.")
       if (player.aarexModifications.aau) ngModeMessages.push("WARNING: You are about to enter a mode that you start with all achievements unlocked! This mode is way easier and probably way faster than the same mode, but without AAU! Made by Apeirogon.")
       if (inflationCheck) ngModeMessages = ["I'm terribly sorry. But your save was appeared that there is an inflation, which it defeats the rule of incremental games. Your save was forced to reset everything."]
+=======
+              else if (player.aarexModifications.ngudpV) ngModeMessages.push("Welcome to NG Update Prime made by pg132! NGUd' is like NGUd+, but you can't reverse dilation. Good luck beating this mod.")
+              else if (player.meta!==undefined) ngModeMessages.push("Welcome to NG Update+, a combination made by Soul147 (Sigma)! This is a combination of dan-simon's NG Update and Aarex's NG+++. This combination can be potentially unbalanced.")
+              else ngModeMessages.push("Welcome to NG Update, a end-game mod made by dan-simon! In this mode, the black hole and ex-dilation features are introduced to extend the vanilla endgame.")
+          } else if (player.masterystudies&&!player.aarexModifications.ngp3lV&&!player.aarexModifications.ngp3mpV&&!player.aarexModifications.ngp4V) ngModeMessages.push("Welcome to NG+3, the extension of dan-simon's NG++ mod by Aarex! A lot of content is added after the vanilla endgame. Good luck beating this mode!")
+          else if (!player.aarexModifications.ngp4V) ngModeMessages.push("Welcome to NG++, made by dan-simon! In this mode, more dilation upgrades and meta-dimensions are added to push the end-game further.")
+      } else if (player.aarexModifications.newGamePlusVersion) ngModeMessages.push("Welcome to NG+ v2, made by Aarex and usavictor! You start with all ECs completed except for EC1/4/10 (with 1 completion each), and are given some achievements, 1 million banked infinities, first 3 columns of infinity upgrades, have 2x dimension and 1.65x tickspeed cost increase, and unlock Time Dilation immediately.")
+      if (player.infinityUpgradesRespecced) ngModeMessages.push('Welcome to Infinity Respecced, created by Aarex! In this mode, all Infinity upgrades are replaced with new upgrades except for the 2x IP mult, and you cannot break infinity. Other features are added to continue progression.')
+      if (player.boughtDims) ngModeMessages.push('Welcome to Eternity Respecced, created by dan-simon! This is a WIP port, and currently is an old version of the mod.')
+      if (player.galacticSacrifice) {
+          if (player.aarexModifications.ngmX>4) ngModeMessages.push('Welcome to NG-5, a NG-x mod by Aarex that is harder than NG-4! You are stuck in more challenges such as the Automated Big Crunches challenge, and introduces Paradox Sacrifice. Good luck!')
+          else if (player.aarexModifications.ngmX>3) ngModeMessages.push('Welcome to NG-4, a harder version of NG-3! This work in progress mod was made by Nyan Cat and edited by Aarex. This features even more changes from NG-3 and is very hardcore.')
+          else if (player.aarexModifications.newGame3MinusVersion) ngModeMessages.push('Welcome to NG-3 mode, a harder version of NG-2! This mode reduces tickspeed multiplier and nerfs galaxies, but introduces \"Tickspeed Boosts\" and buffs some achievements.')
+          else ngModeMessages.push('Welcome to NG--, created by Nyan Cat! You are always in dilation and vanilla IC3, but you unlock a new feature called "Galactic Sacrifice", and has more content and balancing changes.')
+      }
+      if (player.aarexModifications.newGameMinusVersion) ngModeMessages.push("Welcome to NG-, originally made as a savefile mod made by slabdrill, and ported by Aarex. This makes many sections of the original Antimatter Dimensions game harder.")
+      if (player.aarexModifications.aau) ngModeMessages.push("WARNING: You have turned on AAU, a mod that gives all achievements at the beginning! This mode can be potentially unbalanced at times as you have all achievements available at the start. Made by Apeirogon.")
+      if (inflationCheck) ngModeMessages = ["I'm terribly sorry, but an inflation occurred within the save file which can cause many problems, so this save file was hard reset."]
+>>>>>>> Stashed changes
       if (infiniteCheck) ngModeMessages = ["I'm terribly sorry, but there has been an Infinite bug detected within your save file, which is why said save file will get reset. Luckily, you can export your save before this reset. Thanks! :)"]
       if (forceToQuantumAndRemove) {
           quantum(false, true, 0)
-          ngModeMessages = ["Due to balancing changes, you are forced to quantum, lose your TT, and lose your best TP, but you now have "+shorten(setTTAfterQuantum)+" TT for free."]
+          ngModeMessages = ["Due to balancing changes, you are forced to quantum, lose your TT and lose your best TP. As compensation, you are given "+shorten(setTTAfterQuantum)+" TT."]
           player.timestudy.theorem = setTTAfterQuantum
           player.dilation.bestTP = new Decimal(0)
           document.getElementById('bestTP').textContent = "Your best ever Tachyon particles was 0."
@@ -2198,7 +2247,7 @@ function overwrite_save(id) {
 	}
 	var placement=1
 	while (metaSave.saveOrder[placement-1]!=id) placement++
-	if (!confirm("Are you really sure you want to overwrite save #"+placement+"? You might lose your progress!")) return
+	if (!confirm("Are you really sure you want to overwrite save #"+placement+"? You will lose any current progress in that save!")) return
 	set_save(id, player)
 	$.notify("Save overwritten", "info")
 }
@@ -2232,7 +2281,7 @@ function rename_save(id) {
 		var placement=1
 		while (metaSave.saveOrder[placement-1]!=id) placement++
 	}
-	var save_name = prompt("Input a new name of "+((metaSave.current == id || id === undefined) ? "your current save" : "save #" + placement)+". It is necessary to rename it into related names! Leave blank to reset the save's name.")
+	var save_name = prompt("Input the new name of "+((metaSave.current == id || id === undefined) ? "your current save" : "save #" + placement)+". It is recommended to name the save to the relevant mod you are playing, but it is entirely up to you. Leave the input box blank to reset the save's name.")
 	if (save_name === null) return
 	if (metaSave.current == id || id === undefined) {
 		player.aarexModifications.save_name = save_name

@@ -2,10 +2,10 @@
 var idBaseCosts = [null, 10, 100, 1e10, 1e20, 1e140, 1e200, 1e250, 1e280]
 var idCostMults = [null, 10, 100, 1e10, 1e20, 1e140, 1e200, 1e250, 1e280]
 
-function buyIDwithAM(t) {
+function buyIDwithAM(t, auto) { // t is the dimension number, auto is either true or false.
 	let d=player["infinityDimension"+t]
 	let c=d.costAM
-	if (getAmount(1)<1) {
+	if (getAmount(1)<1 && !auto) {
 		alert("You need to have at least 1 First Dimension to be able to buy Infinity Dimensions.")
 		return
 	}
@@ -135,9 +135,9 @@ let puMults = {
 	}
 }
 let puDescs = {
-	11: "Dimension multiplier increases 2x faster.",
+	11: "Double the dimension multiplier increase.",
 	12: "Matter increases slower.",
-	13: "Second Dimension multiplier is raised to a power.",
+	13: "The 2nd Dimension multiplier is exponentiated to a certain power.",
 	14: "Time speed is 2x faster.",
 	21: "Buying something reduces matter.",
 	22: "Antimatter boosts Paradox Dimensions 1 & 4.",
@@ -149,7 +149,7 @@ let puDescs = {
 	32: "Infinity Power boosts Time Dimensions.",
 	33: "Add Tickspeed Multiplier increase based on your Paradoxes.",
 	34: "Infinity Power effect is stronger based on your Tickspeed Multiplier.",
-	41: "Paradoxes add the power to Dimension Boosts.",
+	41: "Paradoxes add power to Dimension Boosts.",
 	42: "Dimension Boosts boost Infinity Dimensions.",
 	43: "Reduce Time Dimension Boost cost multiplier to 1.5.",
 	44: "Time Dimension Boosts are stronger based on your Paradoxes.",

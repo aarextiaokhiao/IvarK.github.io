@@ -94,10 +94,10 @@ function updateSpoilers() {
 			if (displayed) {
 				if (i == 22) {
 					var msg = "When you reach "
-					if (player.masterystudies) msg += "9.32e446 meta-antimatter and completed EC14 for the first time"
+					if (player.masterystudies) msg += "9.32e446 meta-antimatter and complete EC14 for the first time"
 					else msg += "infinity meta-antimatter"
-					msg += ", you will able to go quantum. Quantum will reset everything eternity resets, and also time studies, eternity challenges, dilation, "+(player.masterystudies?"meta dimensions, and mastery studies":"and meta dimensions (except your best meta-antimatter)")+". You will gain a quark and unlock various upgrades."
-					if (player.masterystudies) msg += "<br><br>You will also unlock speedrun milestones where you must do fast quantums to get your QoL content rewards on eternity, and even quantum autobuyer."
+					msg += ", you will able to go quantum. Quantum will reset everything eternity resets, including time studies, eternity challenges, dilation, "+(player.masterystudies?"meta dimensions, and mastery studies":"and meta dimensions (except your best meta-antimatter)")+". You will gain a quark and unlock various upgrades."
+					if (player.masterystudies) msg += "<br><br>You will also unlock speedrun milestones where you must do fast quantums to get quality of life content rewards to speed up runs and automate certain features."
 					document.getElementById("div22").innerHTML = msg
 				}
 			} else document.getElementById("div"+i).className = "hidden";

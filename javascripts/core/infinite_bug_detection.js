@@ -15,9 +15,9 @@ function isInfiniteDetected() {
 		reload()
 		infiniteDetected = false
 		if (document.getElementById("welcome").style.display != "flex") document.getElementById("welcome").style.display = "flex"
-		if (infiniteCheck2) document.getElementById("welcomeMessage").innerHTML = "I'm terribly sorry, but there has been an Infinite bug detected within your save file, which is why said save file will get reset. Luckily, you can export your save before this reset. Thanks! :)"
+		if (infiniteCheck2) document.getElementById("welcomeMessage").innerHTML = "Sorry, but multiple Infinite bugs have occurred on this save, causing this save to be hard reset to prevent any Infinite bug loops. You can export your save before this reset and post it so that we could potentially fix the problem. Thanks! :)"
 		else {
-			document.getElementById("welcomeMessage").innerHTML = "I'm sorry, but you got an Infinite bug. Because of this, your save is reverted to your last saved progress. It is recommended to post how did you got this bug. Thanks! :)"
+			document.getElementById("welcomeMessage").innerHTML = "It seems you have encountered an Infinite bug, causing the game to not work properly. Your save has been converted to the last known save. It is recommended to post the save that has the Infinite bug so we could potentially fix the problem in the NG+3 Discord server. Thanks! :)"
 			infiniteCheck2 = true
 		}
 		return true

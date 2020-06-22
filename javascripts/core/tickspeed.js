@@ -51,10 +51,10 @@ function getGalaxyEff(bi) {
 		if (player.achievements.includes("r83")) eff *= 1.05
 		if (player.achievements.includes("r45")) eff *= 1.02
 		if (player.infinityUpgrades.includes("postinfi51")) eff *= player.tickspeedBoosts!=undefined? 1.15 : 1.2
-		if (tmp.cp && player.achievements.includes("r67")) {
+		if (tmp.cp > 0 && player.achievements.includes("r67")) {
 			let x=tmp.cp
 			if (x>4&&player.tickspeedBoosts != undefined) x=Math.sqrt(x-1)+2
-			eff *= .07*(x+14)
+			eff *= .07*(x)
 		}
 	}
 	if (player.tickspeedBoosts !== undefined && (inNC(5) || player.currentChallenge == "postcngm3_3")) eff *= 0.75

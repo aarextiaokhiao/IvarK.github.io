@@ -882,6 +882,7 @@ strong { color: #0072e5 }
 }
 
 #quarkEnergy,
+#quarkEnergyNanofield,
 #quarkEnergyRate,
 #quarkPowerThreshold {
     color: #72e500 !important;

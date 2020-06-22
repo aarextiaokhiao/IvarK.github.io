@@ -1,22 +1,113 @@
-<html>
-	<head>
+<html><head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/png" href="icon.png">
 		<title>About</title>
-		<link rel="stylesheet" type="text/css" href="stylesheets/changelog.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/about.css">
 		<script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="javascripts/notify.js"></script>
-		<script type="text/javascript" src="javascripts/about.js"></script>
-	</head>
-	<body style='text-align:center' onload="giveachievement()">
+		<script type="text/javascript" src="javascripts/notify.js"></script><style type="text/css" id="notify-bootstrap">.notifyjs-bootstrap-base {
+	font-weight: bold;
+	padding: 8px 15px 8px 14px;
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	white-space: nowrap;
+	padding-left: 15px;
+	background-repeat: no-repeat;
+	background-position: 3px 7px;
+}
+.notifyjs-bootstrap-error {
+	color: black;
+	background-color: #bf352d;
+	border-color: #330000;
+	font-family: TypeWriter;
+}
+.notifyjs-bootstrap-success {
+	color: black;
+	background-color: #DBD800;
+	border-color: #BAB700;
+	font-family: TypeWriter;
+}
+.notifyjs-bootstrap-info {
+	color: black;
+	background-color: #48C0E8;
+	border-color: #4980CC;
+	font-family: TypeWriter;
+}
+.notifyjs-bootstrap-warn {
+	color: #C09853;
+	background-color: #FCF8E3;
+	border-color: #FBEED5;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABJlBMVEXr6eb/2oD/wi7/xjr/0mP/ykf/tQD/vBj/3o7/uQ//vyL/twebhgD/4pzX1K3z8e349vK6tHCilCWbiQymn0jGworr6dXQza3HxcKkn1vWvV/5uRfk4dXZ1bD18+/52YebiAmyr5S9mhCzrWq5t6ufjRH54aLs0oS+qD751XqPhAybhwXsujG3sm+Zk0PTwG6Shg+PhhObhwOPgQL4zV2nlyrf27uLfgCPhRHu7OmLgAafkyiWkD3l49ibiAfTs0C+lgCniwD4sgDJxqOilzDWowWFfAH08uebig6qpFHBvH/aw26FfQTQzsvy8OyEfz20r3jAvaKbhgG9q0nc2LbZxXanoUu/u5WSggCtp1anpJKdmFz/zlX/1nGJiYmuq5Dx7+sAAADoPUZSAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQY02NgoBIIE8EUcwn1FkIXM1Tj5dDUQhPU502Mi7XXQxGz5uVIjGOJUUUW81HnYEyMi2HVcUOICQZzMMYmxrEyMylJwgUt5BljWRLjmJm4pI1hYp5SQLGYxDgmLnZOVxuooClIDKgXKMbN5ggV1ACLJcaBxNgcoiGCBiZwdWxOETBDrTyEFey0jYJ4eHjMGWgEAIpRFRCUt08qAAAAAElFTkSuQmCC);
+}
+</style>
+	<style type="text/css" id="core-notify">.notifyjs-corner {
+	position: fixed;
+	margin: 5px;
+	z-index: 1050;
+}
+
+.notifyjs-corner .notifyjs-wrapper,
+.notifyjs-corner .notifyjs-container {
+	position: relative;
+	display: block;
+	height: inherit;
+	width: inherit;
+	margin: 3px;
+}
+
+.notifyjs-wrapper {
+	z-index: 1;
+	position: absolute;
+	display: inline-block;
+	height: 0;
+	width: 0;
+}
+
+.notifyjs-container {
+	display: none;
+	z-index: 1;
+	position: absolute;
+}
+
+.notifyjs-hidable {
+	cursor: pointer;
+}
+
+[data-notify-text],[data-notify-html] {
+	position: relative;
+}
+
+.notifyjs-arrow {
+	position: absolute;
+	z-index: 2;
+	width: 0;
+	height: 0;
+}</style></head>
+	<body style="text-align:center">
 		<h1 align="center">Antimatter Dimensions</h1>
-		<h2 align="center">Aarex's Modifications</h2>
 		<hr>
-		In this modification, it adds more options and notations, a new large number library called logarithmica_numerus.js (you can see the code at <a href="https://github.com/aarextiaokhiao/magna_numerus.js/blob/master/logarithmica_numerus_lite.js" target="_newtab">here</a>), and modifications!<br>
-		All ported mods are NG+3 (popular), NG-- (not completed, made by Nyan Cat), Eternity Respecced (not completed, made by dan-simon), NG Update (made by dan-simon), NG-3, NG-, NG+, and NG++ (made by dan-simon).<br><br>
-		Are you playing NG+3? I recommend you to join this server: <a href='http://discord.gg/h9mDese' target="_newtab">http://discord.gg/h9mDese</a><br>
-		<a href="https://aarextiaokhiao.github.io/">Home page</a><br><br>
-		Oh, you can also play my new game called <a href="https://aarextiaokhiao.github.io/Productive-Data">Productive Data</a>. The next update, v0.2.1.0, will be out soon!
-	</body>
-</html>
+		<h2 align="center">Aarex's Modifications</h2>
+		<b>Created by Aarex Tiaokhiao</b>
+		<br>
+		<a href="index.html">Play here!</a>
+		<br>
+		<br>
+		This modification adds NG+3, <a href="http://github.com/aarextiaokhiao/magna_numerus.js/blob/master/logarithmica_numerus_lite.js">logarithmica_numerus.js</a> support, and a lot of other mods.
+		<hr>
+		<h2 align="center">NG+3</h2>
+		<b>Created by Aarex Tiaokhiao</b>
+		<br>
+		<br>
+		NG+3 is a modification of Antimatter Dimensions which adds a lot of end-game content.
+		<br>
+		Love NG+3? Join the discord server! <a href="http://discord.gg/h9mDese" target="_newtab">http://discord.gg/h9mDese</a>
+		<hr>
+		<a href="http://aarextiaokhiao.github.io">Homepage</a> | <a href="http://patreon.com/tehaarex" onclick="giveachievement()">Donate</a> <b class="warning">(URGENT!)</b>
+		<br>
+		<br>
+		Play my other games at my home page!
+	
+</body></html>

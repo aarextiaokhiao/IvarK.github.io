@@ -99,8 +99,8 @@ function getD8Exp(){
 function galacticSacrifice(auto, force, chall) {
 	if (getGSAmount().eq(0)&&!force) return
 	if (tmp.ri) return
-	if (player.options.gSacrificeConfirmation&&!auto&&!force) if (!confirm("Galactic Sacrifice will do a galaxy reset, and then remove all of your galaxies, in exchange of galaxy points which can be use to buy many overpowered upgrades, but it will take a lot of time to recover, are you sure you wanna do this?")) return
-	if (player.options.challConf&&chall) if (!confirm("You will Galactic Sacrifice without gaining anything. You need to Galactic Sacrifice with special conditions to complete this challenge. Some Galaxy Points gain multipliers won't work in this challenge.")) return
+	if (player.options.gSacrificeConfirmation&&!auto&&!force) if (!confirm("Galactic Sacrifice will perform a galaxy reset, but will remove everything up to this point including your galaxies in exchange for Galaxy Points. It may take a while to recover. Are you sure you want to do this?")) return
+	if (player.options.challConf&&chall) if (!confirm("Entering this challenge will perform a Galactic Sacrifice without the rewards. You need to Galactic Sacrifice under special conditions to complete the challenge. Some Galaxy Point gain multipliers won't work in this challenge.")) return
 	if (!force) {
 		player.galacticSacrifice.galaxyPoints=player.galacticSacrifice.galaxyPoints.plus(getGSAmount())
 		player.galacticSacrifice.times++
@@ -308,9 +308,9 @@ function productAllTotalBought1 () {
 function productAllDims1(){
 	var ret = new Decimal(0)
 	for (i = 1; i <= 8; i++) {
-		ret = ret.add(Math.max(player[TIER_NAMES[i] + "Amount"].max(1).log10(),0));
+		ret = ret.add(Math.max((player[TIER_NAMES[1] + "Amount"].max(1)).log10(),0));
 	}
-	return ret.min(1)
+	return ret.max(1)
 }
 
 document.getElementById("challenge13").onclick = function () {
@@ -504,7 +504,11 @@ let galMults = {
 	},
 	u23: function() {
 		let x=player.galacticSacrifice.galaxyPoints.max(1).log10()*3/4+1
+<<<<<<< Updated upstream
 		if (!tmp.ngp3l&&player.achievements.includes("r138")) x*=player.dilation.bestIP.add(10).log10()
+=======
+		if (!tmp.ngp3l&&player.achievements.includes("r138")) x*=Decimal.add(player.dilation.bestIP,10).log10()
+>>>>>>> Stashed changes
 		return x
 	},
 	u33: function() {

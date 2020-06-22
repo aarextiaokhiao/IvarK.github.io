@@ -352,7 +352,7 @@ function updateMetaDimensions () {
 	var isMetaShift = player.meta.resets < 4
 	var metaShiftRequirement = getMetaShiftRequirement()
 		document.getElementById("metaResetLabel").textContent = 'Meta-Dimension ' + (isMetaShift ? "Shift" : "Boost") + ' ('+ getFullExpansion(player.meta.resets) +'): requires ' + getFullExpansion(Math.floor(metaShiftRequirement.amount)) + " " + DISPLAY_NAMES[metaShiftRequirement.tier] + " Meta Dimensions"
-		document.getElementById("metaSoftReset").textContent = "Reset meta-dimensions for a " + (isMetaShift ? "new dimension" : "boost")
+		document.getElementById("metaSoftReset").textContent = "Reset your meta-dimensions for a " + (isMetaShift ? "new dimension" : "boost")
 	if (player.meta[metaShiftRequirement.tier].bought >= metaShiftRequirement.amount) {
 		document.getElementById("metaSoftReset").className = 'storebtn'
 	} else {
@@ -362,7 +362,7 @@ function updateMetaDimensions () {
 	var req = getQuantumReq()
 	var reqGotten = isQuantumReached()
 	var newClassName = reqGotten?(bigRipped&&player.options.theme=="Aarex's Modifications"?"":"storebtn ")+(bigRipped?"aarexmodsghostifybtn":""):'unavailablebtn'
-	var message = 'Lose all your previous progress, but '
+	var message = ((getCurrentQCData().length != 0 && true) ? 'Complete the challenge and ' : 'Lose all your previous progress, but ')
 	document.getElementById("quantumResetLabel").textContent = (bigRipped?'Ghostify':'Quantum')+': requires '+shorten(req)+' meta-antimatter '+(!inQC(0)? "and "+shortenCosts(Decimal.pow(10,getQCGoal()))+" antimatter":player.masterystudies?"and an EC14 completion":"")
 	if (reqGotten && bigRipped && ghostified) {
 		var GS = getGHPGain()

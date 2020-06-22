@@ -5,3 +5,5 @@ function giveachievement() {
 		localStorage.removeItem(btoa("dsAM_asfd"))
 	}
 }
+
+// gives you the achievement in about (since there is no proper donation page yet)

@@ -1,3 +1,5 @@
+// really not needed
+
 function playFabLogin() {
   try {
     var authTicket = kongregate.services.getGameAuthToken();

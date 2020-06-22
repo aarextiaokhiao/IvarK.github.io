@@ -454,7 +454,7 @@ button, div.storebtn {
     background-color: #4c4c4c !important
 }
 
-#quantumFoodAmount, #workerProgress, #growupProgress, #quantumFoodAmountED, #quarkEnergy, #quarkEnergyRate, #quarkPower, #quarkPowerThreshold, #rewards, #rewards_AP {
+#quantumFoodAmount, #workerProgress, #growupProgress, #quantumFoodAmountED, #quarkEnergy, #quarkEnergyNanofield, #quarkEnergyRate, #quarkPower, #quarkPowerThreshold, #rewards, #rewards_AP {
 	color: #39e539 !important
 }
 

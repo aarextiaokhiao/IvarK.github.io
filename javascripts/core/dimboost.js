@@ -107,7 +107,7 @@ function setInitialMoney() {
 	if (player.achievements.includes("r37")) x=1000
 	if (player.achievements.includes("r54")) x=2e5
 	if (player.achievements.includes("r55")) x=1e10
-	if (player.achievements.includes("r78")) x=1e25
+	if (player.achievements.includes("r78")) x=2e25
 	player.money=new Decimal(x)
 }
 

@@ -1,3 +1,5 @@
+// to do: update eternity respecced
+
 function updateERSTTDesc() {
 	document.getElementById("ts1desc").textContent = shorten(calcTotalSacrificeBoost()) + "x -> " + shorten(calcTotalSacrificeBoost(true)) + "x"
 	document.getElementById("ts2desc").textContent = getFullExpansion(getTotalTickGained()) + " -> " + getFullExpansion(getTotalTickGained(true))

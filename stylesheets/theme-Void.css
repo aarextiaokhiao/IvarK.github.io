@@ -98,11 +98,11 @@ input {
 }
 
 .container {
-    color: #333 !important;
+    color: #909090 !important;
 }
 
 .completedrow {
-    color: #333 !important;
+    color: #909090 !important;
 }
 
 .challengesbtn {
@@ -185,11 +185,11 @@ input {
 }
 
 .unavailablebtn {
-    background: #222 !important;
+    background: #202020 !important;
 }
 
 .unavailablebtn:hover {
-    background: #500 !important;
+    background: #151515 !important;
 }
 
 .postinfcrunch {
