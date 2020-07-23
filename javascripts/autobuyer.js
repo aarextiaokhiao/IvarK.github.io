@@ -23,3 +23,8 @@ var Autobuyer = function Autobuyer(target) {
     this.tier = 1;
     this.bulk = 1;
 }
+
+
+function maxAllAutobuyers() {
+for(i = 0; i < 12; i++) while(buyAutobuyer(i));
+}

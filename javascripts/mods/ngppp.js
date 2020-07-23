@@ -4249,7 +4249,7 @@ var bu={ // bosonic upgrades
 		11: "Bosonic Antimatter boosts the Blue Light effect.",
 		12: "For every 100% of green power effect, decrease the free galaxy threshold increase by 0.0007.",
 		13: "Radioactive Decays boost the effect of Light Empowerments.",
-		14: "Your free galaxies cancel less galaxies based on the amount of sacrificed galaxies.",
+		14: "Your free galaxies cancel fewer galaxies based on the amount of sacrificed galaxies.",
 		15: "Ghostifies and dilated time power up each other.",
 		21: "Replace first Nanofield reward with a boost to delay Dimension Supersonic scaling.",
 		22: "Replace seventh Nanofield reward with a boost to neutrino gain and preon charge.",

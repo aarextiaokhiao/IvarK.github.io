@@ -747,8 +747,8 @@ function updateNewPlayer(reseted) {
     }
 	if (modesChosen.ngmu) {
 		player.aarexModifications.newGameMult=1
-		player.infMult=256
-		player.eternities=100
+		player.infMult=1024
+		player.eternities=1012680
 		player.replicanti.unl=true
 		player.replicanti.amount=new Decimal(1)
 	}
@@ -4114,7 +4114,7 @@ function setAchieveTooltip() {
     speed.setAttribute('ach-tooltip', "Big Crunch for "+shortenCosts(1e200)+" IP in 2 seconds or less. Reward: All Normal Dimensions are significantly stronger in the first 5 seconds of an Infinity.")
     speed2.setAttribute('ach-tooltip', "Big Crunch for "+shortenCosts(1e250)+" IP in 20 seconds or less. Reward: All Normal Dimensions are significantly stronger in the first 60 seconds of an Infinity.")
     overdrive.setAttribute('ach-tooltip', "Big Crunch with " + shortenCosts(1e300) + " IP/min. Reward: Gain an additional 4x multiplier to IP.")
-    minute.setAttribute('ach-tooltip', "Get " + shortenCosts(1e260) + " infinity power. Reward: The 1st Infinity Dimension gains a 2x multiplier.")
+    minute.setAttribute('ach-tooltip', "Get " + shortenCosts(1e260) + " infinity power. Reward: The 1st Infinity Dimension produces twice as much Infinity Power.")
     hell.setAttribute('ach-tooltip', "Get the sum of Infinity Challenge times under 5 seconds." + (player.boughtDims ? " Reward: Sacrifice is slightly more stronger." : ""))
     zerodeg.setAttribute('ach-tooltip', "Unlock the 8th Infinity Dimension."+(player.boughtDims?" Reward: Normal Dimension multipliers are increased by the amount of 8th Infinity Dimensions you have.":""))
     costco.setAttribute('ach-tooltip', "Bulk buy 750 dimension boosts at once. Reward: Dimension boosts are"+(player.boughtDims?" cheaper based on EP.":" 1% more powerful (affects only Normal Dimensions)."))
@@ -4125,11 +4125,11 @@ function setAchieveTooltip() {
     nine.setAttribute('ach-tooltip', "Eternity with exactly 9 replicanti." + (player.boughtDims ? " Reward: Replicanti multiplier to ID is 9% stronger (after time studies)." : ""))
     infiniteIP.setAttribute('ach-tooltip', "Reach "+shortenCosts(new Decimal("1e30008"))+" IP." + (player.galacticSacrifice == undefined || player.tickspeedBoosts != undefined ? "" : " Reward: Your total galaxy amount boosts GP gain."))
     fiveMore.setAttribute('ach-tooltip', "Complete 50 unique eternity challenge tiers." + (player.galacticSacrifice !== undefined ? " Reward: Divide Infinity Dimension costs based on the cost divider of dimensions from Galaxy Upgrade 1 (row 1/g11)." : ""))
-    newI.setAttribute('ach-tooltip', "Eternity in under 200ms." + (player.galacticSacrifice !== undefined ? " Reward: GP gain from Dimension Boosts is buffed." : "")) // buffed by how much?
+    newI.setAttribute('ach-tooltip', "Eternity in under 200ms." + (player.galacticSacrifice !== undefined ? " Reward: The GP gain from Dimension Boosts is buffed." : "")) // buffed by how much?
     over9000.setAttribute('ach-tooltip', "Get a total sacrifice multiplier of "+shortenCosts(new Decimal("1e9000"))+". Reward: Sacrifice doesn't reset your dimensions.")
     dawg.setAttribute('ach-tooltip', "Have all your past 10 infinities be at least "+shortenMoney(Number.MAX_VALUE)+" times higher IP than the previous one. Reward: Your antimatter doesn't reset on dimboost/galaxy.")
     eatass.setAttribute('ach-tooltip', "Reach "+shortenCosts(1e100)+" IP without any infinities or first dimensions. Reward: Gain a IP multiplier based on time spent in this infinity.")
-    layer.setAttribute('ach-tooltip', "Reach "+shortenMoney(Number.MAX_VALUE)+" EP." + (player.galacticSacrifice !== undefined ? " Reward: GP gain from your galaxies is buffed." : "")) // buffed by how much?
+    layer.setAttribute('ach-tooltip', "Reach "+shortenMoney(Number.MAX_VALUE)+" EP." + (player.galacticSacrifice !== undefined ? " Reward: The GP gain from your galaxies is buffed." : "")) // buffed by how much?
     fkoff.setAttribute('ach-tooltip', "Reach "+shortenCosts(new Decimal("1e22000"))+" IP without any time studies. Reward: Time Dimensions gain a multiplier based on the amount of purchased time studies.")
     minaj.setAttribute('ach-tooltip', "Have 180 times more non-bonus replicanti galaxies than normal galaxies. Reward: Replicanti galaxies divide your replicanti by "+shortenMoney(Number.MAX_VALUE)+" instead of resetting them to 1.")
     infstuff.setAttribute('ach-tooltip', "Reach "+shortenCosts(new Decimal("1e140000"))+" IP without buying IDs or IP multipliers. Reward: You start eternities with all Infinity Challenges unlocked and completed"+(player.meta?", and your infinity gain is multiplied by dilated time^(1/4).":"."))
@@ -4178,7 +4178,7 @@ function setAchieveTooltip() {
     bm10.setAttribute('ach-tooltip', "Reward: Start Ghostifies with 10 of Fourth Emperor Dimensions"+(player.aarexModifications.ngudpV?" and start Big Rips with 3rd row of Eternity upgrades.":"."))
     bm14.setAttribute('ach-tooltip', "Reward: Start Ghostifies with "+shortenCosts(1e25)+" Quark Spins, and Branches are 10x faster.")
     uc.setAttribute('ach-tooltip', "Become a ghost with at least "+shortenCosts(Decimal.pow(10, 22e4))+" EP without starting Eternity Challenge 10 while Big Ripped.")
-    mi.setAttribute('ach-tooltip', "Get "+shorten(Number.MAX_VALUE)+" infinitied stat. Reward: You gain banked infinites and eternities when you either go quantum or Big Rip the universe without having to gain infinitied and eternitied.")
+    mi.setAttribute('ach-tooltip', "Get "+shorten(Number.MAX_VALUE)+" infinitied stat. Reward: You gain banked infinites and eternities when going Quantum or Big Ripping the universe.")
     wd.setAttribute('ach-tooltip', "Get "+shortenCosts(Decimal.pow(10, 1e12))+" Infinity Unstable Quarks for each Branch without Big Ripping.")
     arent.setAttribute('ach-tooltip', "Reach "+shortenCosts(Decimal.pow(10, 18e5))+" IP while dilated and big ripped and without having studies, EP mult upgrades, Tree Upgrades, and Break Eternity.")
 	document.getElementById("Even Ghostlier than before").setAttribute("ach-tooltip", "Unlock Bosonic Lab." + (tmp.ngp3l ? "" : " Reward: The meta-antimatter effect uses the best meta-antimatter in your current Ghostify instead of your current Quantum."))
