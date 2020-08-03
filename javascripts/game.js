@@ -3510,7 +3510,7 @@ document.getElementById("maxall").onclick = function() {
     if (tmp.ri) {
       return false;
     }
-    if (player.currentChallenge !== 'challenge14') {
+    if (player.currentChallenge !== 'challenge14' && player.aarexModifications.ngmX !== 2) {
       buyMaxTickSpeed();
     }
     for (var tier = 1; tier < 9; tier++) {
@@ -9900,7 +9900,7 @@ setInterval(function() {
     doAutoEterTick();
 
     if (getEternitied() >= 40 && player.replicanti.auto[0] && player.currentEternityChall !== "eterc8" && isChanceAffordable()) {
-        var maxCost = (tmp.ngp3 ? player.masterystudies.includes("t265") : false) ? 1 / 0 : new Decimal("1e1620");
+        var maxCost = (tmp.ngp3 ? player.masterystudies.includes("t265") : false) ? 1 / 0 : new Decimal("1e1620").div(player.aarexModifications.ngmX == 2 ? 1e60 : 1);
         var bought = Math.max(Math.floor(player.infinityPoints.min(maxCost).div(player.replicanti.chanceCost).log(1e15) + 1), 0);
         player.replicanti.chance = Math.round(player.replicanti.chance * 100 + bought) / 100;
         player.replicanti.chanceCost = player.replicanti.chanceCost.times(Decimal.pow(1e15, bought));
