@@ -445,7 +445,8 @@ document.getElementById("postinfi63").onclick = function() {
 }
 
 function getNewB60Mult(){
-	let gal = player.galaxies
+	let gal = player.galaxies - 95
+	if (gal < 0) gal = 0
 	return Decimal.pow(10, 120 * gal)
 }
 
