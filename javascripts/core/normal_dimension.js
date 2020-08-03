@@ -142,6 +142,7 @@ function getDimensionFinalMultiplier(tier) {
 
 	if (mult.gt(10)) mult = dilates(mult.max(1), 1)
 	if (player.dilation.upgrades.includes(6)) mult = mult.times(player.dilation.dilatedTime.max(1).pow(308))
+	if (player.infinityUpgrades.includes("postinfi60") && player.tickspeedBoosts == undefined && tier == 1) mult = mult.times(getNewB60Mult())
 	let useHigherNDReplMult = !player.dilation.active ? false : !player.masterystudies ? false : player.masterystudies.includes("t323")
 	if (useHigherNDReplMult) mult = mult.times(tmp.nrm)
 	if (quantumed && !tmp.ngp3l) mult = mult.times(colorBoosts.dim.r)
