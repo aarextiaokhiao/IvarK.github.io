@@ -4550,6 +4550,10 @@ function onPostBreak() {
 	return (player.break && inNC(0)) || player.currentChallenge.includes("p")
 }
 
+function getIPGain(){
+	return gainedInfinityPoints()
+}
+
 function getInfinityPointGain(){
 	return gainedInfinityPoints()
 }
@@ -4575,7 +4579,6 @@ function gainedInfinityPoints(next) {
 		ret = ret.times(Decimal.pow(player.thisInfinityTime/10,player.timestudy.ers_studies[6]+(next==6?1:0)))
 	}
 	if (isBigRipUpgradeActive(4)) ret = ret.times(player.replicanti.amount.pow(0.34).max(1))
-	if (player.infinityUpgrades.includes("postinfi60")&&player.tickspeedBoosts==undefined) ret = ret.times(getB60Mult())
 	return ret.floor()
 }
 
