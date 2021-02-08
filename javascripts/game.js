@@ -1729,17 +1729,6 @@ getEl("challengeconfirmation").onclick = function () {
 	getEl("challengeconfirmation").textContent = "Challenge confirmation: O" + (player.options.challConf ? "N" : "FF")
 }
 
-getEl("infiMult").onclick = function() {
-	if (canBuyIPMult()) {
-		player.infinityPoints = player.infinityPoints.minus(player.infMultCost)
-		player.infMult = player.infMult.times(getIPMultPower());
-		player.autoIP = player.autoIP.times(getIPMultPower());
-		player.infMultCost = player.infMultCost.times(ipMultCostIncrease)
-		if (player.autobuyers[11].priority !== undefined && player.autobuyers[11].priority !== null && player.autoCrunchMode == "amount") player.autobuyers[11].priority = Decimal.times(player.autobuyers[11].priority, 2);
-		if (player.autoCrunchMode == "amount") getEl("priority12").value = formatValue("Scientific", player.autobuyers[11].priority, 2, 0);
-	}
-}
-
 function playerInfinityUpgradesOnEternity() {
 	if (getEternitied() > 19 || hasAch("ng3p51")) return
 	else if (getEternitied() > 3) {
@@ -3373,8 +3362,8 @@ function eternity(force, auto, presetLoad, dilated) {
 	}
 	updateAutobuyers();
 	setInitialMoney()
-	if (hasAch("r85")) player.infMult = player.infMult.times(4);
-	if (hasAch("r93")) player.infMult = player.infMult.times(4);
+	if (hasAch("r85")) player.infMult = player.infMult.times(4)
+	if (hasAch("r93")) player.infMult = player.infMult.times(4)
 	resetInfDimensions(true);
 	updateChallenges();
 	updateNCVisuals()
@@ -4839,8 +4828,8 @@ function ECRewardDisplayUpdating(){
 	getEl("ec10reward").textContent = "Reward: Time Dimensions gain a multiplier from your Infinities. Currently: " + shortenMoney(getECReward(10)) + "x "
 	getEl("ec11reward").textContent = "Reward: Further reduce the tickspeed cost multiplier increase. Currently: " + player.tickSpeedMultDecrease.toFixed(2) + "x" + (tmp.ngC ? ", and galaxies are " + shorten((getECReward(11) - 1) * 100) + "% stronger (based on free tickspeed upgrades)":" ")
 	getEl("ec12reward").textContent = "Reward: Infinity Dimension cost multipliers are reduced. (x^" + getECReward(12) + ")"
-	getEl("ec13reward").textContent = "Reward: For boosting dimension boosts, everything except meta-antimatter boosts them more. (x^1 -> ^" + getECReward(13).toFixed(2) + ")"
-	getEl("ec14reward").textContent = "Reward: Slow down the base replicate interval by " + shorten(tmp.rep.ec14.interval) + "x, but also slow down the replicanti scaling by " + shorten(tmp.rep.ec14.ooms) + "x OoMs."
+	getEl("ec13reward").textContent = "Reward: Increase the exponent of meta-antimatter's effect. (^9 -> ^" + (getECReward(13) + 9) + ")"
+	getEl("ec14reward").textContent = "Reward: Free tickspeed upgrades boost the IC3 reward to be " + getIC3EffFromFreeUpgs().toFixed(0) + "x stronger."
 
 	getEl("ec10span").textContent = shortenMoney(ec10bonus) + "x"
 	getEl("eterc7ts").textContent = tmp.ngC ? "does nothing" : "affects all dimensions normally"

@@ -1623,15 +1623,6 @@ function doNGSPUpdatingVersion(){
         }
 }
 
-function doInitInfMultStuff(){
-        ipMultPower=2
-        if (masteryStudies.has("t241")) ipMultPower=2.1
-        if (GUBought("gb3")) ipMultPower=2.3
-        if (tmp.mod.newGameExpVersion !== undefined) ipMultCostIncrease=4
-        else ipMultCostIncrease=10
-        getEl("infiMult").innerHTML = "You gain " + ipMultPower + "x more IP.<br>Currently: "+shortenDimensions(getIPMult()) +"x<br>Cost: "+shortenCosts(player.infMultCost)+" IP"
-}
-
 function dov12tov122(){
         if (player.version < 12) {
                 for (i=1; i<5; i++) {

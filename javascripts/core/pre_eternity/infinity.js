@@ -415,3 +415,34 @@ function canBuyIPMult() {
 	if (tmp.ngC || tmp.ez || player.infinityUpgradesRespecced != undefined) return player.infinityPoints.gte(player.infMultCost)
 	return player.infinityUpgrades.includes("skipResetGalaxy") && player.infinityUpgrades.includes("passiveGen") && player.infinityUpgrades.includes("galaxyBoost") && player.infinityUpgrades.includes("resetBoost") && player.infinityPoints.gte(player.infMultCost)
 }
+
+
+
+getEl("infiMult").onclick = function() {
+	if (canBuyIPMult()) {
+		player.infinityPoints = player.infinityPoints.minus(player.infMultCost)
+		player.infMult = player.infMult.times(getIPMultPower());
+		player.autoIP = player.autoIP.times(getIPMultPower());
+		player.infMultCost = player.infMultCost.times(ipMultCostIncrease)
+		if (player.autobuyers[11].priority !== undefined && player.autobuyers[11].priority !== null && player.autoCrunchMode == "amount") player.autobuyers[11].priority = Decimal.times(player.autobuyers[11].priority, 2);
+		if (player.autoCrunchMode == "amount") getEl("priority12").value = formatValue("Scientific", player.autobuyers[11].priority, 2, 0);
+	}
+}
+
+function doInitInfMultStuff() {
+	ipMultPower=2
+	if (masteryStudies.has(241)) ipMultPower=2.1
+	if (GUBought("gb3")) ipMultPower=2.3
+
+	if (tmp.mod.newGameExpVersion !== undefined) ipMultCostIncrease=4
+	else ipMultCostIncrease=10
+}
+
+function bumpInfMult() {
+	var otherMults = 1
+	if (hasAch("r85")) otherMults *= 4
+	if (hasAch("r93")) otherMults *= 4
+	var old = getIPMultPower()
+	doInitInfMultStuff()
+	player.infMult = player.infMult.div(otherMults).pow(Math.log10(getIPMultPower()) / Math.log10(old)).times(otherMults)
+}

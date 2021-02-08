@@ -70,6 +70,7 @@ function calcVanillaTSTDMult(tier){
 
 function getRepToTDExp() {
 	let x = 0.1
+	if (player.currentEternityChall == "eterc14") x = 0
 	return x
 }
 
@@ -89,24 +90,24 @@ function getTimeDimensionPower(tier) {
 	ret = ret.times(getERTDAchMults())
 
 	let ret2 = calcNGM2atleastTDPreVPostDilMultiplier(tier)
-	if (player.galacticSacrifice === undefined) ret = ret.times(ret2)
+	if (!inNGM(2)) ret = ret.times(ret2)
 	ret = ret.times(calcVanillaTSTDMult(tier))
 
 	if (hasPU(21)) ret = ret.times(puMults[21]())
 	if (ECComps("eterc10") !== 0) ret = ret.times(getECReward(10))
 	if (hasAch("r128")) ret = ret.times(Math.max(player.timestudy.studies.length, 1))
 	if (hasGalUpg(43)) ret = ret.times(galMults.u43())
-	if (!player.dilation.upgrades.includes("ngmm2") && player.dilation.upgrades.includes(5) && !tmp.ngC && player.replicanti.amount.gt(1)) ret = ret.times(tmp.rm.pow(getRepToTDExp()))
+	if (!hasDilationUpg("ngmm2") && hasDilationUpg(5) && !tmp.ngC && player.replicanti.amount.gt(1)) ret = ret.times(tmp.rm.pow(getRepToTDExp()))
 	if (inQC(6)) ret = ret.times(player.postC8Mult).dividedBy(player.matter.max(1))
 
 	ret = dilates(ret, 2)
 	if (inNGM(2)) ret = ret.times(ret2)
 
 	ret = dilates(ret, 1)
-	if (player.dilation.upgrades.includes("ngmm2") && player.dilation.upgrades.includes(5) && player.replicanti.amount.gt(1)) ret = ret.times(tmp.rm.pow(getRepToTDExp()))
+	if (hasDilationUpg("ngmm2") && hasDilationUpg(5) && player.replicanti.amount.gt(1)) ret = ret.times(tmp.rm.pow(getRepToTDExp()))
 	if (tmp.ngC && ngC.tmp) ret = ret.times(ngC.condense.tds.eff(tier))
 
-	if (player.dilation.upgrades.includes("ngmm8")) ret = ret.pow(getDil71Mult())
+	if (hasDilationUpg("ngmm8")) ret = ret.pow(getDil71Mult())
 	if (tmp.ngC) ret = softcap(ret, "tds_ngC")
 
 	return ret
@@ -127,7 +128,16 @@ function getTimeDimensionProduction(tier) {
 }
 
 function getIC3EffFromFreeUpgs() {
-	return inNGM(2) ? 1 : 0
+	let x = 0
+	if (tmp.ngp3) {
+		if (player.currentEternityChall == 'eterc14') x = 5
+		else {
+			x = ECComps("eterc14") * 4
+			if (hasNU(12)) if (tmp.qu.bigRip.active) x *= tmp.nu[12].replicated
+		}
+	}
+	if (inNGM(2)) x += 1
+	return x
 }
 
 function isTDUnlocked(t) {

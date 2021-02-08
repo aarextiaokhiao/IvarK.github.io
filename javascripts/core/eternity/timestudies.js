@@ -269,7 +269,7 @@ function canBuyStudy(name) {
 		case 12:
 			let have = player.timestudy.studies.filter(function(x) {return Math.floor(x / 10) == 12}).length
 			if (hasRow(row - 1)) {
-				if (hasEternityUpg(10) || hasEternityUpg(14)) return true
+				if (hasEternityUpg(10) || masteryStudies.has(272)) return true
 				return have < 1
 			}
 			return false
@@ -487,7 +487,7 @@ function respecTimeStudies(force, presetLoad) {
 	drawStudyTree()
 	if (!presetLoad) updateTimeStudyButtons(true)
 	if (gotAch) giveAchievement("You do know how these work, right?")
-	if (!GUBought("gb3")) ipMultPower = 2
+	doInitInfMultStuff()
 	if (player.replicanti.galaxybuyer) getEl("replicantiresettoggle").textContent = "Auto galaxy: ON"
 	else getEl("replicantiresettoggle").textContent = "Auto galaxy: OFF"
 }

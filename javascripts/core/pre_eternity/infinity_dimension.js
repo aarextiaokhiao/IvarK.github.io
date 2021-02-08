@@ -81,7 +81,7 @@ function updateInfinityDimensions() {
 }
 
 function infDimensionProduction(tier) {
-	if (inQC(8)) return new Decimal(0)
+	if (inQC(8) || player.currentEternityChall == "eterc13") return new Decimal(0)
 	if (tier == 9) return getTimeDimensionProduction(1).pow(ECComps("eterc7") * 0.2).max(1).minus(1)
 	let dim = player["infinityDimension" + tier]
 	let ret = dim.amount
@@ -136,6 +136,7 @@ function infDimensionPower(tier) {
   	let dim = player["infinityDimension" + tier]
   	if (player.currentEternityChall == "eterc2" || player.currentEternityChall == "eterc10") return new Decimal(0)
   	if (player.currentEternityChall == "eterc11") return new Decimal(1)
+  	if (player.currentEternityChall == 'eterc14') return getIDReplMult()
   	if (inQC(3)) return getExtraDimensionBoostPower()
   
 	let mult = getStartingIDPower(tier)
@@ -363,7 +364,6 @@ function loadInfAutoBuyers() {
 var infDimPow = 1
 
 function getIDReplMult() {
-	if (masteryStudies.has(272)) return Decimal.pow(2, Math.pow(tmp.rm.log10(), 2))
 	return tmp.rm
 }
 

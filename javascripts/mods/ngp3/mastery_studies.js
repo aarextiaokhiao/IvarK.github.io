@@ -1,12 +1,12 @@
 var masteryStudies = {
 	initCosts: {
-		time: {241: 1e68, 251: 2e70, 252: 2e70, 253: 2e70, 261: 1e70, 262: 1e70, 263: 1e70, 264: 1e70, 265: 1e70, 266: 1e70, 271: 2.7434842249657063e76, 272: 2.7434842249657063e76, 273: 2.7434842249657063e76, 281: 6.858710562414266e76, 282: 6.858710562414266e76},
-		ec: {13: 1e71, 14: 1e71},
+		time: {241: 2e71, 251: 5e71, 252: 5e71, 253: 5e71, 261: 2e71, 262: 2e71, 263: 2e71, 264: 2e71, 265: 2e71, 266: 2e71, 271: 2.7434842249657063e76, 272: 2.7434842249657063e76, 273: 2.7434842249657063e76, 281: 6.858710562414266e76, 282: 6.858710562414266e76},
+		ec: {13: 1.7777777777777776e72, 14: 1.7777777777777776e72},
 		dil: {7: 2e81, 8: 2e83, 9: 1e85, 10: 1e87, 11: 1e90, 12: 1e92, 13: 1e95, 14: 1e97}
 	},
 	costs: {
 		time: {},
-		time_mults: {241: 1, 251: 2, 252: 2, 253: 2, 261: 2, 262: 2, 263: 2, 264: 2, 265: 2, 266: 2, 271: 2, 272: 2, 273: 2, 281: 4, 282: 4},
+		time_mults: {241: 1, 251: 2.5, 252: 2.5, 253: 2.5, 261: 6, 262: 6, 263: 6, 264: 6, 265: 6, 266: 6, 271: 2, 272: 2, 273: 2, 281: 4, 282: 4},
 		ec: {},
 		dil: {}
 	},
@@ -14,11 +14,11 @@ var masteryStudies = {
 	ecReqs: {
 		13() {
 			let comps = ECComps("eterc13")
-			return 95e4 + 5e4 * comps
+			return 728e3 + (1500 + 3000 * comps) * comps
 		},
 		14() {
 			let comps = ECComps("eterc14")
-			return Decimal.pow(10, 275000 + 25000 * comps)
+			return 255e5 + (4e6 + 2e6 * comps) * comps
 		}
 	},
 	ecReqsStored: {},
@@ -27,12 +27,12 @@ var masteryStudies = {
 			return getFullExpansion(masteryStudies.ecReqsStored[13]) + " Dimension Boosts"
 		},
 		14() {
-			return shortenCosts(masteryStudies.ecReqsStored[14]) + " replicantis"
+			return getFullExpansion(masteryStudies.ecReqsStored[14]) + "% replicate chance"
 		}
 	},
 	unlockReqConditions: {
 		7() {
-			return false //quantumWorth.gte(50)
+			return quantumWorth.gte(50)
 		},
 		8() {
 			return tmp.qu.electrons.amount >= 16750
@@ -58,7 +58,7 @@ var masteryStudies = {
 	},
 	unlockReqDisplays: {
 		7() {
-			return "LOCKED UNTIL BETA V0.3" //"50 quantum worth"
+			return "50 quantum worth"
 		},
 		8() {
 			return getFullExpansion(16750) + " electrons"
@@ -85,7 +85,7 @@ var masteryStudies = {
 	types: {t: "time", ec: "ec", d: "dil"},
 	studies: [],
 	unl() {
-		return tmp.ngp3 && tmp.eterUnl && player.dilation.upgrades.includes("ngpp6")
+		return tmp.ngp3 && tmp.eterUnl && hasDilationUpg("ngpp6")
 	},
 	has(x) {
 		return this.unl() && (player.masterystudies.includes("t" + x) || (player.masterystudies.includes(x) && x[0] == "d"))
@@ -94,19 +94,44 @@ var masteryStudies = {
 	timeStudyEffects: {
 		251() {
 			if (hasNU(6)) return 0
-			return Math.floor(Math.pow(player.meta.resets, 2) / 1.8)
+			return Math.floor(player.resets / 3e3)
 		},
 		252() {
 			if (hasNU(6)) return 0
-			return Math.floor(player.dilation.freeGalaxies / 9)
+			return Math.floor(player.dilation.freeGalaxies / 7)
 		},
 		253() {
 			if (hasNU(6)) return 0
-			return Math.floor(getTotalRG() / 7) * 2
+			return Math.floor(getTotalRG() / 4)
+		},
+		262() {
+			let r = Math.max(player.resets / 5e4 - 10, 1)
+			let exp = Math.sqrt(Math.max(player.resets / 1e5 - 5.5, 1))
+			if (r > 1e4) r = Math.pow(6 + Math.log10(r), 4)
+			if (tmp.mod.newGameExpVersion) exp *= 2
+			return Decimal.pow(r, exp)
+		},
+		263() {
+			let x = player.meta.resets
+			x = x * (x + 10) / 60
+			return x + 1
+		},
+		264() {
+			let r = player.galaxies / 100 + 1
+			if (tmp.mod.newGameExpVersion) return Math.pow(r, 2)
+			return r
+		},
+		273(uses){
+			var intensity = 5
+			if (ghostified && player.ghostify.neutrinos.boosts > 1 && !uses.includes("pn")) intensity += tmp.nb[2]
+			if (uses.includes("intensity")) return intensity
+			return Decimal.max(Math.log10(player.replicanti.chance + 1), 1).pow(intensity)
 		},
 		281() {
-			let x = player.dilation.dilatedTime.add(1).log10()
-			return x / Math.pow(Math.log10(x + 1) + 1, 2)
+			return Decimal.pow(10, Math.pow(tmp.rm.max(1).log10(), 0.25) / 10 * (tmp.newNGP3E ? 2 : 1))
+		},
+		282() {
+			return Decimal.pow(10, Math.pow(tmp.rm.max(1).log10(), 0.25) / 15 * (tmp.newNGP3E ? 2 : 1))
 		},
 		301() {
 			if (hasNU(6)) return 0
@@ -226,22 +251,22 @@ var masteryStudies = {
 	},
 	timeStudyDescs: {
 		241: "The IP mult multiplies IP gain by 2.1x per upgrade.",
-		251: "Remote galaxy scaling starts later based on Meta-Dimension Boosts.",
-		252: "Remote galaxy scaling starts 1 galaxy later per 9 Tachyonic Galaxies.",
-		253: "Remote galaxy scaling starts 2 galaxies later per 7 total Replicated Galaxies.",
-		261: "Dimension Boost cost scales by 0.5 less.",
-		262: "The power of meta-antimatter effect is increased by ^0.5.",
-		263: "Tachyonic Galaxies are 25% stronger.",
-		264: "You gain 5x more Tachyon Particles.",
+		251: "Remote galaxy scaling starts 1 galaxy later per 3,000 dimension boosts.",
+		252: "Remote galaxy scaling starts 1 galaxy later per 7 free galaxies.",
+		253: "Remote galaxy scaling starts 1 galaxy later per 4 total replicated galaxies.",
+		261: "Dimension Boost costs scale by another 1 less.",
+		262: "Dimension Boosts boost Meta Dimensions at a reduced rate.",
+		263: "Meta-dimension boosts boost dilated time production.",
+		264: "Gain more tachyon particles based on your normal galaxies.",
 		265: "Replicate chance upgrades can go over 100%.",
 		266: "Reduce the post-400 max replicated galaxy cost scaling.",
 		271: "You can buy sub-1ms interval upgrades, but the cost starts to scale faster.",
-		272: "Replicantis boost Infinity Dimensions at a greatly stronger rate.",
-		273: "Replicate chance increases higher above 100%.",
-		281: "Before boosts, dilated time adds the OoMs of replicate interval scaling.",
-		282: "Increase the OoMs of replicate interval scaling by +100."
+		272: "You can buy all Time Studies in all 3-way splits.",
+		273: "Replicate chance boosts itself.",
+		281: "Replicanti multiplier boosts DT production at a greatly reduced rate.",
+		282: "Replicanti multiplier boosts Meta Dimensions at a greatly reduced rate."
 	},
-	hasStudyEffect: [251, 252, 253, 281, 301, 303, 322, 332, 341, 344, 351, 361, 371, 372, 373, 381, 382, 383, 391, 392, 393, 401, 411, 421, 431],
+	hasStudyEffect: [251, 252, 253, 262, 263, 264, 273, 281, 282, 301, 303, 322, 332, 341, 344, 351, 361, 371, 372, 373, 381, 382, 383, 391, 392, 393, 401, 411, 421, 431],
 	studyEffectDisplays: {
 		251(x) {
 			return "+" + getFullExpansion(Math.floor(x))
@@ -252,16 +277,29 @@ var masteryStudies = {
 		253(x) {
 			return "+" + getFullExpansion(Math.floor(x))
 		},
-		281(x) {
-			return "+" + shorten(x) + " OoMs"
-		},
+		273(x) {
+			return "^" + shorten(x)
+		}
 	},
 	ecsUpTo: 14,
 	unlocksUpTo: 14,
 	allConnections: {241: [251, 253, 252], 251: [261, 262], 252: [263, 264], 253: [265, 266], 261: ["ec13"], 262: ["ec13"], 263: ["ec13"], 264: ["ec14"], 265: ["ec14"], 266: ["ec14"], ec13: ["d7"], ec14: ["d7"], d7: [272], 271: [281], 272: [271, 273, 281, 282, "d8"], 273: [282], d8: ["d9"], d9: ["d10"], d10: ["d11"], d11: ["d12"], d12: ["d13"], d13: ["d14"]},
+	allConnections_legacy: {252: [263, 264, "d7"], ec13: [], ec14: []},
 	allUnlocks: {
 		d7() {
-			return true //ph.did("quantum")
+			return ph.did("quantum")
+		},
+		322() {
+			return player.masterystudies.includes("d10") || ghostified
+		},
+		361() {
+			return player.masterystudies.includes("d11") || ghostified
+		},
+		r40() {
+			return player.masterystudies.includes("d12") || ghostified
+		},
+		r43() {
+			return player.masterystudies.includes("d13") || ghostified
 		}
 	},
 	unlocked: [],
@@ -488,14 +526,7 @@ function buyMasteryStudy(type, id, quick=false) {
 			masteryStudies.costMult *= getMasteryStudyCostMult(id)
 			masteryStudies.latestBoughtRow = Math.max(masteryStudies.latestBoughtRow, Math.floor(id / 10))
 		}
-		if (id == 241 && !GUActive("gb3")) {
-			var otherMults = 1
-			if (hasAch("r85")) otherMults *= 4
-			if (hasAch("r93")) otherMults *= 4
-			var old = getIPMultPower()
-			if (!GUBought("gb3")) ipMultPower = 2.1
-			player.infMult = player.infMult.div(otherMults).pow(Math.log10(getIPMultPower()) / Math.log10(old)).times(otherMults)
-		}
+		if (id == 241 && !GUActive("gb3")) bumpInfMult()
 		if (!hasNU(6) && (id == 251 || id == 252 || id == 253 || id == 301)) {
 			player.galaxies = 1
 		}
@@ -554,7 +585,7 @@ function canBuyMasteryStudy(type, id) {
 		if (!masteryStudies.spentable.includes("ec" + id)) return false
 		if (player.etercreq == id) return true
 		if (id == 13) return player.resets >= masteryStudies.ecReqsStored[13]
-		return player.replicanti.amount.gte(masteryStudies.ecReqsStored[14])
+		return Decimal.gte(tmp.rep.chance, masteryStudies.ecReqsStored[14] / 100)
 	}
 	return true
 }

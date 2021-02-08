@@ -207,7 +207,6 @@ function getDimensionFinalMultiplier(tier) {
 	if (player.currentChallenge == "postc4" && player.postC4Tier != tier && player.tickspeedBoosts == undefined) mult = mult.pow(0.25)
 	
 	if (player.currentEternityChall == "eterc10") mult = mult.times(ec10bonus)
-	if (player.currentEternityChall == "eterc14") mult = mult.div(Decimal.pow(10, Math.pow(tmp.rm.log10(), 2)))
 	
 	if (tier == 8 && hasAch("ng3p27")) mult = mult.times(tmp.ig)	
 

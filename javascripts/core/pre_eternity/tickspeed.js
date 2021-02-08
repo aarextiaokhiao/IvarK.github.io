@@ -25,7 +25,6 @@ function getGalaxyPower(ng, bi, noDil) {
 	if (!tmp.be) x = Math.max(ng - (bi ? 2 : 0), 0) + getExtraGalaxyPower(noDil)
 	if ((inNC(7) || inQC(4)) && inNGM(2)) x *= x
 	if (hasTimeStudy(173) && tmp.ngC) x *= 3
-	if (player.currentEternityChall == "eterc13") x = Math.sqrt(x * Math.sqrt(player.resets))
 	return x
 }
 

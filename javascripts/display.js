@@ -642,6 +642,7 @@ function replicantiDisplay() {
 		getEl("replicantiinterval").innerHTML = "Interval: "+timeDisplayShort(Decimal.div(tmp.rep.interval, 100), true, 3) + (isIntervalAffordable() ? "<br>-> "+timeDisplayShort(Decimal.div(tmp.rep.interval, 100 / 0.9), true, 3)+" Cost: "+shortenCosts(player.replicanti.intervalCost)+" IP" : "")
 		let replGal = player.replicanti.gal
 		let replGalScale = replGal >= (tmp.ngC ? 250 : 400) ? 2 : replGal >= 100 ? 1 : 0
+		if (masteryStudies.has(266)) replGalScale += replGal > 12e4 ? 3 : replGal > 58198 ? 2 : replGal > 2998 ? 1 : 0
 		let replGalName = (replGalScale ? getGalaxyScaleName(replGalScale) : "Max ") + "Replicated Galaxies"
 		let replGalCostPortion = player.infinityPoints.lt(Decimal.pow(10, 1e10)) ? "<br>+1 Cost: " + shortenCosts(getRGCost()) + " IP" : ""
 		getEl("replicantimax").innerHTML = replGalName + ": " + getFullExpansion(replGal) + (replGalOver > 1 ? "+" + getFullExpansion(replGalOver) : "") + replGalCostPortion
@@ -680,8 +681,6 @@ function replicantiDisplay() {
 }
 
 function initialTimeStudyDisplay(){
-	let dbExp = ECComps("eterc13") ? getECReward(13) : 1
-
 	getEl("11desc").textContent = "Currently: " + shortenMoney(tsMults[11]()) + "x"
 	getEl("32desc").textContent = "You gain " + getFullExpansion(tsMults[32]()) + "x more Infinities (based on Dimension Boosts)"
 	getEl("51desc").textContent = "You gain " + shortenCosts(tmp.mod.newGameExpVersion ? 1e30 : 1e15) + "x more IP"
@@ -689,7 +688,7 @@ function initialTimeStudyDisplay(){
 	getEl("72desc").textContent = "Currently: " + shortenMoney(tmp.sacPow.pow(0.04).max(1).min("1e30000")) + "x"
 	getEl("73desc").textContent = "Currently: " + shortenMoney(tmp.sacPow.pow(0.005).max(1).min("1e1300")) + "x"
 	getEl("82desc").textContent = "Currently: " + shortenMoney(Decimal.pow(1.0000109, Decimal.pow(player.resets, 2)).min(player.meta==undefined?1/0:'1e80000')) + "x"
-	getEl("83desc").textContent = "Currently: " + shorten(tsMults[83]().pow(dbExp)) + "x"
+	getEl("83desc").textContent = "Currently: " + shorten(tsMults[83]()) + "x"
 	getEl("91desc").textContent = "Currently: " + shortenMoney(Decimal.pow(10, Math.min(player.thisEternity, 18000)/60)) + "x"
 	getEl("92desc").textContent = "Currently: " + shortenMoney(Decimal.pow(2, 600/Math.max(player.bestEternity, 20))) + "x"
 	getEl("93desc").textContent = "Currently: " +  shortenMoney(Decimal.pow(player.totalTickGained, 0.25).max(1)) + "x"
@@ -713,7 +712,7 @@ function initialTimeStudyDisplay(){
 
 	getEl("226desc").textContent = "Currently: +" + getFullExpansion(tsMults[226]()) + " extra RGs"
 	getEl("227desc").textContent = "Currently: " + shorten(tsMults[227]()) + "x"
-	getEl("231desc").textContent = "Currently: " + shorten(tsMults[231]().pow(dbExp)) + "x power"
+	getEl("231desc").textContent = "Currently: " + shorten(tsMults[231]()) + "x power"
 	getEl("232desc").textContent = "Currently: " + formatPercentage(tsMults[232]() - 1) + "%"
 
 	getEl("metaCost").textContent = shortenCosts(getMetaUnlCost());

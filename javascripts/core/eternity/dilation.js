@@ -8,15 +8,24 @@ function hasDilationStudy(x) {
 
 function getDTMultPostBRU11(){
 	let gain = new Decimal(1)
+
 	if (hasAch("ng3p11")) gain = gain.times(Math.max(player.galaxies / 600 + 0.5, 1))
-	if (hasAch("ng3p41")) gain = gain.times(Decimal.pow(4,Math.sqrt(player.quantum.nanofield.rewards)))
-	if (isQCRewardActive(1)) gain = gain.times(tmp.qcRewards[1])
+	if (hasAch("ng3p41")) gain = gain.times(Decimal.pow(4, Math.sqrt(player.quantum.nanofield.rewards)))
+
+	if (masteryStudies.has(263)) gain = gain.times(getMTSMult(263))
+	if (masteryStudies.has(281)) gain = gain.times(getMTSMult(281))
 	if (masteryStudies.has(322)) gain = gain.times(getMTSMult(322))
 	if (masteryStudies.has(341)) gain = gain.times(getMTSMult(341))
-	if (isTreeUpgActive(7)) gain = gain.times(getTreeUpgradeEffect(7))
+
 	if (tmp.quActive) gain = gain.times(colorBoosts.b)
 	if (GUActive("br2")) gain = gain.times(Decimal.pow(2.2, Math.pow(tmp.sacPow.max(1).log10() / 1e6, 0.25)))
-	if (hasAch("r137")) gain = gain.times(Decimal.pow(1.75, Math.sqrt(Math.max(player.replicanti.amount.log10() / 1e4, 1) - 1)))
+
+	if (isQCRewardActive(1)) gain = gain.times(tmp.qcRewards[1])
+	if (isTreeUpgActive(7)) gain = gain.times(getTreeUpgradeEffect(7))
+	if (hasAch("r137")) gain = gain.times(
+		Math.max((player.replicanti.amount.log10() - 2e4) / 8e3 + 1, 1)
+		//New: Decimal.pow(1.75, Math.sqrt(Math.max(player.replicanti.amount.log10() / 1e4, 1) - 1))
+	)
 	return gain
 }
 
@@ -32,13 +41,15 @@ function getBaseDTProduction() {
 
 	if (hasDilationUpg('ngpp6')) gain = gain.times(getDil17Bonus())
 	if (hasDilationUpg('ngusp3')) gain = gain.times(getD22Bonus())
-	if (hasBosonicUpg(15)) gain = gain.times(tmp.blu[15].dt)
 
 	if (tmp.ngp3) {
 		if (hasAch("r138")) gain = gain.times(tmp.newNGP3E ? 3 : 2)
 		if (hasAch("ngpp13")) gain = gain.times(2)
+		if (tmp.newNGP3E && player.achievements.includes("r138") && gain.lt(1e100)) gain = gain.times(3).min(1e100)
 
-		if (!isBigRipUpgradeActive(11)) gain = gain.times(getDTMultPostBRU11())
+		if (!tmp.qu.bigRip.active || isBigRipUpgradeActive(11)) gain = gain.times(getDTMultPostBRU11())
+
+		if (hasBosonicUpg(15)) gain = gain.times(tmp.blu[15].dt)
 	}
 	return gain
 }
@@ -79,10 +90,15 @@ function getDilPower() {
 	let ret = Decimal.pow(getDil3Power(), getDilUpgPower(3))
 	if (hasDilationUpg("ngud1")) ret = ret.times(getD18Bonus())
 	if (tmp.ngp3) {
+		//Achievement Rewards
 		if (hasAch("ng3p11")) ret = ret.times(Math.max(getTotalRG() / 125, 1))
-		if (masteryStudies.has(264)) ret = ret.times(5)
-		if (GUActive("br1")) ret = ret.times(getBR1Effect())
+
+		//Mastery Studies
+		if (masteryStudies.has(264)) ret = ret.times(getMTSMult(264))
 		if (masteryStudies.has(341)) ret = ret.times(getMTSMult(341))
+
+		//Gluon Upgrades
+		if (GUActive("br1")) ret = ret.times(getBR1Effect())
 	}
 	if (player.dilation.rebuyables[6] && tmp.ngC) ret = ret.times(Decimal.pow(getDil6Base(), getDilUpgPower(6)))
 	if (player.dilation.upgrades.includes("ngpp2") && tmp.ngC) ret = ret.times(Decimal.mul(nA(getEternitied(), 1), player.dilation.dilatedTime.plus(1).sqrt()).log10()+1)
@@ -168,7 +184,7 @@ function getEternityBoostToDT(){
 	if (eterExp > 0) gain = gain.times(Decimal.max(getEternitied(), 1).pow(eterExp))
 	if (hasDilationUpg('ngpp2') && tmp.newNGP3E) {
 		let e = new Decimal(getEternitied())
-		gain = gain.times(e.max(10).log10()).times(Math.pow(e.max(1e7).log10() - 6,3))
+		gain = gain.times(e.max(10).log10()).times(Math.pow(e.max(1e7).log10() - 6, 3))
 		if (e.gt(1e14)) gain = gain.times(Math.sqrt(e.log10()))
 		if (e.gt(1e20)) gain = gain.pow(Math.max(Math.pow(e.log10(), .005) - .01, 1.05))
 	}
@@ -447,8 +463,8 @@ function getPassiveTTGen() {
 function getTTGenPart(x) {
 	if (!x) return new Decimal(0)
 	x = x.max(1).log10()
-	let y = 69
-	if (x > y) x = Math.pow(x - y + 1, 2/3) + y - 1
+	let y = player.aarexModifications.ngudpV && !player.aarexModifications.nguepV ? 73 : 80
+	if (x > y) x = Math.sqrt((x - y + 5) * 5) + y - 5
 	return Math.pow(10, x)
 }
 
@@ -470,7 +486,7 @@ function updateDilationUpgradeButtons() {
 	var power = getDil3Power()
 	getEl("dil12desc").textContent = "Scaling: " + getFreeGalaxyThresholdIncrease().toPrecision(4) + "x"
 	getEl("dil13desc").textContent = Decimal.gt(power, 3) ? "Gain " + shorten(power) + "x more Tachyon Particles." : "Triple the amount of Tachyon Particles gained."
-	getEl("dil22desc").innerHTML = tmp.ngC ? "Remote Galaxy scaling starts 25 galaxies later." : "Replicanti multiplier speeds up Time Dimensions.<br>Currently: " + shorten(tmp.rm.pow(0.1)) + "x"
+	getEl("dil22desc").innerHTML = tmp.ngC ? "Remote Galaxy scaling starts 25 galaxies later." : "Replicanti multiplier speeds up Time Dimensions.<br>Currently: " + shorten(tmp.rm.pow(getRepToTDExp())) + "x"
 	getEl("dil31desc").textContent = "Currently: " + shortenMoney(player.dilation.dilatedTime.max(1).pow(1000).max(1)) + "x"
 	getEl("dil32desc").textContent = tmp.ngC ? "Replicated Condensers are 15% stronger." : "Unlock the ability to pick all the study paths from the first split."
 	getEl("dil34desc").textContent = tmp.ngC ? "Eternities, TP, & DT power up each other." : "Eternities and dilated time power up each other."
@@ -478,7 +494,7 @@ function updateDilationUpgradeButtons() {
 	if (player.dilation.studies.includes(6)) {
 		getEl("dil51desc").textContent = "Currently: " + shortenMoney(getDil14Bonus()) + 'x';
 		getEl("dil52desc").textContent = "Currently: " + shortenMoney(getDil15Bonus()) + 'x';
-		getEl("dil54formula").textContent = tmp.ngp3 ? "(1.01^log(x))" : "(log(x)^0.5)"
+		getEl("dil54formula").textContent = false && tmp.ngp3 ? "(1.01^log(x))" : "(log(x)^0.5)"
 		getEl("dil54desc").textContent = "Currently: " + shortenMoney(getDil17Bonus()) + 'x';
 	}
 	if (player.exdilation != undefined) getEl("dil42desc").textContent = "Currently: "+shortenMoney(getD18Bonus())+"x"
@@ -523,7 +539,7 @@ function getFreeGalaxyThresholdIncrease() {
 	let thresholdMult = inQC(5) ? Math.pow(10, 2.8) : 1.35
 	if (dil2 != 0) thresholdMult += 3.65 * Math.pow(0.8, dil2)
 
-	if (tmp.ngp3 && dil2 > 30) thresholdMult = Math.pow(thresholdMult, 1 / Math.sqrt(Math.log10(dil2 / 3)))
+	//if (tmp.ngp3 && dil2 > 30) thresholdMult = Math.pow(thresholdMult, 1 / Math.sqrt(Math.log10(dil2 / 3)))
 
 	if (player.exdilation != undefined) thresholdMult -= Math.min(.1 * exDilationUpgradeStrength(2), 0.2)
 	if (thresholdMult < 1.15 && tmp.mod.nguspV !== undefined) thresholdMult = 1.05 + 0.1 / (2.15 - thresholdMult)
@@ -565,7 +581,6 @@ function resetDilationGalaxies() {
 
 function getBaseDilGalaxyEff() {
 	let x = 1
-	if (masteryStudies.has(263)) x *= 1.25
 	if (hasBosonicUpg(34)) x *= tmp.blu[34]
 
 	return x

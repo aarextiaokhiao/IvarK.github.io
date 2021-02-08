@@ -70,7 +70,7 @@ function quantum(auto, force, qc, isPC, bigRip, quick) {
 }
 
 function getQuantumReq() {
-	return Decimal.pow(Number.MAX_VALUE, tmp.ngp3 ? 1.2 : 1)
+	return Decimal.pow(Number.MAX_VALUE, tmp.ngp3 ? 1.4 : 1)
 }
 
 function isQuantumReached() {
@@ -437,6 +437,7 @@ function quantumReset(force, auto, QCs, id, bigRip, implode = false) {
 	}
 		
 	player.money = onQuantumAM()
+	doInitInfMultStuff()
 	if (inNGM(2) && !keepABnICs) player.autobuyers[12] = 13
 	if (player.tickspeedBoosts !== undefined && !keepABnICs) player.autobuyers[13] = 14
 	player.challenges = challengesCompletedOnEternity(bigRip)
@@ -444,7 +445,6 @@ function quantumReset(force, auto, QCs, id, bigRip, implode = false) {
 
 	player.dilation.totalTachyonParticles = player.dilation.tachyonParticles
 	if (tmp.ngp3) {
-		ipMultPower = GUActive("gb3") ? 2.3 : masteryStudies.has("t241") ? 2.2 : 2
 		player.dilation.times = 0
 		if (!force) {
 			var u = tmp.qu.usedQuarks

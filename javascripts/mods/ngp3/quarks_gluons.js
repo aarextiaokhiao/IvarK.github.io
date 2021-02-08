@@ -257,14 +257,7 @@ function buyGluonUpg(color, id) {
 	tmp.qu.upgrades.push(name)
 	tmp.qu.gluons[color] = tmp.qu.gluons[color].sub(GUCosts[id])
 	updateGluonsTab("spend")
-	if (name == "gb3") {
-		var otherMults = 1
-		if (hasAch("r85")) otherMults *= 4
-		if (hasAch("r93")) otherMults *= 4
-		var old = getIPMultPower()
-		ipMultPower = 2.3
-		player.infMult = player.infMult.div(otherMults).pow(Math.log10(getIPMultPower()) / Math.log10(old)).times(otherMults)
-	}
+	if (name == "gb3") bumpInfMult()
 	if (name == "rg4" && !tmp.qu.autoOptions.sacrifice) updateElectronsEffect()
 	if (name == "gb4") player.tickSpeedMultDecrease = 1.25
 	updateQuantumWorth()

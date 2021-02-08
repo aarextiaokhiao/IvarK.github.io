@@ -195,7 +195,7 @@ function newGalacticDataOnInfinity(eternity) {
 }
 
 function isIC3Trapped() {
-	return inNGM(2) || inQC(6)
+	return inNGM(2) || inQC(6) || player.currentEternityChall == 'eterc14'
 }
 
 //v1.2

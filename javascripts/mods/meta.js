@@ -54,6 +54,10 @@ function getMetaDimensionGlobalMultiplier() {
 		//Qunatum Upgrades
 		if (GUActive("br4")) ret = ret.times(getBR4Effect())
 
+		//Mastery Studies
+		if (masteryStudies.has(262)) ret = ret.times(getMTSMult(262))
+		if (masteryStudies.has(282)) ret = ret.times(getMTSMult(282))
+
 		//QC Rewards
 		if (isQCRewardActive(3)) ret = ret.times(tmp.qcRewards[3])
 		if (isQCRewardActive(6)) ret = ret.times(tmp.qcRewards[6])
@@ -132,6 +136,13 @@ function getMetaShiftRequirement() {
 	data.amount += data.mult * Math.max(mdb - 4, 0)
 	if (isTreeUpgActive(1)) data.amount -= getTreeUpgradeEffect(1)
 	if (hasNU(1)) data.amount -= tmp.nu[1]
+
+	data.scalingStart = inQC4 ? 55 : 15
+	if (player.meta.resets >= data.scalingStart) {
+		var multAdded = inQC4 ? 14.5 : 5
+		data.amount += multAdded * (mdb - data.scalingStart)
+		data.mult += multAdded
+	}
 	
 	return data
 }
@@ -145,12 +156,23 @@ function metaBoost() {
 	let isNU1ReductionActive = hasNU(1) ? !tmp.qu.bigRip.active : false
 	if (!(player.meta[req.tier].bought>=req.amount)) return
 	if (isRewardEnabled(27) && req.tier > 7) {
-		if (isNU1ReductionActive && player.meta.resets < 110) {
-			player.meta.resets = Math.min(player.meta.resets + Math.floor((player.meta[8].bought - req.amount) / (req.mult + 1)) + 1, 110)
-			req = getMetaShiftRequirement()
+		if (isNU1ReductionActive) {
+			if (player.meta.resets < req.scalingStart) {
+				player.meta.resets = Math.min(player.meta.resets + Math.floor((player.meta[8].bought - req.amount) / (req.mult + 1)) + 1, req.scalingStart)
+				if (player.meta.resets == req.scalingStart) req = getMetaShiftRequirement()
+			}
+			if (player.meta.resets >= req.scalingStart && player.meta.resets < 110) {
+				player.meta.resets=Math.min(player.meta.resets + Math.floor((player.meta[8].bought - req.amount) / (req.mult + 1)) + 1,110)
+				if (player.meta.resets>109) req=getMetaShiftRequirement()
+			}
+			if (player.meta.resets > 109) player.meta.resets += Math.floor((player.meta[8].bought - req.amount) / req.mult) + 1
+		} else {
+			if (player.meta.resets < req.scalingStart) {
+				player.meta.resets = Math.min(player.meta.resets + Math.floor((player.meta[8].bought - req.amount) / req.mult) + 1, req.scalingStart)
+				if (player.meta.resets == req.scalingStart) req = getMetaShiftRequirement()
+			}
+			if (player.meta.resets >= req.scalingStart) player.meta.resets += Math.floor((player.meta[8].bought - req.amount) / req.mult) + 1
 		}
-		player.meta.resets += Math.floor((player.meta[8].bought - req.amount) / req.mult) + 1
-
 		if (inQC(4)) if (player.meta[8].bought >= getMetaShiftRequirement().amount) player.meta.resets++
 	} else player.meta.resets++
 	if (hasAch("ng3p72")) return
@@ -190,7 +212,7 @@ function getMetaCost(tier, boughtTen) {
 }
 
 function getMetaCostScalingStart() {
-	return 1/0
+	return "1e1000"
 }
 
 function getMetaMaxCost(tier) {
@@ -291,7 +313,7 @@ function getMetaDimensionProduction(tier) {
 }
 
 function getExtraDimensionBoostPower() {
-	if (inQC(7) || inQC(9)) return new Decimal(1)
+	if (inQC(7) || inQC(9) || player.currentEternityChall == "eterc14") return new Decimal(1)
 	let r = getExtraDimensionBoostPowerUse()
 	r = Decimal.pow(r, getMADimBoostPowerExp(r)).max(1)
 	if (!inQC(3)) r = r.add(1)
@@ -319,7 +341,7 @@ function getMADimBoostPowerExp(ma) {
 		return power
 	}
 	if (hasDilationUpg("ngpp5")) power++
-	if (masteryStudies.has(262)) power += 0.5
+	if (ECComps("eterc13")) power += getECReward(13)
 	if (isNanoEffectUsed("ma_effect_exp")) power += tmp.nf.effects.ma_effect_exp
 	return power
 }
@@ -330,7 +352,7 @@ function getDil14Bonus() {
 
 function getDil17Bonus() {
 	let r = player.meta.bestAntimatter.max(1).log10()
-	if (tmp.ngp3) r = Decimal.pow(1.01, r)
+	if (false && tmp.ngp3) r = Decimal.pow(1.01, r)
 	else r = Math.sqrt(r)
 	return r
 }

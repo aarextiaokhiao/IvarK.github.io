@@ -35,7 +35,7 @@ let ETER_UPGS = {
 
 			let achReward = 1
 			if (hasAch("ngpp15")) {
-				if (tmp.ngC || tmp.ngp3) achReward = Decimal.pow(tmp.ngC ? 10 : 1e3, Math.pow(Decimal.log10(Decimal.add(e, 10)), tmp.ngC ? 3 : 4))
+				if (tmp.ngC || tmp.ngp3) achReward = Decimal.pow(10, Math.pow(Decimal.log10(Decimal.add(e, 10)), tmp.ngC ? 3 : 4.75))
 				else return Decimal.pow(e, Math.min(1e4, Math.pow(e, .3)))
 			}
 
@@ -48,7 +48,7 @@ let ETER_UPGS = {
 			let eu2formula = "(x/200)^log4(2x)"
 			if (tmp.ngC) eu2formula = "(x/100)^log2(4x)"
 			if (player.boughtDims !== undefined) eu2formula = "x^log4(2x)"
-			else if (hasAch("ngpp15")) eu2formula = tmp.ngC ? "x^log10(x)^2" : shortenCosts(1e3) + "^log(x)^4"
+			else if (hasAch("ngpp15")) eu2formula = tmp.ngC ? "x^log10(x)^2" : "10^log(x)^4.75"
 
 			return "Infinity Dimension multiplier based on Eternities. (" + eu2formula + ")"
 		}
@@ -124,7 +124,7 @@ let ETER_UPGS = {
 
 	// NG+3: Post-Mastery Studies
 	13: {
-		unl: () => tmp.ngp3 && ph.did("quantum"),
+		unl: () => false, //tmp.ngp3 && ph.did("quantum"),
 		cost: 1/0,
 		mult() {
 			let epLog = player.eternityPoints.add(1).log10()
@@ -134,12 +134,12 @@ let ETER_UPGS = {
 		desc: () => "Eternity Points boost dilated time gain and you can buy all row-23 time studies."
 	},
 	14: {
-		unl: () => tmp.ngp3 && ph.did("quantum"),
+		unl: () => false, //tmp.ngp3 && ph.did("quantum"),
 		cost: 1/0,
 		desc: () => "The cost scaling of EP multiplier upgrades is reduced and you can buy all time studies from time study tree."
 	},
 	15: {
-		unl: () => tmp.ngp3 && ph.did("quantum"),
+		unl: () => false, //tmp.ngp3 && ph.did("quantum"),
 		cost: 1/0,
 		desc: () => "You can passively generate Eternity Points and Tachyon Particles."
 	},

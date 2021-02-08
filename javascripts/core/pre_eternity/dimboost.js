@@ -1,5 +1,5 @@
 function getDimensionBoostPower(next, focusOn) {
-	if (inNC(11) || inNC(15) || player.currentChallenge == "postc1" || player.currentChallenge == "postcngm3_1") return new Decimal(1);
+	if (inNC(11) || inNC(15) || player.currentChallenge == "postc1" || player.currentChallenge == "postcngm3_1" || player.currentEternityChall == "eterc13") return new Decimal(1);
 
 	var ret = 2
 	if (!inNGM(2)) {
@@ -19,10 +19,7 @@ function getDimensionBoostPower(next, focusOn) {
 		else if (player.challenges.includes("postc7")) ret = Decimal.pow(ret, 2)
 	}
 	if (hasTS(152) && tmp.ngC) ret = Decimal.mul(ret, tsMults[152]())
-	if (ECComps("eterc13") > 0) ret = Decimal.pow(ret, getECReward(13))
 	if (hasDilationStudy(6) && !inQC(3) && !inQC(7)) ret = getExtraDimensionBoostPower().times(ret)
-
-	if (player.currentEternityChall == "eterc13") ret = Decimal.pow(10, Math.sqrt(ret.log10() * (player.galaxies + getTotalRG() + player.dilation.freeGalaxies)))
 
 	return new Decimal(ret)
 }
@@ -166,7 +163,7 @@ function getDimboostCostIncrease () {
 		if (player.infinityUpgrades.includes('dimboostCost')) ret -= 1
 		if (player.infinityUpgrades.includes("postinfi50")) ret -= 0.5
 	} else {
-		if (masteryStudies.has(261)) ret -= 0.5
+		if (masteryStudies.has(261)) ret -= 1
 		if (inNC(4)) ret += 5
 		if (player.boughtDims && hasAch('r101')) ret -= Math.min(8, Math.pow(player.eternityPoints.max(1).log(10), .25))
 	}
@@ -176,7 +173,6 @@ function getDimboostCostIncrease () {
 }
 
 function getSupersonicStart() {
-	return 1/0
 	if (inQC(5)) return 0
 	if (inNGM(2)) return 1/0
 	let r = 56e4
@@ -232,5 +228,3 @@ function getTotalResets() {
 	if (inNGM(4)) r += player.tdBoosts
 	return r
 }
-
-
