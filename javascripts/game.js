@@ -41,7 +41,7 @@ function setupAutobuyerHTMLandData(){
 			player.autobuyers[id].cost = Math.ceil(2.4*player.autobuyers[id].cost);
 			var b1 = true;
 			for (let i=0;i<8;i++) {
-				if (player.autobuyers[i].bulk < 512) b1 = false;
+				if (player.autobuyers[i].bulk < 256) b1 = false;
 			}
 			if (b1) giveAchievement("Bulked up");
 		} else {
