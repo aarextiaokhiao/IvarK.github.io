@@ -26,7 +26,11 @@ function setupFooterHTML() {
 			"<a href='about.html' target='_newtab'>About</a> | " + 
 			"<a href='http://discord.gg/h9mDese' target='_newtab'>Discord</a> | " + 
 			(betaId != "" ?
-				"<a>Test server</a> (You are here) | " +
+				(
+					betaId != correctBetaId ?
+					"<a href='http://raw.githack.com/aarextiaokhiao/IvarK.github.io/" + betaLink + "/'>Correct test server</a> | " :
+					"<a>Test server</a> (You are currently here.) | "
+				) +
 				"<a href='http://discord.gg/7v82CAX'>TS: Discord</a> | "
 			: "<a href='http://raw.githack.com/aarextiaokhiao/IvarK.github.io/v2.4-Gravitions/'>Test server</a> (You are here) | ") + 
 			"<a href='donate.html' onclick='giveAchievement(\"A sound financial decision\")' target='_newtab'>Donate</a> | " + 
@@ -5672,9 +5676,9 @@ function initGame() {
 	clearInterval(stuckTimeout)
 	//Check for Expert Mode
 	checkForExpertMode()
-	//Update temp twice to make sure all values are correct
-	updateTemp()
-	updateTemp()
+
+	//Check for Test Server
+	checkCorrectBeta()
 }
 
 window.addEventListener('keydown', function(event) {

@@ -1,9 +1,4 @@
 var inflationCheck = false
-var betaId = "G"
-var prefix = betaId + "ds"
-var savePrefix = prefix + "AM_"
-var presetPrefix = prefix + "AM_ST_"
-var metaSaveId = betaId + "AD_aarexModifications"
 var notifyId = 0
 var forceToQuantumAndRemove = false
 
@@ -3030,3 +3025,20 @@ function migrateOldSaves() {
 	if (metaSave.version < 2.01) metaSave.presetsOrder_ers=[]
 	metaSave.version=2.02
 }
+
+
+//Save Storage System
+var betaId = "G-Old"
+var correctBetaId = "G"
+var betaLink = "v3.0-Respecced"
+function checkCorrectBeta() {
+	if (betaId == "" || betaId == correctBetaId) return
+
+	getEl("welcome").style.display = "flex"
+	getEl("welcomeMessage").innerHTML = "Wait a moment! It is appeared that you are at a wrong test server! Click the 'test server' link to go to the one we are currently testing."
+}
+
+var prefix = betaId + "ds"
+var savePrefix = prefix + "AM_"
+var presetPrefix = prefix + "AM_ST_"
+var metaSaveId = betaId + "AD_aarexModifications"
